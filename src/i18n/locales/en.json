@@ -1,0 +1,189 @@
+{
+  "navigation": {
+    "home": "Home",
+    "market": "Our Market",
+    "services": "Services",
+    "about": "About Us",
+    "works": "Works",
+    "careers": "Careers",
+    "contact": "Contact Us",
+    "login": "Login",
+    "register": "Register"
+  },
+  "branding": {
+    "slogan": "Works Every Day"
+  },
+  "home": {
+    "hero": {
+      "title": "Professional Ventilation Solutions",
+      "subtitle": "Specializing in ship ventilation systems and industrial applications",
+      "cta": "Contact Us",
+      "learnMore": "Learn More"
+    },
+    "services": {
+      "title": "Our Expertise",
+      "ventilation": {
+        "title": "Ship Ventilation Installation",
+        "description": "Professional ventilation system installation for all types of vessels"
+      },
+      "airflow": {
+        "title": "Airflow Measurement",
+        "description": "Precise measurements to ensure optimal air circulation"
+      },
+      "efficiency": {
+        "title": "Efficiency Optimization",
+        "description": "Solutions to maximize energy efficiency and system performance"
+      },
+      "quality": {
+        "title": "Quality Assurance",
+        "description": "Comprehensive quality controls and long-term guarantees"
+      },
+      "team": {
+        "title": "Professional Team",
+        "description": "Experienced specialists dedicated to excellence"
+      }
+    }
+  },
+  "market": {
+    "title": "Our Market Sectors",
+    "cruise": {
+      "title": "Cruise and Ferry",
+      "description": "Ventilation solutions for cruise ships and passenger ferries"
+    },
+    "yachting": {
+      "title": "Yachting",
+      "description": "Custom systems for luxury yachts and private vessels"
+    },
+    "naval": {
+      "title": "Naval",
+      "description": "Specialized solutions for naval and military vessels"
+    },
+    "specialized": {
+      "title": "Specialized Vessels",
+      "description": "Technical solutions for industrial and specialized ships"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "installation": {
+      "title": "Ventilation Installation",
+      "description": "Complete ventilation system installation for all vessel types"
+    },
+    "maintenance": {
+      "title": "Repair & Maintenance",
+      "description": "Regular maintenance and emergency repair services"
+    },
+    "security": {
+      "title": "Security Solutions",
+      "description": "Safety-focused ventilation designs and upgrades"
+    },
+    "development": {
+      "title": "System Development",
+      "description": "Custom ventilation system design and implementation"
+    },
+    "optimization": {
+      "title": "Optimization",
+      "description": "Performance improvements for existing systems"
+    },
+    "testing": {
+      "title": "Diagnostics & Testing",
+      "description": "Comprehensive system evaluation and performance testing"
+    },
+    "cleaning": {
+      "title": "Duct Cleaning",
+      "description": "Professional cleaning of ventilation systems and ducts"
+    },
+    "readMore": "Read More"
+  },
+  "about": {
+    "title": "About EkoFlex",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide exceptional ventilation solutions that improve air quality and energy efficiency in maritime and industrial environments"
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the leading provider of innovative ventilation technologies, setting industry standards for performance and sustainability"
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": "Quality",
+      "innovation": "Innovation",
+      "sustainability": "Sustainability",
+      "expertise": "Expertise",
+      "integrity": "Integrity"
+    },
+    "history": {
+      "title": "Our History",
+      "description": "From our humble beginnings to becoming an industry leader"
+    }
+  },
+  "works": {
+    "title": "Job Openings",
+    "noPositions": "No open positions at the moment",
+    "applyNow": "Apply Now"
+  },
+  "careers": {
+    "title": "Join Our Team",
+    "description": "Discover career opportunities at EkoFlex",
+    "joinUs": "Join Us",
+    "benefits": {
+      "title": "Why Work With Us",
+      "professional": "Professional Growth",
+      "international": "International Projects",
+      "innovative": "Innovative Work",
+      "supportive": "Supportive Team"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Error sending message. Please try again."
+    },
+    "offices": {
+      "title": "Our Offices",
+      "headquarters": "Headquarters"
+    },
+    "management": "Management Contacts"
+  },
+  "auth": {
+    "login": {
+      "title": "Login to Your Account",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot Password?",
+      "loginButton": "Login",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create Account",
+      "orContinueWith": "Or continue with"
+    },
+    "register": {
+      "title": "Create an Account",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "position": "Desired Position",
+      "experience": "Experience",
+      "registerButton": "Register",
+      "hasAccount": "Already have an account?",
+      "login": "Login",
+      "orContinueWith": "Or continue with"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 EkoFlex. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "notFound": {
+    "title": "404 - Page Not Found",
+    "description": "The page you are looking for doesn't exist or has been moved.",
+    "backHome": "Back to Home"
+  }
+}

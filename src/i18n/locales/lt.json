@@ -1,0 +1,189 @@
+{
+  "navigation": {
+    "home": "Pradžia",
+    "market": "Mūsų Rinka",
+    "services": "Paslaugos",
+    "about": "Apie Mus",
+    "works": "Darbai",
+    "careers": "Karjera",
+    "contact": "Kontaktai",
+    "login": "Prisijungti",
+    "register": "Registruotis"
+  },
+  "branding": {
+    "slogan": "Dirba Kiekvieną Dieną"
+  },
+  "home": {
+    "hero": {
+      "title": "Profesionalūs Ventiliacijos Sprendimai",
+      "subtitle": "Specializuojamės laivų ventiliacijos sistemose ir pramoniniuose sprendimuose",
+      "cta": "Susisiekite",
+      "learnMore": "Sužinoti daugiau"
+    },
+    "services": {
+      "title": "Mūsų Kompetencija",
+      "ventilation": {
+        "title": "Laivų Ventiliacijos Montavimas",
+        "description": "Profesionalus ventiliacijos sistemų montavimas visų tipų laivams"
+      },
+      "airflow": {
+        "title": "Oro Srauto Matavimas",
+        "description": "Tikslūs matavimai užtikrinantys optimalią oro cirkuliaciją"
+      },
+      "efficiency": {
+        "title": "Efektyvumo Optimizavimas",
+        "description": "Sprendimai energijos efektyvumui ir sistemos našumui maksimizuoti"
+      },
+      "quality": {
+        "title": "Kokybės Užtikrinimas",
+        "description": "Išsamūs kokybės kontrolės procesai ir ilgalaikės garantijos"
+      },
+      "team": {
+        "title": "Profesionalų Komanda",
+        "description": "Patyrę specialistai, atsidavę kokybei"
+      }
+    }
+  },
+  "market": {
+    "title": "Mūsų Rinkos Sektoriai",
+    "cruise": {
+      "title": "Kruiziniai ir Keltai",
+      "description": "Ventiliacijos sprendimai kruiziniams laivams ir keleiviams keltams"
+    },
+    "yachting": {
+      "title": "Jachtos",
+      "description": "Individualios sistemos prabangos jachtoms ir privatiems laivams"
+    },
+    "naval": {
+      "title": "Karinis Laivynas",
+      "description": "Specializuoti sprendimai kariniams laivams"
+    },
+    "specialized": {
+      "title": "Specializuoti Laivai",
+      "description": "Techniniai sprendimai pramoniniams ir specializuotiems laivams"
+    }
+  },
+  "services": {
+    "title": "Mūsų Paslaugos",
+    "installation": {
+      "title": "Ventiliacijos Montavimas",
+      "description": "Pilnas ventiliacijos sistemų montavimas visų tipų laivams"
+    },
+    "maintenance": {
+      "title": "Remontas ir Priežiūra",
+      "description": "Reguliari priežiūra ir avarinių remontų paslaugos"
+    },
+    "security": {
+      "title": "Saugumo Sprendimai",
+      "description": "Saugumu paremti ventiliacijos projektai ir atnaujinimai"
+    },
+    "development": {
+      "title": "Sistemų Kūrimas",
+      "description": "Individualūs ventiliacijos sistemų projektai ir įgyvendinimas"
+    },
+    "optimization": {
+      "title": "Optimizavimas",
+      "description": "Esamų sistemų našumo gerinimas"
+    },
+    "testing": {
+      "title": "Diagnostika ir Testavimas",
+      "description": "Išsami sistemų analizė ir veikimo testavimas"
+    },
+    "cleaning": {
+      "title": "Kanalų Valymas",
+      "description": "Profesionalus ventiliacijos sistemų ir kanalų valymas"
+    },
+    "readMore": "Skaityti daugiau"
+  },
+  "about": {
+    "title": "Apie EkoFlex",
+    "mission": {
+      "title": "Mūsų Misija",
+      "description": "Teikti išskirtinius ventiliacijos sprendimus, gerinančius oro kokybę ir energijos efektyvumą jūrų ir pramoninėje aplinkoje"
+    },
+    "vision": {
+      "title": "Mūsų Vizija",
+      "description": "Būti pirmaujančiu inovatyvių ventiliacijos technologijų tiekėju, nustatančiu pramonės standartus našumui ir tvarumui"
+    },
+    "values": {
+      "title": "Mūsų Vertybės",
+      "quality": "Kokybė",
+      "innovation": "Inovacijos",
+      "sustainability": "Tvarumas",
+      "expertise": "Kompetencija",
+      "integrity": "Sąžiningumas"
+    },
+    "history": {
+      "title": "Mūsų Istorija",
+      "description": "Nuo kuklių pradžių iki tapimo pramonės lyderiais"
+    }
+  },
+  "works": {
+    "title": "Darbo Skelbimai",
+    "noPositions": "Šiuo metu nėra atvirų pozicijų",
+    "applyNow": "Registruotis dabar"
+  },
+  "careers": {
+    "title": "Prisijunkite prie mūsų komandos",
+    "description": "Atraskite karjeros galimybes EkoFlex",
+    "joinUs": "Prisijunkite",
+    "benefits": {
+      "title": "Kodėl verta dirbti su mumis",
+      "professional": "Profesinis Augimas",
+      "international": "Tarptautiniai Projektai",
+      "innovative": "Inovatyvus Darbas",
+      "supportive": "Palaikanti Komanda"
+    }
+  },
+  "contact": {
+    "title": "Susisiekite su mumis",
+    "form": {
+      "name": "Vardas",
+      "email": "El. paštas",
+      "message": "Žinutė",
+      "send": "Siųsti žinutę",
+      "success": "Žinutė sėkmingai išsiųsta!",
+      "error": "Klaida siunčiant žinutę. Bandykite dar kartą."
+    },
+    "offices": {
+      "title": "Mūsų Biurai",
+      "headquarters": "Centrinė būstinė"
+    },
+    "management": "Vadovų Kontaktai"
+  },
+  "auth": {
+    "login": {
+      "title": "Prisijungti prie paskyros",
+      "email": "El. paštas",
+      "password": "Slaptažodis",
+      "forgotPassword": "Pamiršote slaptažodį?",
+      "loginButton": "Prisijungti",
+      "noAccount": "Neturite paskyros?",
+      "createAccount": "Sukurti paskyrą",
+      "orContinueWith": "Arba tęskite su"
+    },
+    "register": {
+      "title": "Sukurti paskyrą",
+      "name": "Pilnas vardas",
+      "email": "El. paštas",
+      "password": "Slaptažodis",
+      "confirmPassword": "Patvirtinti slaptažodį",
+      "position": "Pageidaujama pozicija",
+      "experience": "Patirtis",
+      "registerButton": "Registruotis",
+      "hasAccount": "Jau turite paskyrą?",
+      "login": "Prisijungti",
+      "orContinueWith": "Arba tęskite su"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 EkoFlex. Visos teisės saugomos.",
+    "privacyPolicy": "Privatumo politika",
+    "termsOfService": "Naudojimosi sąlygos"
+  },
+  "notFound": {
+    "title": "404 - Puslapis nerastas",
+    "description": "Puslapis, kurio ieškote, neegzistuoja arba buvo perkeltas.",
+    "backHome": "Grįžti į pradžią"
+  }
+}
