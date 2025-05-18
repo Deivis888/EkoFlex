@@ -94,34 +94,36 @@ const ContactPage = () => {
     if (window.recaptchaLoaded && recaptchaRef.current && !recaptchaWidgetId.current) {
       recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
         sitekey: '6LfKAT8rAAAAAKckE-RbxrXviSBnBchIPnc95tYE',
-        theme: 'light'
+        theme: 'light',
+        callback: (response: string) => {
+          console.log('reCAPTCHA callback received:', response);
+        }
       });
     }
   };
 
-  window.onRecaptchaLoad = initializeRecaptcha;
-
   useEffect(() => {
+    const handleRecaptchaLoad = () => {
+      initializeRecaptcha();
+    };
+
+    window.addEventListener('recaptchaLoaded', handleRecaptchaLoad);
+
+    if (window.recaptchaLoaded) {
+      initializeRecaptcha();
+    }
+
     return () => {
+      window.removeEventListener('recaptchaLoaded', handleRecaptchaLoad);
       if (recaptchaWidgetId.current !== undefined) {
         window.grecaptcha.reset(recaptchaWidgetId.current);
-        recaptchaWidgetId.current = undefined;
       }
-      window.recaptchaLoaded = false;
-      window.onRecaptchaLoad = undefined;
     };
   }, []);
 
   useEffect(() => {
     if (recaptchaWidgetId.current !== undefined) {
       window.grecaptcha.reset(recaptchaWidgetId.current);
-      recaptchaWidgetId.current = undefined;
-      
-      setTimeout(() => {
-        initializeRecaptcha();
-      }, 100);
-    } else {
-      initializeRecaptcha();
     }
   }, [selectedDepartment]);
 
@@ -140,7 +142,9 @@ const ContactPage = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const recaptchaResponse = window.grecaptcha.getResponse(recaptchaWidgetId.current);
+    const recaptchaResponse = recaptchaWidgetId.current ? 
+      window.grecaptcha.getResponse(recaptchaWidgetId.current) : '';
+
     if (!recaptchaResponse) {
       setStatus({
         type: 'error',
