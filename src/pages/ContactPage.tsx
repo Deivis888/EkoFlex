@@ -14,7 +14,7 @@ declare global {
       reset: (id?: number) => void;
       getResponse: (id?: number) => string;
     };
-    onRecaptchaLoad?: () => void;
+    onRecaptchaLoad: () => void;
   }
 }
 
@@ -100,8 +100,8 @@ const ContactPage = () => {
     };
 
     return () => {
-      if (typeof window.onRecaptchaLoad !== 'undefined') {
-        window.onRecaptchaLoad = undefined;
+      if ('onRecaptchaLoad' in window) {
+        delete window.onRecaptchaLoad;
       }
     };
   }, []);
