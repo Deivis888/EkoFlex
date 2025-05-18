@@ -100,7 +100,8 @@ const ContactPage = () => {
     };
 
     return () => {
-      delete window.onRecaptchaLoad;
+      // Fix: Set to undefined instead of using delete
+      window.onRecaptchaLoad = undefined;
     };
   }, []);
 
