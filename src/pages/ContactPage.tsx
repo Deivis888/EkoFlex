@@ -413,7 +413,7 @@ const ContactPage = () => {
 
                   {/* reCAPTCHA */}
                   {recaptchaLoaded && (
-                    <div className="g-recaptcha" data-sitekey="6Lec9z4rAAAAAEOCHahedD2K8OostE9q58A50TdA"></div>
+                    <div className="g-recaptcha" data-sitekey="6LeP-T4rAAAAAP5zUE_vKOqGWq9JY7pQFE5pPlU4"></div>
                   )}
 
                   {status.type && (
