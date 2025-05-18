@@ -90,7 +90,6 @@ const ContactPage = () => {
     }
   ];
 
-  // Define initializeRecaptcha outside useEffect to avoid recreating it
   const initializeRecaptcha = () => {
     if (window.recaptchaLoaded && recaptchaRef.current && !recaptchaWidgetId.current) {
       recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
@@ -100,13 +99,10 @@ const ContactPage = () => {
     }
   };
 
-  // Set up the global callback once
   window.onRecaptchaLoad = initializeRecaptcha;
 
   useEffect(() => {
-    // Don't call initializeRecaptcha directly, let onRecaptchaLoad handle it
     return () => {
-      // Cleanup when component unmounts
       if (recaptchaWidgetId.current !== undefined) {
         window.grecaptcha.reset(recaptchaWidgetId.current);
         recaptchaWidgetId.current = undefined;
@@ -118,11 +114,9 @@ const ContactPage = () => {
 
   useEffect(() => {
     if (recaptchaWidgetId.current !== undefined) {
-      // Reset the existing widget
       window.grecaptcha.reset(recaptchaWidgetId.current);
       recaptchaWidgetId.current = undefined;
       
-      // Re-initialize after a brief delay to ensure proper cleanup
       setTimeout(() => {
         initializeRecaptcha();
       }, 100);
@@ -146,7 +140,6 @@ const ContactPage = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Get reCAPTCHA response
     const recaptchaResponse = window.grecaptcha.getResponse(recaptchaWidgetId.current);
     if (!recaptchaResponse) {
       setStatus({
@@ -156,7 +149,6 @@ const ContactPage = () => {
       return;
     }
 
-    // Add reCAPTCHA response to form data
     formData.append('g-recaptcha-response', recaptchaResponse);
 
     try {
