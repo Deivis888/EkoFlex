@@ -91,6 +91,19 @@ const ContactPage = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Get reCAPTCHA response
+    const recaptchaResponse = (window as any).grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      setStatus({
+        type: 'error',
+        message: 'Please complete the reCAPTCHA verification'
+      });
+      return;
+    }
+
+    // Add reCAPTCHA response to form data
+    formData.append('g-recaptcha-response', recaptchaResponse);
+
     try {
       const response = await fetch(`https://formspree.io/f/${formspreeIds[selectedDepartment]}`, {
         method: 'POST',
@@ -107,6 +120,8 @@ const ContactPage = () => {
         });
         form.reset();
         setSelectedDepartment('');
+        // Reset reCAPTCHA
+        (window as any).grecaptcha.reset();
       } else {
         const data = await response.json();
         throw new Error(data.error || 'Error sending message');
@@ -341,10 +356,13 @@ const ContactPage = () => {
                       name="message"
                       rows={8}
                       required
-                      className="input min-h-[160px] resize-y"
-                      style={{ height: '160px' }}
+                      className="input min-h-[200px] resize-y"
+                      style={{ height: '200px' }}
                     ></textarea>
                   </div>
+
+                  {/* reCAPTCHA */}
+                  <div className="g-recaptcha" data-sitekey="6Lec9z4rAAAAAEOCHahedD2K8OostE9q58A50TdA"></div>
 
                   {status.type && (
                     <div className={`p-4 rounded-lg ${
