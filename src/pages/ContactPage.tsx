@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { 
@@ -6,6 +6,12 @@ import {
   Linkedin, Facebook, Instagram, Youtube, Building2,
   CreditCard, Users, Calculator, HelpCircle
 } from 'lucide-react';
+
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
 
 const ContactPage = () => {
   const { t } = useTranslation();
@@ -76,6 +82,13 @@ const ContactPage = () => {
     }
   ];
 
+  useEffect(() => {
+    // Reset reCAPTCHA when department changes
+    if (window.grecaptcha) {
+      window.grecaptcha.reset();
+    }
+  }, [selectedDepartment]);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus({ type: null, message: '' });
@@ -92,7 +105,7 @@ const ContactPage = () => {
     const formData = new FormData(form);
 
     // Get reCAPTCHA response
-    const recaptchaResponse = (window as any).grecaptcha.getResponse();
+    const recaptchaResponse = window.grecaptcha.getResponse();
     if (!recaptchaResponse) {
       setStatus({
         type: 'error',
@@ -121,7 +134,7 @@ const ContactPage = () => {
         form.reset();
         setSelectedDepartment('');
         // Reset reCAPTCHA
-        (window as any).grecaptcha.reset();
+        window.grecaptcha.reset();
       } else {
         const data = await response.json();
         throw new Error(data.error || 'Error sending message');
