@@ -15,6 +15,7 @@ declare global {
       getResponse: (id?: number) => string;
     };
     onRecaptchaLoad: () => void;
+    recaptchaLoaded: boolean;
   }
 }
 
@@ -90,8 +91,8 @@ const ContactPage = () => {
   ];
 
   useEffect(() => {
-    window.onRecaptchaLoad = () => {
-      if (recaptchaRef.current) {
+    const initializeRecaptcha = () => {
+      if (window.recaptchaLoaded && recaptchaRef.current && !recaptchaWidgetId.current) {
         recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
           sitekey: '6LfKAT8rAAAAAKckE-RbxrXviSBnBchIPnc95tYE',
           theme: 'light'
@@ -99,8 +100,13 @@ const ContactPage = () => {
       }
     };
 
+    // Try to initialize immediately if already loaded
+    initializeRecaptcha();
+
+    // Set up a listener for when reCAPTCHA loads
+    window.onRecaptchaLoad = initializeRecaptcha;
+
     return () => {
-      // Fix: Set to undefined instead of using delete
       window.onRecaptchaLoad = undefined;
     };
   }, []);
@@ -398,7 +404,7 @@ const ContactPage = () => {
                   </div>
 
                   {/* reCAPTCHA */}
-                  <div ref={recaptchaRef}></div>
+                  <div ref={recaptchaRef} className="mt-4"></div>
 
                   {status.type && (
                     <div className={`p-4 rounded-lg ${
