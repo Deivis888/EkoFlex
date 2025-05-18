@@ -100,7 +100,9 @@ const ContactPage = () => {
     };
 
     return () => {
-      delete window.onRecaptchaLoad;
+      if ('onRecaptchaLoad' in window) {
+        delete window.onRecaptchaLoad;
+      }
     };
   }, []);
 
