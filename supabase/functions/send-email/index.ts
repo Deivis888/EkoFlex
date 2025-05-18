@@ -7,6 +7,8 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS'
 };
 
+const RECAPTCHA_SECRET_KEY = '6LeP-T4rAAAAAF3gRZuZK-suox6lMy3asM4LaaEo';
+
 const recipientMap = {
   'General Inquiry': 'info@ekoflex.lt',
   'HR Department': 'hr@ekoflex.lt',
@@ -34,9 +36,23 @@ serve(async (req) => {
       throw new Error('Method not allowed');
     }
 
-    const { name, email, subject, message } = await req.json();
-    const recipient = recipientMap[subject];
+    const { name, email, subject, message, 'g-recaptcha-response': recaptchaResponse } = await req.json();
+    
+    // Verify reCAPTCHA
+    const recaptchaVerification = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptchaResponse}`,
+    });
 
+    const recaptchaResult = await recaptchaVerification.json();
+    if (!recaptchaResult.success) {
+      throw new Error('reCAPTCHA verification failed');
+    }
+
+    const recipient = recipientMap[subject];
     if (!recipient) {
       throw new Error('Invalid subject');
     }
