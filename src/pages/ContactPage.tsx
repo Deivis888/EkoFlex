@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { 
@@ -9,7 +9,11 @@ import {
 
 declare global {
   interface Window {
-    grecaptcha: any;
+    grecaptcha: {
+      render: (element: HTMLElement, options: any) => number;
+      reset: (id?: number) => void;
+      getResponse: (id?: number) => string;
+    };
     onRecaptchaLoad: () => void;
   }
 }
@@ -17,7 +21,8 @@ declare global {
 const ContactPage = () => {
   const { t } = useTranslation();
   const [selectedDepartment, setSelectedDepartment] = useState('');
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const recaptchaRef = useRef<HTMLDivElement>(null);
+  const recaptchaWidgetId = useRef<number>();
   const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({
     type: null,
     message: ''
@@ -85,36 +90,25 @@ const ContactPage = () => {
   ];
 
   useEffect(() => {
-    // Initialize reCAPTCHA
-    const script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js';
-    script.async = true;
-    script.defer = true;
-    
-    // Define callback for when reCAPTCHA is loaded
     window.onRecaptchaLoad = () => {
-      setRecaptchaLoaded(true);
+      if (recaptchaRef.current) {
+        recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
+          sitekey: '6LfKAT8rAAAAAKckE-RbxrXviSBnBchIPnc95tYE',
+          theme: 'light'
+        });
+      }
     };
-    script.onload = window.onRecaptchaLoad;
-    
-    document.head.appendChild(script);
 
     return () => {
-      document.head.removeChild(script);
       delete window.onRecaptchaLoad;
     };
   }, []);
 
   useEffect(() => {
-    // Only reset reCAPTCHA if it's loaded and department changes
-    if (recaptchaLoaded && window.grecaptcha) {
-      try {
-        window.grecaptcha.reset();
-      } catch (error) {
-        console.error('Failed to reset reCAPTCHA:', error);
-      }
+    if (recaptchaWidgetId.current !== undefined) {
+      window.grecaptcha.reset(recaptchaWidgetId.current);
     }
-  }, [selectedDepartment, recaptchaLoaded]);
+  }, [selectedDepartment]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -128,19 +122,11 @@ const ContactPage = () => {
       return;
     }
 
-    if (!recaptchaLoaded || !window.grecaptcha) {
-      setStatus({
-        type: 'error',
-        message: 'Please wait for reCAPTCHA to load'
-      });
-      return;
-    }
-
     const form = e.currentTarget;
     const formData = new FormData(form);
 
     // Get reCAPTCHA response
-    const recaptchaResponse = window.grecaptcha.getResponse();
+    const recaptchaResponse = window.grecaptcha.getResponse(recaptchaWidgetId.current);
     if (!recaptchaResponse) {
       setStatus({
         type: 'error',
@@ -168,9 +154,8 @@ const ContactPage = () => {
         });
         form.reset();
         setSelectedDepartment('');
-        // Reset reCAPTCHA if available
-        if (window.grecaptcha) {
-          window.grecaptcha.reset();
+        if (recaptchaWidgetId.current !== undefined) {
+          window.grecaptcha.reset(recaptchaWidgetId.current);
         }
       } else {
         const data = await response.json();
@@ -412,9 +397,7 @@ const ContactPage = () => {
                   </div>
 
                   {/* reCAPTCHA */}
-                  {recaptchaLoaded && (
-                    <div className="g-recaptcha" data-sitekey="6LfKAT8rAAAAAKckE-RbxrXviSBnBchIPnc95tYE"></div>
-                  )}
+                  <div ref={recaptchaRef}></div>
 
                   {status.type && (
                     <div className={`p-4 rounded-lg ${
