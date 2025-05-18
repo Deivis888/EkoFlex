@@ -7,7 +7,7 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS'
 };
 
-const RECAPTCHA_SECRET_KEY = '6LeP-T4rAAAAAF3gRZuZK-suox6lMy3asM4LaaEo';
+const RECAPTCHA_SECRET_KEY = '6LfKAT8rAAAAAGlBNwqsoqXG3CYP2WeZzgU2090-';
 
 const recipientMap = {
   'General Inquiry': 'info@ekoflex.lt',
