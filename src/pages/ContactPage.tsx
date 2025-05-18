@@ -15,7 +15,6 @@ declare global {
       getResponse: (id?: number) => string;
     };
     onRecaptchaLoad?: () => void;
-    recaptchaLoaded?: boolean;
   }
 }
 
@@ -91,23 +90,14 @@ const ContactPage = () => {
   ];
 
   useEffect(() => {
-    const initializeRecaptcha = () => {
-      if (recaptchaRef.current && window.grecaptcha) {
+    window.onRecaptchaLoad = () => {
+      if (recaptchaRef.current) {
         recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
           sitekey: '6LfKAT8rAAAAAKckE-RbxrXviSBnBchIPnc95tYE',
-          theme: 'light',
-          callback: () => {
-            setStatus({ type: null, message: '' });
-          }
+          theme: 'light'
         });
       }
     };
-
-    if (window.recaptchaLoaded) {
-      initializeRecaptcha();
-    } else {
-      window.onRecaptchaLoad = initializeRecaptcha;
-    }
 
     return () => {
       if (typeof window.onRecaptchaLoad !== 'undefined') {
