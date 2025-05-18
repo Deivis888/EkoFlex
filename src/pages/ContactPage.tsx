@@ -74,7 +74,7 @@ const ContactPage = () => {
 
   return (
     <>
-      {/* Hero Banner */}
+      {/* Hero Section */}
       <section className="relative py-20">
         <div className="absolute inset-0">
           <img
@@ -297,7 +297,8 @@ const ContactPage = () => {
                         name="message"
                         rows={8}
                         required
-                        className="input resize-none"
+                        className="input min-h-[160px] resize-y"
+                        style={{ height: '160px' }}
                       ></textarea>
                     </div>
                     
