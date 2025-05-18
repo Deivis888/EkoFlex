@@ -90,30 +90,44 @@ const ContactPage = () => {
     }
   ];
 
+  // Define initializeRecaptcha outside useEffect to avoid recreating it
+  const initializeRecaptcha = () => {
+    if (window.recaptchaLoaded && recaptchaRef.current && !recaptchaWidgetId.current) {
+      recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
+        sitekey: '6LfKAT8rAAAAAKckE-RbxrXviSBnBchIPnc95tYE',
+        theme: 'light'
+      });
+    }
+  };
+
+  // Set up the global callback once
+  window.onRecaptchaLoad = initializeRecaptcha;
+
   useEffect(() => {
-    const initializeRecaptcha = () => {
-      if (window.recaptchaLoaded && recaptchaRef.current && !recaptchaWidgetId.current) {
-        recaptchaWidgetId.current = window.grecaptcha.render(recaptchaRef.current, {
-          sitekey: '6LfKAT8rAAAAAKckE-RbxrXviSBnBchIPnc95tYE',
-          theme: 'light'
-        });
-      }
-    };
-
-    // Try to initialize immediately if already loaded
-    initializeRecaptcha();
-
-    // Set up a listener for when reCAPTCHA loads
-    window.onRecaptchaLoad = initializeRecaptcha;
-
+    // Don't call initializeRecaptcha directly, let onRecaptchaLoad handle it
     return () => {
+      // Cleanup when component unmounts
+      if (recaptchaWidgetId.current !== undefined) {
+        window.grecaptcha.reset(recaptchaWidgetId.current);
+        recaptchaWidgetId.current = undefined;
+      }
+      window.recaptchaLoaded = false;
       window.onRecaptchaLoad = undefined;
     };
   }, []);
 
   useEffect(() => {
     if (recaptchaWidgetId.current !== undefined) {
+      // Reset the existing widget
       window.grecaptcha.reset(recaptchaWidgetId.current);
+      recaptchaWidgetId.current = undefined;
+      
+      // Re-initialize after a brief delay to ensure proper cleanup
+      setTimeout(() => {
+        initializeRecaptcha();
+      }, 100);
+    } else {
+      initializeRecaptcha();
     }
   }, [selectedDepartment]);
 
