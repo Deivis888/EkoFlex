@@ -14,7 +14,6 @@ declare global {
       reset: (id?: number) => void;
       getResponse: (id?: number) => string;
     };
-    onRecaptchaLoad: () => void;
     recaptchaLoaded: boolean;
   }
 }
@@ -156,11 +155,12 @@ const ContactPage = () => {
     formData.append('g-recaptcha-response', recaptchaResponse);
 
     try {
-      const response = await fetch(`https://formspree.io/f/${formspreeIds[selectedDepartment]}`, {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
         method: 'POST',
         body: formData,
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
         }
       });
 
