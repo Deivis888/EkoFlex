@@ -44,16 +44,11 @@ serve(async (req) => {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: new URLSearchParams({
-        secret: RECAPTCHA_SECRET_KEY,
-        response: recaptchaResponse
-      }).toString()
+      body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptchaResponse}`,
     });
 
     const recaptchaResult = await recaptchaVerification.json();
-    
     if (!recaptchaResult.success) {
-      console.error('reCAPTCHA verification failed:', recaptchaResult);
       throw new Error('reCAPTCHA verification failed');
     }
 
