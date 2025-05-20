@@ -346,7 +346,7 @@ const ContactPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="card p-8">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
                 <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -459,7 +459,7 @@ const ContactPage = () => {
               {offices.map((office, index) => (
                 <div 
                   key={index} 
-                  className="card p-6 hover:shadow-md transition-shadow"
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
                 >
                   <h3 className="text-xl font-semibold mb-4">
                     {office.name === 'Headquarters' 
