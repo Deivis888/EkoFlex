@@ -22,6 +22,11 @@ declare global {
 const ContactPage = () => {
   const { t } = useTranslation();
   const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const recaptchaWidgetId = useRef<number>();
   const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({
@@ -165,11 +170,14 @@ const ContactPage = () => {
           type: 'success',
           message: 'Message sent successfully!'
         });
-        form.reset();
+        setFormData({ name: '', email: '', message: '' });
         setSelectedDepartment('');
         if (recaptchaWidgetId.current !== undefined) {
           window.grecaptcha.reset(recaptchaWidgetId.current);
         }
+        // Reset form fields
+        const formElement = e.target as HTMLFormElement;
+        formElement.reset();
       } else {
         const data = await response.json();
         throw new Error(data.error || 'Error sending message');
@@ -180,6 +188,11 @@ const ContactPage = () => {
         message: error instanceof Error ? error.message : 'Error sending message'
       });
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -378,6 +391,8 @@ const ContactPage = () => {
                       type="text"
                       id="name"
                       name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
                       required
                       className="input"
                     />
@@ -391,6 +406,8 @@ const ContactPage = () => {
                       type="email"
                       id="email"
                       name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       required
                       className="input"
                     />
@@ -404,6 +421,8 @@ const ContactPage = () => {
                       id="message"
                       name="message"
                       rows={8}
+                      value={formData.message}
+                      onChange={handleInputChange}
                       required
                       className="input min-h-[200px] resize-y"
                       style={{ height: '200px' }}
