@@ -183,7 +183,7 @@ const ContactPage = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <section className="relative py-20">
         <div className="absolute inset-0">
@@ -255,7 +255,7 @@ const ContactPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="card p-6"
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
           >
             <h2 className="text-2xl font-bold mb-6 flex items-center">
               <Building2 className="h-6 w-6 mr-2" />
@@ -295,7 +295,7 @@ const ContactPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card p-6"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
               >
                 <h3 className="text-xl font-semibold mb-4 flex items-center">
                   {dept.name === 'Accounting Department' && <Calculator className="h-5 w-5 mr-2" />}
@@ -345,6 +345,7 @@ const ContactPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="bg-white dark:bg-gray-800"
             >
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
                 <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
@@ -459,7 +460,7 @@ const ContactPage = () => {
               {offices.map((office, index) => (
                 <div 
                   key={index} 
-                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
                 >
                   <h3 className="text-xl font-semibold mb-4">
                     {office.name === 'Headquarters' 
@@ -518,7 +519,7 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
