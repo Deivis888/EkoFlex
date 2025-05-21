@@ -19,6 +19,7 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
+import ThankYouPage from './pages/ThankYouPage';
 
 // Contexts
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -76,6 +77,7 @@ function App() {
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="privacy" element={<PrivacyPolicyPage />} />
           <Route path="terms" element={<TermsOfServicePage />} />
+          <Route path="thank-you" element={<ThankYouPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
