@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { 
   Send, MapPin, Phone, Mail, CheckCircle, AlertCircle,
   Linkedin, Facebook, Instagram, Youtube, Building2,
@@ -21,6 +22,7 @@ declare global {
 
 const ContactPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [formData, setFormData] = useState({
     name: '',
@@ -33,6 +35,7 @@ const ContactPage = () => {
     type: null,
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const formspreeIds = {
     'General Inquiry': 'xjkwldyn',
@@ -133,12 +136,14 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus({ type: null, message: '' });
+    setIsSubmitting(true);
 
     if (!selectedDepartment) {
       setStatus({
         type: 'error',
         message: 'Please select a department'
       });
+      setIsSubmitting(false);
       return;
     }
 
@@ -151,6 +156,7 @@ const ContactPage = () => {
         type: 'error',
         message: 'Please complete the reCAPTCHA verification'
       });
+      setIsSubmitting(false);
       return;
     }
 
@@ -166,18 +172,8 @@ const ContactPage = () => {
       });
 
       if (response.ok) {
-        setStatus({
-          type: 'success',
-          message: 'Message sent successfully!'
-        });
-        setFormData({ name: '', email: '', message: '' });
-        setSelectedDepartment('');
-        if (recaptchaWidgetId.current !== undefined) {
-          window.grecaptcha.reset(recaptchaWidgetId.current);
-        }
-        // Reset form fields
-        const formElement = e.target as HTMLFormElement;
-        formElement.reset();
+        // Instead of showing status message, redirect to thank you page
+        navigate('/thank-you');
       } else {
         const data = await response.json();
         throw new Error(data.error || 'Error sending message');
@@ -187,6 +183,11 @@ const ContactPage = () => {
         type: 'error',
         message: error instanceof Error ? error.message : 'Error sending message'
       });
+      if (recaptchaWidgetId.current !== undefined) {
+        window.grecaptcha.reset(recaptchaWidgetId.current);
+      }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -449,7 +450,8 @@ const ContactPage = () => {
                   
                   <button
                     type="submit"
-                    className="relative w-full h-12 rounded-lg group overflow-hidden"
+                    disabled={isSubmitting}
+                    className="relative w-full h-12 rounded-lg group overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <div className="absolute inset-0 w-full h-full transition-all duration-300 group-hover:animate-[spin_3s_linear_infinite]">
                       <div className="absolute top-0 left-0 w-1/4 h-full bg-[#007acc] transform origin-right group-hover:scale-x-150"></div>
@@ -459,7 +461,7 @@ const ContactPage = () => {
                     </div>
                     <div className="absolute inset-[1px] bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center transition-transform group-hover:scale-[0.99]">
                       <Send className="h-5 w-5 mr-2" />
-                      {t('contact.form.send')}
+                      {isSubmitting ? 'Sending...' : t('contact.form.send')}
                     </div>
                   </button>
                 </form>
