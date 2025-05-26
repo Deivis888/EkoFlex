@@ -60,7 +60,7 @@ const ContactPage = () => {
         {
           name: '',
           position: 'Chief Accountant',
-          email: 'accounting@ekoflex.com',
+          email: 'accounting@ekoflex.lt',
           phone: ''
         }
       ]
@@ -71,7 +71,7 @@ const ContactPage = () => {
         {
           name: 'Vygintas Kazakevičius',
           position: 'HR Manager',
-          email: 'hr@ekoflex.com',
+          email: 'hr@ekoflex.lt',
           phone: '+37060389303'
         }
       ]
@@ -82,7 +82,7 @@ const ContactPage = () => {
         {
           name: 'Deividas Babinskas',
           position: 'Operations Director',
-          email: 'operations@ekoflex.com',
+          email: 'operations@ekoflex.lt',
           phone: '+37068982568'
         }
       ]
@@ -94,7 +94,7 @@ const ContactPage = () => {
       name: 'Headquarters',
       address: 'Chemijos g. 27C-62, LT-51332 Kaunas, Lithuania',
       phone: '+37069018889',
-      email: 'info@ekoflex.com',
+      email: 'info@ekoflex.lt',
     }
   ];
 

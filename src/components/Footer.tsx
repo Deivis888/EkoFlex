@@ -105,7 +105,7 @@ const Footer = () => {
                 Chemijos g. 27C-62, LT-51332 Kaunas, Lithuania
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Email: info@ekoflex.com
+                Email: info@ekoflex.lt
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">
                 Phone: +37069018889

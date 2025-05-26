@@ -13,6 +13,7 @@ const PrivacyPolicyPage = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+            
             <div className="flex items-center mb-8">
               <Shield className="h-8 w-8 text-primary-600 dark:text-primary-400 mr-3" />
               <h1 className="text-3xl font-bold">Privacy Policy</h1>
@@ -76,9 +77,9 @@ const PrivacyPolicyPage = () => {
                 </p>
                 <div className="mt-4 text-gray-600 dark:text-gray-400">
                   <p>EkoFlex, UAB</p>
-                  <p>Email: privacy@ekoflex.com</p>
+                  <p>Email: privacy@ekoflex.lt</p>
                   <p>Phone: +370 5 123 4567</p>
-                  <p>Address: 123 Main Street, Vilnius, Lithuania</p>
+                  <p>Address: Chemijos g. 27C-62, LT-51332 Kaunas, Lithuania</p>
                 </div>
               </section>
 

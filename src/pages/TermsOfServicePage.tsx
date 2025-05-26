@@ -81,9 +81,9 @@ const TermsOfServicePage = () => {
                 </p>
                 <div className="text-gray-600 dark:text-gray-400">
                   <p>EkoFlex, UAB</p>
-                  <p>Email: legal@ekoflex.com</p>
+                  <p>Email: legal@ekoflex.lt</p>
                   <p>Phone: +370 5 123 4567</p>
-                  <p>Address: 123 Main Street, Vilnius, Lithuania</p>
+                  <p>Address: Chemijos g. 27C-62, LT-51332 Kaunas, Lithuania</p>
                 </div>
               </section>
 
