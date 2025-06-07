@@ -85,9 +85,9 @@ const WorksPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-white"
           >
-            <h1 className="text-4xl font-bold mb-4">Career Opportunities</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('works.title')}</h1>
             <p className="text-xl text-gray-200">
-              Join our team of experts and work on exciting marine ventilation projects worldwide.
+              {t('works.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -108,24 +108,24 @@ const WorksPage = () => {
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                      {job.title}
+                      {job.id === 1 ? t('works.jobs.ventilationInstaller.title') : t('works.jobs.juniorInstaller.title')}
                     </h2>
                     <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
                       <div className="flex items-center">
                         <Briefcase className="h-4 w-4 mr-2" />
-                        {job.type}
+                        {job.id === 1 ? t('works.jobs.ventilationInstaller.type') : t('works.jobs.juniorInstaller.type')}
                       </div>
                       <div className="flex items-center">
                         <MapPin className="h-4 w-4 mr-2" />
-                        {job.location}
+                        {job.id === 1 ? t('works.jobs.ventilationInstaller.location') : t('works.jobs.juniorInstaller.location')}
                       </div>
                       <div className="flex items-center">
                         <Euro className="h-4 w-4 mr-2" />
-                        {job.salary}
+                        {job.id === 1 ? t('works.jobs.ventilationInstaller.salary') : t('works.jobs.juniorInstaller.salary')}
                       </div>
                       <div className="flex items-center">
                         <Calendar className="h-4 w-4 mr-2" />
-                        Posted: {job.posted}
+                        {t('works.posted')}: {job.posted}
                       </div>
                     </div>
                   </div>
@@ -133,7 +133,7 @@ const WorksPage = () => {
                     to="/register"
                     className="btn btn-primary btn-lg mt-4 lg:mt-0 inline-flex items-center"
                   >
-                    Apply Now
+                    {t('works.applyNow')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </div>
@@ -142,10 +142,24 @@ const WorksPage = () => {
                   <div>
                     <h3 className="font-semibold mb-3 flex items-center text-gray-900 dark:text-white">
                       <Users className="h-5 w-5 mr-2" />
-                      Requirements
+                      {t('works.requirements.title')}
                     </h3>
                     <ul className="space-y-2">
-                      {job.requirements.map((req, i) => (
+                      {Object.values(job.id === 1 ? {
+                        experience: t('works.jobs.ventilationInstaller.requirements.experience'),
+                        regulations: t('works.jobs.ventilationInstaller.requirements.regulations'),
+                        drawings: t('works.jobs.ventilationInstaller.requirements.drawings'),
+                        fitness: t('works.jobs.ventilationInstaller.requirements.fitness'),
+                        english: t('works.jobs.ventilationInstaller.requirements.english'),
+                        travel: t('works.jobs.ventilationInstaller.requirements.travel')
+                      } : {
+                        knowledge: t('works.jobs.juniorInstaller.requirements.knowledge'),
+                        education: t('works.jobs.juniorInstaller.requirements.education'),
+                        condition: t('works.jobs.juniorInstaller.requirements.condition'),
+                        learning: t('works.jobs.juniorInstaller.requirements.learning'),
+                        english: t('works.jobs.juniorInstaller.requirements.english'),
+                        teamwork: t('works.jobs.juniorInstaller.requirements.teamwork')
+                      }).map((req, i) => (
                         <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start">
                           <span className="mr-2 text-primary-500">•</span>
                           {req}
@@ -157,16 +171,16 @@ const WorksPage = () => {
                   <div>
                     <h3 className="font-semibold mb-3 flex items-center text-gray-900 dark:text-white">
                       <GraduationCap className="h-5 w-5 mr-2" />
-                      Qualifications
+                      {t('works.qualifications.title')}
                     </h3>
                     <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                       <p className="flex items-center">
                         <Clock className="h-4 w-4 mr-2" />
-                        Experience: {job.experience}
+                        {t('works.qualifications.experience')}: {job.id === 1 ? t('works.jobs.ventilationInstaller.experience') : t('works.jobs.juniorInstaller.experience')}
                       </p>
                       <p className="flex items-center">
                         <GraduationCap className="h-4 w-4 mr-2" />
-                        Education: {job.education}
+                        {t('works.qualifications.education')}: {job.id === 1 ? t('works.jobs.ventilationInstaller.education') : t('works.jobs.juniorInstaller.education')}
                       </p>
                     </div>
                   </div>
@@ -174,10 +188,22 @@ const WorksPage = () => {
                   <div>
                     <h3 className="font-semibold mb-3 flex items-center text-gray-900 dark:text-white">
                       <Euro className="h-5 w-5 mr-2" />
-                      Benefits
+                      {t('works.benefits.title')}
                     </h3>
                     <ul className="space-y-2">
-                      {job.benefits.map((benefit, i) => (
+                      {Object.values(job.id === 1 ? {
+                        salary: t('works.jobs.ventilationInstaller.benefits.salary'),
+                        health: t('works.jobs.ventilationInstaller.benefits.health'),
+                        development: t('works.jobs.ventilationInstaller.benefits.development'),
+                        travel: t('works.jobs.ventilationInstaller.benefits.travel'),
+                        bonuses: t('works.jobs.ventilationInstaller.benefits.bonuses')
+                      } : {
+                        training: t('works.jobs.juniorInstaller.benefits.training'),
+                        health: t('works.jobs.juniorInstaller.benefits.health'),
+                        growth: t('works.jobs.juniorInstaller.benefits.growth'),
+                        equipment: t('works.jobs.juniorInstaller.benefits.equipment'),
+                        transport: t('works.jobs.juniorInstaller.benefits.transport')
+                      }).map((benefit, i) => (
                         <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-start">
                           <span className="mr-2 text-primary-500">•</span>
                           {benefit}
@@ -188,9 +214,9 @@ const WorksPage = () => {
                 </div>
 
                 <div className="mt-6">
-                  <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">Job Description</h3>
+                  <h3 className="font-semibold mb-2 text-gray-900 dark:text-white">{t('works.jobDescription')}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {job.description}
+                    {job.id === 1 ? t('works.jobs.ventilationInstaller.description') : t('works.jobs.juniorInstaller.description')}
                   </p>
                 </div>
               </motion.div>
@@ -210,16 +236,15 @@ const WorksPage = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">Don't See the Right Position?</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('works.cta.title')}</h2>
             <p className="text-gray-200 mb-8">
-              We're always looking for talented individuals to join our team.
-              Send us your CV and we'll keep it on file for future opportunities.
+              {t('works.cta.description')}
             </p>
             <Link
               to="/contact"
               className="btn btn-primary btn-lg inline-flex items-center"
             >
-              Contact HR Department
+              {t('works.cta.button')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
