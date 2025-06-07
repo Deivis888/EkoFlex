@@ -368,8 +368,79 @@
   },
   "works": {
     "title": "Job Openings",
+    "subtitle": "Join our team of experts and work on exciting marine ventilation projects worldwide.",
     "noPositions": "No open positions at the moment",
-    "applyNow": "Apply Now"
+    "applyNow": "Apply Now",
+    "jobs": {
+      "ventilationInstaller": {
+        "title": "Ventilation System Installer",
+        "type": "Full-time",
+        "location": "Vilnius, Lithuania",
+        "salary": "2500-3500€",
+        "experience": "3+ years",
+        "education": "Technical degree",
+        "department": "Installation",
+        "description": "We are seeking an experienced ventilation system installer to join our marine installations team. The ideal candidate will have extensive experience in marine ventilation systems installation and maintenance.",
+        "requirements": {
+          "experience": "Experience in marine ventilation systems",
+          "regulations": "Knowledge of maritime safety regulations",
+          "drawings": "Ability to read technical drawings",
+          "fitness": "Physical fitness for installation work",
+          "english": "English language proficiency",
+          "travel": "Willingness to travel for projects"
+        },
+        "benefits": {
+          "salary": "Competitive salary package",
+          "health": "Health insurance",
+          "development": "Professional development",
+          "travel": "Travel allowance",
+          "bonuses": "Performance bonuses"
+        }
+      },
+      "juniorInstaller": {
+        "title": "Junior Ventilation Installer",
+        "type": "Full-time",
+        "location": "Klaipėda, Lithuania",
+        "salary": "1800-2200€",
+        "experience": "0-2 years",
+        "education": "Technical education",
+        "department": "Installation",
+        "description": "Looking for a junior ventilation installer to assist in marine ventilation system installations. This is an excellent opportunity for someone starting their career in marine ventilation.",
+        "requirements": {
+          "knowledge": "Basic knowledge of ventilation systems",
+          "education": "Technical education background",
+          "condition": "Good physical condition",
+          "learning": "Willingness to learn",
+          "english": "Basic English language skills",
+          "teamwork": "Team player attitude"
+        },
+        "benefits": {
+          "training": "Training and mentorship",
+          "health": "Health insurance",
+          "growth": "Career growth opportunities",
+          "equipment": "Work equipment provided",
+          "transport": "Transportation compensation"
+        }
+      }
+    },
+    "qualifications": {
+      "title": "Qualifications",
+      "experience": "Experience",
+      "education": "Education"
+    },
+    "requirements": {
+      "title": "Requirements"
+    },
+    "benefits": {
+      "title": "Benefits"
+    },
+    "jobDescription": "Job Description",
+    "posted": "Posted",
+    "cta": {
+      "title": "Don't See the Right Position?",
+      "description": "We're always looking for talented individuals to join our team. Send us your CV and we'll keep it on file for future opportunities.",
+      "button": "Contact HR Department"
+    }
   },
   "careers": {
     "title": "Join Our Team",

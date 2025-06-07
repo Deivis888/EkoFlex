@@ -368,8 +368,79 @@
   },
   "works": {
     "title": "Darbo Skelbimai",
+    "subtitle": "Prisijunkite prie mūsų ekspertų komandos ir dirbkite prie jaudinančių jūrų ventiliacijos projektų visame pasaulyje.",
     "noPositions": "Šiuo metu nėra atvirų pozicijų",
-    "applyNow": "Registruotis dabar"
+    "applyNow": "Registruotis dabar",
+    "jobs": {
+      "ventilationInstaller": {
+        "title": "Ventiliacijos Sistemų Montuotojas",
+        "type": "Pilnas etatas",
+        "location": "Vilnius, Lietuva",
+        "salary": "2500-3500€",
+        "experience": "3+ metai",
+        "education": "Techninis išsilavinimas",
+        "department": "Montavimas",
+        "description": "Ieškome patyrę ventiliacijos sistemų montuotojo prisijungti prie mūsų jūrų montavimo komandos. Idealus kandidatas turės platų patirtį jūrų ventiliacijos sistemų montavime ir priežiūroje.",
+        "requirements": {
+          "experience": "Patirtis jūrų ventiliacijos sistemose",
+          "regulations": "Jūrų saugos reglamentų žinios",
+          "drawings": "Gebėjimas skaityti techninius brėžinius",
+          "fitness": "Fizinis pajėgumas montavimo darbams",
+          "english": "Anglų kalbos mokėjimas",
+          "travel": "Noras keliauti projektams"
+        },
+        "benefits": {
+          "salary": "Konkurencingas atlyginimo paketas",
+          "health": "Sveikatos draudimas",
+          "development": "Profesinis tobulėjimas",
+          "travel": "Kelionių išlaidos",
+          "bonuses": "Veiklos premijos"
+        }
+      },
+      "juniorInstaller": {
+        "title": "Jaunesnysis Ventiliacijos Montuotojas",
+        "type": "Pilnas etatas",
+        "location": "Klaipėda, Lietuva",
+        "salary": "1800-2200€",
+        "experience": "0-2 metai",
+        "education": "Techninis išsilavinimas",
+        "department": "Montavimas",
+        "description": "Ieškome jaunesniojo ventiliacijos montuotojo padėti jūrų ventiliacijos sistemų montavime. Tai puiki galimybė kam nors pradėti karjerą jūrų ventiliacijos srityje.",
+        "requirements": {
+          "knowledge": "Pagrindinės ventiliacijos sistemų žinios",
+          "education": "Techninio išsilavinimo pagrindas",
+          "condition": "Gera fizinė būklė",
+          "learning": "Noras mokytis",
+          "english": "Pagrindiniai anglų kalbos įgūdžiai",
+          "teamwork": "Komandinio darbo požiūris"
+        },
+        "benefits": {
+          "training": "Mokymas ir mentorystė",
+          "health": "Sveikatos draudimas",
+          "growth": "Karjeros augimo galimybės",
+          "equipment": "Darbo įranga pateikiama",
+          "transport": "Transporto kompensacija"
+        }
+      }
+    },
+    "qualifications": {
+      "title": "Kvalifikacijos",
+      "experience": "Patirtis",
+      "education": "Išsilavinimas"
+    },
+    "requirements": {
+      "title": "Reikalavimai"
+    },
+    "benefits": {
+      "title": "Privalumai"
+    },
+    "jobDescription": "Darbo Aprašymas",
+    "posted": "Paskelbta",
+    "cta": {
+      "title": "Nematote Tinkamos Pozicijos?",
+      "description": "Mes visada ieškome talentingų asmenų prisijungti prie mūsų komandos. Atsiųskite mums savo CV ir mes jį išsaugosime ateities galimybėms.",
+      "button": "Susisiekti su HR Skyriumi"
+    }
   },
   "careers": {
     "title": "Prisijunkite prie mūsų komandos",
