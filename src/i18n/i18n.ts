@@ -18,6 +18,7 @@ i18n
       ru: { translation: ruTranslation },
     },
     fallbackLng: 'en',
+    lng: 'lt', // Set Lithuanian as default language
     interpolation: {
       escapeValue: false, // React already safes from XSS
     },

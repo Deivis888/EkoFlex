@@ -15,13 +15,45 @@
   },
   "home": {
     "hero": {
-      "title": "Profesionalūs Ventiliacijos Sprendimai",
-      "subtitle": "Specializuojamės laivų ventiliacijos sistemose ir pramoniniuose sprendimuose",
+      "title": "Jūrų Ventiliacijos Puikybė",
+      "subtitle": "Nustatome pramonės standartus jūrų ventiliacijos srityje su pažangia technologija, ekspertų montavimu ir neprilygstamu paslaugų kokybe.",
       "cta": "Susisiekite",
       "learnMore": "Sužinoti daugiau"
     },
+    "stats": {
+      "vessels": "Aprūpinti Laivai",
+      "experience": "Metų Patirtis",
+      "satisfaction": "Klientų Pasitenkinimas",
+      "clientSatisfaction": "Klientų Pasitenkinimas",
+      "yearsExperience": "Metų Patirtis"
+    },
+    "installation": {
+      "title": "Profesionalaus Montavimo Puikybė",
+      "description": "Mūsų ekspertų komanda turi dešimtmečių patirtį jūrų ventiliacijos srityje, teikdama aukščiausios kokybės montavimo paslaugas, užtikrinančias optimalų oro kokybę ir sistemos efektyvumą visų dydžių laivams.",
+      "expertInstallation": "Ekspertų Montavimas",
+      "marineGrade": "Jūrinės klasės ventiliacijos sistemos"
+    },
+    "benefits": {
+      "technology": {
+        "title": "Pažangi Technologija",
+        "description": "Naujausios ventiliacijos sistemos su išmaniais valdikliais ir energijos optimizavimu"
+      },
+      "installation": {
+        "title": "Ekspertų Montavimas",
+        "description": "Sertifikuoti technikai su plačia jūrų ventiliacijos patirtimi"
+      },
+      "custom": {
+        "title": "Individualūs Sprendimai",
+        "description": "Pritaikytos sistemos, specialiai sukurtos jūsų laivo reikalavimams"
+      },
+      "quality": {
+        "title": "Kokybės Užtikrinimas",
+        "description": "Griežtas visų montavimų testavimas ir sertifikavimas"
+      }
+    },
     "services": {
       "title": "Mūsų Kompetencija",
+      "subtitle": "Išsamūs ventiliacijos sprendimai, pritaikyti jūsų specifiniams poreikiams",
       "ventilation": {
         "title": "Laivų Ventiliacijos Montavimas",
         "description": "Profesionalus ventiliacijos sistemų montavimas visų tipų laivams"
@@ -42,6 +74,42 @@
         "title": "Profesionalų Komanda",
         "description": "Patyrę specialistai, atsidavę kokybei"
       }
+    },
+    "measurement": {
+      "title": "Ekspertų Oro Srauto Matavimas",
+      "description": "Tikslus oro srauto matavimas yra labai svarbus optimaliai ventiliacijai palaikyti jūrų aplinkoje. Mūsų sertifikuoti technikai naudoja pažangią įrangą, kad užtikrintų jūsų laivo ventiliacijos sistema atitiktų visus saugos standartus ir našumo reikalavimus.",
+      "equipment": {
+        "title": "Profesionali Įranga",
+        "description": "Naudojame pažangius anemometrus ir slėgio matavimo prietaisus tiksliam rodmenų gavimui"
+      },
+      "process": {
+        "title": "Efektyvus Procesas",
+        "description": "Pilnas laivo ventiliacijos vertinimas per 2-3 dienas, priklausomai nuo laivo dydžio"
+      },
+      "reports": {
+        "title": "Išsamūs Ataskaitos",
+        "description": "Išsami visų matavimų ir rekomendacijų dokumentacija"
+      }
+    },
+    "faq": {
+      "title": "Dažni Klausimai",
+      "frequency": {
+        "question": "Kaip dažnai reikia matuoti oro srautą?",
+        "answer": "Rekomenduojame ketvirtinį matavimą optimaliam sistemos veikimui"
+      },
+      "standards": {
+        "question": "Kokių standartų laikotės?",
+        "answer": "Visi matavimai atitinka ISO 7547 ir SOLAS reglamentus"
+      },
+      "areas": {
+        "question": "Kokios sritys matuojamos?",
+        "answer": "Visos kritinės zonos, įskaitant kabinas, variklio patalpas ir bendras zonas"
+      }
+    },
+    "cta": {
+      "title": "Pasiruošę Pagerinti Savo Laivo Ventiliaciją?",
+      "description": "Susisiekite su mūsų ekspertų komanda konsultacijai ir sužinokite, kaip galime pagerinti jūsų laivo oro kokybę ir energijos efektyvumą.",
+      "button": "Gauti Nemokamą Konsultaciją"
     }
   },
   "market": {

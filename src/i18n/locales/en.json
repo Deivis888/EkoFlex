@@ -15,13 +15,45 @@
   },
   "home": {
     "hero": {
-      "title": "Professional Ventilation Solutions",
-      "subtitle": "Specializing in ship ventilation systems and industrial applications",
+      "title": "Marine Ventilation Excellence",
+      "subtitle": "Setting the industry standard in marine ventilation with cutting-edge technology, expert installation, and unmatched service quality.",
       "cta": "Contact Us",
       "learnMore": "Learn More"
     },
+    "stats": {
+      "vessels": "Vessels Equipped",
+      "experience": "Years Experience",
+      "satisfaction": "Client Satisfaction",
+      "clientSatisfaction": "Client Satisfaction",
+      "yearsExperience": "Years Experience"
+    },
+    "installation": {
+      "title": "Professional Installation Excellence",
+      "description": "Our expert team brings decades of experience in marine ventilation, delivering superior installation services that ensure optimal air quality and system efficiency for vessels of all sizes.",
+      "expertInstallation": "Expert Installation",
+      "marineGrade": "Marine-grade ventilation systems"
+    },
+    "benefits": {
+      "technology": {
+        "title": "Advanced Technology",
+        "description": "State-of-the-art ventilation systems with smart controls and energy optimization"
+      },
+      "installation": {
+        "title": "Expert Installation",
+        "description": "Certified technicians with extensive marine ventilation experience"
+      },
+      "custom": {
+        "title": "Custom Solutions",
+        "description": "Tailored systems designed specifically for your vessel's requirements"
+      },
+      "quality": {
+        "title": "Quality Assurance",
+        "description": "Rigorous testing and certification of all installations"
+      }
+    },
     "services": {
       "title": "Our Expertise",
+      "subtitle": "Comprehensive ventilation solutions tailored to your specific needs",
       "ventilation": {
         "title": "Ship Ventilation Installation",
         "description": "Professional ventilation system installation for all types of vessels"
@@ -42,6 +74,42 @@
         "title": "Professional Team",
         "description": "Experienced specialists dedicated to excellence"
       }
+    },
+    "measurement": {
+      "title": "Expert Airflow Measurement",
+      "description": "Precise airflow measurement is crucial for maintaining optimal ventilation in marine environments. Our certified technicians use advanced equipment to ensure your vessel's ventilation system meets all safety standards and performance requirements.",
+      "equipment": {
+        "title": "Professional Equipment",
+        "description": "Using advanced anemometers and pressure measurement devices for precise readings"
+      },
+      "process": {
+        "title": "Efficient Process",
+        "description": "Complete ship ventilation assessment in 2-3 days depending on vessel size"
+      },
+      "reports": {
+        "title": "Detailed Reports",
+        "description": "Comprehensive documentation of all measurements and recommendations"
+      }
+    },
+    "faq": {
+      "title": "Common Questions",
+      "frequency": {
+        "question": "How often should airflow be measured?",
+        "answer": "We recommend quarterly measurements for optimal system performance"
+      },
+      "standards": {
+        "question": "What standards do you follow?",
+        "answer": "All measurements comply with ISO 7547 and SOLAS regulations"
+      },
+      "areas": {
+        "question": "What areas are measured?",
+        "answer": "All critical zones including cabins, engine rooms, and common areas"
+      }
+    },
+    "cta": {
+      "title": "Ready to Improve Your Vessel's Ventilation?",
+      "description": "Contact our team of experts for a consultation and discover how we can enhance your vessel's air quality and energy efficiency.",
+      "button": "Get a Free Consultation"
     }
   },
   "market": {

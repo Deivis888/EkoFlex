@@ -41,9 +41,8 @@ function App() {
   useEffect(() => {
     const savedLanguage = localStorage.getItem('i18nextLng');
     if (!savedLanguage) {
-      const browserLang = navigator.language.split('-')[0];
-      const supportedLangs = ['en', 'lt', 'ru'];
-      const lang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+      // Set Lithuanian as default language
+      const lang = 'lt';
       i18n.changeLanguage(lang);
     }
   }, [i18n]);

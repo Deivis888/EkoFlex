@@ -29,54 +29,60 @@ const HomePage = () => {
 
   const benefits = [
     {
-      title: "Advanced Technology",
-      description: "State-of-the-art ventilation systems with smart controls and energy optimization"
+      title: t('home.benefits.technology.title'),
+      description: t('home.benefits.technology.description')
     },
     {
-      title: "Expert Installation",
-      description: "Certified technicians with extensive marine ventilation experience"
+      title: t('home.benefits.installation.title'),
+      description: t('home.benefits.installation.description')
     },
     {
-      title: "Custom Solutions",
-      description: "Tailored systems designed specifically for your vessel's requirements"
+      title: t('home.benefits.custom.title'),
+      description: t('home.benefits.custom.description')
     },
     {
-      title: "Quality Assurance",
-      description: "Rigorous testing and certification of all installations"
+      title: t('home.benefits.quality.title'),
+      description: t('home.benefits.quality.description')
     }
   ];
 
   const measurementFeatures = [
     {
       icon: <Tool className="h-6 w-6" />,
-      title: "Professional Equipment",
-      description: "Using advanced anemometers and pressure measurement devices for precise readings"
+      title: t('home.measurement.equipment.title'),
+      description: t('home.measurement.equipment.description')
     },
     {
       icon: <Clock className="h-6 w-6" />,
-      title: "Efficient Process",
-      description: "Complete ship ventilation assessment in 2-3 days depending on vessel size"
+      title: t('home.measurement.process.title'),
+      description: t('home.measurement.process.description')
     },
     {
       icon: <FileCheck className="h-6 w-6" />,
-      title: "Detailed Reports",
-      description: "Comprehensive documentation of all measurements and recommendations"
+      title: t('home.measurement.reports.title'),
+      description: t('home.measurement.reports.description')
     }
   ];
 
   const commonQuestions = [
     {
-      question: "How often should airflow be measured?",
-      answer: "We recommend quarterly measurements for optimal system performance"
+      question: t('home.faq.frequency.question'),
+      answer: t('home.faq.frequency.answer')
     },
     {
-      question: "What standards do you follow?",
-      answer: "All measurements comply with ISO 7547 and SOLAS regulations"
+      question: t('home.faq.standards.question'),
+      answer: t('home.faq.standards.answer')
     },
     {
-      question: "What areas are measured?",
-      answer: "All critical zones including cabins, engine rooms, and common areas"
+      question: t('home.faq.areas.question'),
+      answer: t('home.faq.areas.answer')
     }
+  ];
+
+  const stats = [
+    { value: '500+', label: t('home.stats.vessels') },
+    { value: '15+', label: t('home.stats.experience') },
+    { value: '100%', label: t('home.stats.satisfaction') }
   ];
 
   return (
@@ -100,36 +106,28 @@ const HomePage = () => {
             className="max-w-3xl text-white"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Marine Ventilation <br />
-              Excellence
+              {t('home.hero.title')}
             </h1>
             <p className="text-xl mb-8 text-gray-300">
-              Setting the industry standard in marine ventilation with cutting-edge technology, 
-              expert installation, and unmatched service quality.
+              {t('home.hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
               <Link 
                 to="/contact" 
                 className="btn btn-primary btn-lg group"
               >
-                Get Started
+                {t('home.hero.cta')}
                 <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-3xl font-bold">500+</div>
-                <div className="text-sm text-gray-300">Vessels Equipped</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-3xl font-bold">15+</div>
-                <div className="text-sm text-gray-300">Years Experience</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-3xl font-bold">100%</div>
-                <div className="text-sm text-gray-300">Client Satisfaction</div>
-              </div>
+              {stats.map((stat, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <div className="text-3xl font-bold">{stat.value}</div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
@@ -147,11 +145,9 @@ const HomePage = () => {
               className="space-y-8"
             >
               <div>
-                <h2 className="text-3xl font-bold mb-4">Professional Installation Excellence</h2>
+                <h2 className="text-3xl font-bold mb-4">{t('home.installation.title')}</h2>
                 <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-                  Our expert team brings decades of experience in marine ventilation, delivering 
-                  superior installation services that ensure optimal air quality and system efficiency 
-                  for vessels of all sizes.
+                  {t('home.installation.description')}
                 </p>
               </div>
 
@@ -178,11 +174,11 @@ const HomePage = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">98%</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Client Satisfaction</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{t('home.stats.clientSatisfaction')}</div>
                 </div>
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
                   <div className="text-3xl font-bold text-primary-600 dark:text-primary-400">15+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">{t('home.stats.yearsExperience')}</div>
                 </div>
               </div>
             </motion.div>
@@ -200,8 +196,8 @@ const HomePage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg">
                   <div className="absolute bottom-4 left-4 text-white">
-                    <p className="text-sm font-semibold">Expert Installation</p>
-                    <p className="text-xs opacity-75">Marine-grade ventilation systems</p>
+                    <p className="text-sm font-semibold">{t('home.installation.expertInstallation')}</p>
+                    <p className="text-xs opacity-75">{t('home.installation.marineGrade')}</p>
                   </div>
                 </div>
               </div>
@@ -220,9 +216,9 @@ const HomePage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl font-bold mb-4">Our Services</h2>
+              <h2 className="text-3xl font-bold mb-4">{t('home.services.title')}</h2>
               <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Comprehensive ventilation solutions tailored to your specific needs
+                {t('home.services.subtitle')}
               </p>
             </motion.div>
           </div>
@@ -258,11 +254,9 @@ const HomePage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-2xl font-bold mb-6">Expert Airflow Measurement</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('home.measurement.title')}</h2>
               <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
-                Precise airflow measurement is crucial for maintaining optimal ventilation in marine environments. 
-                Our certified technicians use advanced equipment to ensure your vessel's ventilation system 
-                meets all safety standards and performance requirements.
+                {t('home.measurement.description')}
               </p>
 
               <div className="space-y-6 mb-8">
@@ -282,7 +276,7 @@ const HomePage = () => {
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold flex items-center">
                   <HelpCircle className="h-6 w-6 mr-2" />
-                  Common Questions
+                  {t('home.faq.title')}
                 </h3>
                 {commonQuestions.map((item, index) => (
                   <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
@@ -329,15 +323,15 @@ const HomePage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Ready to Improve Your Vessel's Ventilation?</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('home.cta.title')}</h2>
               <p className="text-xl text-gray-200 mb-8">
-                Contact our team of experts for a consultation and discover how we can enhance your vessel's air quality and energy efficiency.
+                {t('home.cta.description')}
               </p>
               <Link
                 to="/contact"
                 className="btn btn-primary btn-lg"
               >
-                Get a Free Consultation
+                {t('home.cta.button')}
               </Link>
             </motion.div>
           </div>
