@@ -507,19 +507,52 @@
   },
   "contact": {
     "title": "Связаться с Нами",
+    "subtitle": "Есть вопросы или нужна помощь? Обратитесь к нашей команде экспертов по вентиляции.",
+    "socialMedia": "Социальные сети",
+    "companyInfo": {
+      "title": "Информация о Компании",
+      "legalInfo": "Юридическая информация",
+      "bankingDetails": "Банковские реквизиты",
+      "companyName": "Название компании",
+      "companyCode": "Код компании",
+      "vatCode": "НДС код",
+      "bank": "Банк",
+      "account": "Счет",
+      "swift": "SWIFT"
+    },
+    "departments": {
+      "title": "Контакты отделов",
+      "accounting": "Бухгалтерия",
+      "hr": "Отдел кадров",
+      "management": "Руководство",
+      "chiefAccountant": "Главный бухгалтер",
+      "hrManager": "HR менеджер",
+      "operationsDirector": "Директор по операциям"
+    },
     "form": {
+      "title": "Отправить сообщение",
+      "selectDepartment": "Выберите отдел",
+      "selectDepartmentPlaceholder": "-- Выберите отдел --",
       "name": "Имя",
       "email": "Email",
       "message": "Сообщение",
       "send": "Отправить сообщение",
+      "sending": "Отправка...",
       "success": "Сообщение успешно отправлено!",
-      "error": "Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз."
+      "error": "Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.",
+      "selectDepartmentError": "Пожалуйста, выберите отдел",
+      "recaptchaError": "Пожалуйста, завершите проверку reCAPTCHA"
     },
     "offices": {
       "title": "Наши Офисы",
-      "headquarters": "Штаб-квартира"
+      "headquarters": "Штаб-квартира",
+      "mapTitle": "Наша штаб-квартира"
     },
-    "management": "Контакты Руководства"
+    "management": "Контакты Руководства",
+    "generalInquiry": "Общий запрос",
+    "hrDepartment": "Отдел кадров",
+    "accountant": "Бухгалтер",
+    "operationsDirector": "Директор по операциям"
   },
   "auth": {
     "login": {

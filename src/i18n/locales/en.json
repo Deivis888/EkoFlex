@@ -507,19 +507,52 @@
   },
   "contact": {
     "title": "Contact Us",
+    "subtitle": "Have questions or need assistance? Reach out to our team of ventilation experts.",
+    "socialMedia": "Social Media",
+    "companyInfo": {
+      "title": "Company Information",
+      "legalInfo": "Legal Information",
+      "bankingDetails": "Banking Details",
+      "companyName": "Company Name",
+      "companyCode": "Company Code",
+      "vatCode": "VAT Code",
+      "bank": "Bank",
+      "account": "Account",
+      "swift": "SWIFT"
+    },
+    "departments": {
+      "title": "Department Contacts",
+      "accounting": "Accounting Department",
+      "hr": "HR Department",
+      "management": "Management",
+      "chiefAccountant": "Chief Accountant",
+      "hrManager": "HR Manager",
+      "operationsDirector": "Operations Director"
+    },
     "form": {
+      "title": "Send Us a Message",
+      "selectDepartment": "Select Department",
+      "selectDepartmentPlaceholder": "-- Select Department --",
       "name": "Name",
       "email": "Email",
       "message": "Message",
       "send": "Send Message",
+      "sending": "Sending...",
       "success": "Message sent successfully!",
-      "error": "Error sending message. Please try again."
+      "error": "Error sending message. Please try again.",
+      "selectDepartmentError": "Please select a department",
+      "recaptchaError": "Please complete the reCAPTCHA verification"
     },
     "offices": {
       "title": "Our Offices",
-      "headquarters": "Headquarters"
+      "headquarters": "Headquarters",
+      "mapTitle": "Our Headquarters"
     },
-    "management": "Management Contacts"
+    "management": "Management Contacts",
+    "generalInquiry": "General Inquiry",
+    "hrDepartment": "HR Department",
+    "accountant": "Accountant",
+    "operationsDirector": "Operations Director"
   },
   "auth": {
     "login": {

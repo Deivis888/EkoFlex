@@ -507,19 +507,52 @@
   },
   "contact": {
     "title": "Susisiekite su mumis",
+    "subtitle": "Turite klausimų ar reikia pagalbos? Kreipkitės į mūsų ventiliacijos ekspertų komandą.",
+    "socialMedia": "Socialiniai tinklai",
+    "companyInfo": {
+      "title": "Įmonės informacija",
+      "legalInfo": "Teisinė informacija",
+      "bankingDetails": "Banko rekvizitai",
+      "companyName": "Įmonės pavadinimas",
+      "companyCode": "Įmonės kodas",
+      "vatCode": "PVM kodas",
+      "bank": "Bankas",
+      "account": "Sąskaita",
+      "swift": "SWIFT"
+    },
+    "departments": {
+      "title": "Skyrių kontaktai",
+      "accounting": "Apskaitos skyrius",
+      "hr": "Personalo skyrius",
+      "management": "Vadovybė",
+      "chiefAccountant": "Vyriausioji buhalterė",
+      "hrManager": "Personalo vadybininkas",
+      "operationsDirector": "Veiklos direktorius"
+    },
     "form": {
+      "title": "Siųsti žinutę",
+      "selectDepartment": "Pasirinkite skyrių",
+      "selectDepartmentPlaceholder": "-- Pasirinkite skyrių --",
       "name": "Vardas",
       "email": "El. paštas",
       "message": "Žinutė",
       "send": "Siųsti žinutę",
+      "sending": "Siunčiama...",
       "success": "Žinutė sėkmingai išsiųsta!",
-      "error": "Klaida siunčiant žinutę. Bandykite dar kartą."
+      "error": "Klaida siunčiant žinutę. Bandykite dar kartą.",
+      "selectDepartmentError": "Prašome pasirinkti skyrių",
+      "recaptchaError": "Prašome užpildyti reCAPTCHA patvirtinimą"
     },
     "offices": {
       "title": "Mūsų Biurai",
-      "headquarters": "Centrinė būstinė"
+      "headquarters": "Centrinė būstinė",
+      "mapTitle": "Mūsų būstinė"
     },
-    "management": "Vadovų Kontaktai"
+    "management": "Vadovų Kontaktai",
+    "generalInquiry": "Bendras užklausa",
+    "hrDepartment": "Personalo skyrius",
+    "accountant": "Buhalteris",
+    "operationsDirector": "Veiklos direktorius"
   },
   "auth": {
     "login": {
