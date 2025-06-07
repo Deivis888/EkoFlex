@@ -444,14 +444,65 @@
   },
   "careers": {
     "title": "Prisijunkite prie mūsų komandos",
-    "description": "Atraskite karjeros galimybes EkoFlex",
-    "joinUs": "Prisijunkite",
+    "subtitle": "Kurkite savo karjerą su jūrų ventiliacijos sprendimų lyderiu. Siūlome jaudinančias augimo ir inovacijų galimybes.",
+    "joinUs": "Peržiūrėti Atidarytas Pozicijas",
+    "applyNow": "Registruotis Dabar",
+    "culture": {
+      "title": "Mūsų Kultūra",
+      "description": "EkoFlex puoselėjame inovacijų, bendradarbiavimo ir nuolatinio mokymosi kultūrą. Mūsų komandos nariai yra aistringi teikdami puikius jūrų ventiliacijos sprendimus ir tuo pačiu metu augdami profesionaliai."
+    },
+    "values": {
+      "excellence": {
+        "title": "Puikybė",
+        "description": "Siekiame puikybės visame, ką darome"
+      },
+      "innovation": {
+        "title": "Inovacijos",
+        "description": "Stumiam jūrų ventiliacijos ribas"
+      },
+      "learning": {
+        "title": "Mokymasis",
+        "description": "Nuolatinis augimas ir tobulėjimas"
+      },
+      "workLife": {
+        "title": "Darbo-Gyvenimo Balansas",
+        "description": "Lankstūs darbo susitarimai"
+      }
+    },
     "benefits": {
       "title": "Kodėl verta dirbti su mumis",
-      "professional": "Profesinis Augimas",
-      "international": "Tarptautiniai Projektai",
-      "innovative": "Inovatyvus Darbas",
-      "supportive": "Palaikanti Komanda"
+      "professionalGrowth": {
+        "title": "Profesinis Augimas",
+        "description": "Nuolatinio mokymosi ir tobulėjimo galimybės"
+      },
+      "internationalProjects": {
+        "title": "Tarptautiniai Projektai",
+        "description": "Dirbkite prie įvairių projektų visame pasaulyje"
+      },
+      "innovationFocus": {
+        "title": "Inovacijų Dėmesys",
+        "description": "Prieiga prie naujausių technologijų ir sprendimų"
+      },
+      "greatTeam": {
+        "title": "Puiki Komanda",
+        "description": "Bendradarbiaujanti ir palaikanti darbo aplinka"
+      },
+      "healthBenefits": {
+        "title": "Sveikatos Privalumai",
+        "description": "Išsamus sveikatos ir gerovės paketas"
+      },
+      "competitivePay": {
+        "title": "Konkurencingas Atlyginimas",
+        "description": "Patrauklus atlyginimas ir veiklos premijos"
+      }
+    },
+    "stats": {
+      "teamMembers": "Komandos Narių"
+    },
+    "cta": {
+      "title": "Pasiruošę Pradėti Savo Kelionę?",
+      "description": "Prisijunkite prie mūsų komandos ir būkite dalimi inovatyvių jūrų ventiliacijos sprendimų.",
+      "viewPositions": "Peržiūrėti Atidarytas Pozicijas"
     }
   },
   "contact": {

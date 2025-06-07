@@ -444,14 +444,65 @@
   },
   "careers": {
     "title": "Join Our Team",
-    "description": "Discover career opportunities at EkoFlex",
-    "joinUs": "Join Us",
+    "subtitle": "Build your career with the leader in marine ventilation solutions. We offer exciting opportunities for growth and innovation.",
+    "joinUs": "View Open Positions",
+    "applyNow": "Apply Now",
+    "culture": {
+      "title": "Our Culture",
+      "description": "At EkoFlex, we foster a culture of innovation, collaboration, and continuous learning. Our team members are passionate about delivering excellence in marine ventilation solutions while growing professionally."
+    },
+    "values": {
+      "excellence": {
+        "title": "Excellence",
+        "description": "We strive for excellence in everything we do"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Pushing boundaries in marine ventilation"
+      },
+      "learning": {
+        "title": "Learning",
+        "description": "Continuous growth and development"
+      },
+      "workLife": {
+        "title": "Work-Life Balance",
+        "description": "Flexible working arrangements"
+      }
+    },
     "benefits": {
       "title": "Why Work With Us",
-      "professional": "Professional Growth",
-      "international": "International Projects",
-      "innovative": "Innovative Work",
-      "supportive": "Supportive Team"
+      "professionalGrowth": {
+        "title": "Professional Growth",
+        "description": "Continuous learning and development opportunities"
+      },
+      "internationalProjects": {
+        "title": "International Projects",
+        "description": "Work on diverse projects across the globe"
+      },
+      "innovationFocus": {
+        "title": "Innovation Focus",
+        "description": "Access to cutting-edge technology and solutions"
+      },
+      "greatTeam": {
+        "title": "Great Team",
+        "description": "Collaborative and supportive work environment"
+      },
+      "healthBenefits": {
+        "title": "Health Benefits",
+        "description": "Comprehensive health and wellness package"
+      },
+      "competitivePay": {
+        "title": "Competitive Pay",
+        "description": "Attractive salary and performance bonuses"
+      }
+    },
+    "stats": {
+      "teamMembers": "Team Members"
+    },
+    "cta": {
+      "title": "Ready to Start Your Journey?",
+      "description": "Join our team and be part of innovative marine ventilation solutions.",
+      "viewPositions": "View Open Positions"
     }
   },
   "contact": {

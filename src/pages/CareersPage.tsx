@@ -14,56 +14,56 @@ const CareersPage = () => {
   const benefits = [
     {
       icon: <GraduationCap className="h-6 w-6" />,
-      title: 'Professional Growth',
-      description: 'Continuous learning and development opportunities'
+      title: t('careers.benefits.professionalGrowth.title'),
+      description: t('careers.benefits.professionalGrowth.description')
     },
     {
       icon: <Globe className="h-6 w-6" />,
-      title: 'International Projects',
-      description: 'Work on diverse projects across the globe'
+      title: t('careers.benefits.internationalProjects.title'),
+      description: t('careers.benefits.internationalProjects.description')
     },
     {
       icon: <Zap className="h-6 w-6" />,
-      title: 'Innovation Focus',
-      description: 'Access to cutting-edge technology and solutions'
+      title: t('careers.benefits.innovationFocus.title'),
+      description: t('careers.benefits.innovationFocus.description')
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: 'Great Team',
-      description: 'Collaborative and supportive work environment'
+      title: t('careers.benefits.greatTeam.title'),
+      description: t('careers.benefits.greatTeam.description')
     },
     {
       icon: <Heart className="h-6 w-6" />,
-      title: 'Health Benefits',
-      description: 'Comprehensive health and wellness package'
+      title: t('careers.benefits.healthBenefits.title'),
+      description: t('careers.benefits.healthBenefits.description')
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
-      title: 'Competitive Pay',
-      description: 'Attractive salary and performance bonuses'
+      title: t('careers.benefits.competitivePay.title'),
+      description: t('careers.benefits.competitivePay.description')
     }
   ];
 
   const values = [
     {
       icon: <Award className="h-8 w-8" />,
-      title: 'Excellence',
-      description: 'We strive for excellence in everything we do'
+      title: t('careers.values.excellence.title'),
+      description: t('careers.values.excellence.description')
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: 'Innovation',
-      description: 'Pushing boundaries in marine ventilation'
+      title: t('careers.values.innovation.title'),
+      description: t('careers.values.innovation.description')
     },
     {
       icon: <BookOpen className="h-8 w-8" />,
-      title: 'Learning',
-      description: 'Continuous growth and development'
+      title: t('careers.values.learning.title'),
+      description: t('careers.values.learning.description')
     },
     {
       icon: <Coffee className="h-8 w-8" />,
-      title: 'Work-Life Balance',
-      description: 'Flexible working arrangements'
+      title: t('careers.values.workLife.title'),
+      description: t('careers.values.workLife.description')
     }
   ];
 
@@ -85,17 +85,16 @@ const CareersPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-white"
           >
-            <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('careers.title')}</h1>
             <p className="text-xl text-gray-200">
-              Build your career with the leader in marine ventilation solutions.
-              We offer exciting opportunities for growth and innovation.
+              {t('careers.subtitle')}
             </p>
             <div className="mt-8">
               <Link
                 to="/works"
                 className="btn btn-primary btn-lg inline-flex items-center"
               >
-                View Open Positions
+                {t('careers.joinUs')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </div>
@@ -106,10 +105,9 @@ const CareersPage = () => {
       <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Join EkoFlex?</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('careers.benefits.title')}</h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              We offer more than just a job - we provide a career path in an innovative
-              industry with opportunities for growth and development.
+              {t('careers.culture.description')}
             </p>
           </div>
 
@@ -145,11 +143,9 @@ const CareersPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl font-bold mb-6">Our Culture</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('careers.culture.title')}</h2>
               <p className="text-gray-600 dark:text-gray-400 mb-8">
-                At EkoFlex, we foster a culture of innovation, collaboration, and continuous
-                learning. Our team members are passionate about delivering excellence in
-                marine ventilation solutions while growing professionally.
+                {t('careers.culture.description')}
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {values.map((value, index) => (
@@ -181,7 +177,7 @@ const CareersPage = () => {
               />
               <div className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
                 <div className="text-4xl font-bold text-primary-600 dark:text-primary-400">50+</div>
-                <div className="text-gray-600 dark:text-gray-400">Team Members</div>
+                <div className="text-gray-600 dark:text-gray-400">{t('careers.stats.teamMembers')}</div>
               </div>
             </motion.div>
           </div>
@@ -199,9 +195,9 @@ const CareersPage = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">Ready to Start Your Journey?</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('careers.cta.title')}</h2>
             <p className="text-gray-200 mb-8">
-              Join our team and be part of innovative marine ventilation solutions.
+              {t('careers.cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
@@ -209,14 +205,14 @@ const CareersPage = () => {
                 className="btn btn-primary btn-lg inline-flex items-center justify-center"
               >
                 <Briefcase className="mr-2 h-5 w-5" />
-                View Open Positions
+                {t('careers.cta.viewPositions')}
               </Link>
               <Link
                 to="/register"
                 className="btn btn-primary btn-lg inline-flex items-center justify-center"
               >
                 <ArrowRight className="mr-2 h-5 w-5" />
-                Apply Now
+                {t('careers.applyNow')}
               </Link>
             </div>
           </div>
