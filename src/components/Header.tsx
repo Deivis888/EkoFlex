@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './ThemeToggle';
@@ -12,6 +12,8 @@ const Header = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,16 +30,31 @@ const Header = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    setServicesDropdownOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const navLinks = [
     { href: '/', label: t('navigation.home') },
     { href: '/market', label: t('navigation.market') },
-    { href: '/services', label: t('navigation.services') },
     { href: '/about', label: t('navigation.about') },
     { href: '/works', label: t('navigation.works') },
     { href: '/careers', label: t('navigation.careers') },
     { href: '/contact', label: t('navigation.contact') },
+  ];
+
+  const servicesSubMenu = [
+    { href: '/services', label: 'Ventiliacijos darbai' }
   ];
 
   return (
@@ -81,6 +98,47 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
+            
+            {/* Services Dropdown */}
+            <div className="relative" ref={servicesDropdownRef}>
+              <button
+                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                onMouseEnter={() => setServicesDropdownOpen(true)}
+                className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 flex items-center ${
+                  location.pathname.startsWith('/services')
+                    ? 'text-primary-600 dark:text-primary-400'
+                    : 'text-gray-700 dark:text-gray-300'
+                }`}
+              >
+                {t('navigation.services')}
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${
+                  servicesDropdownOpen ? 'rotate-180' : ''
+                }`} />
+              </button>
+
+              {servicesDropdownOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-0 mt-2 w-56 rounded-lg bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 z-50"
+                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                >
+                  <div className="py-2">
+                    {servicesSubMenu.map((item) => (
+                      <Link
+                        key={item.href}
+                        to={item.href}
+                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </div>
           </nav>
 
           {/* Right side actions */}
@@ -146,6 +204,26 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
+              
+              {/* Mobile Services Menu */}
+              <div className="space-y-2">
+                <div className="text-sm font-medium text-gray-700 dark:text-gray-300 p-2">
+                  {t('navigation.services')}
+                </div>
+                {servicesSubMenu.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={`text-sm font-medium p-2 pl-6 rounded-md transition-colors block ${
+                      location.pathname === item.href
+                        ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
+                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </nav>
             <div className="flex flex-col space-y-2 pt-2 border-t border-gray-200 dark:border-gray-800">
               <Link
