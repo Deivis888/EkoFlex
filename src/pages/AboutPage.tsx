@@ -11,40 +11,40 @@ const AboutPage = () => {
   const { t } = useTranslation();
 
   const stats = [
-    { value: '15+', label: 'Years Experience' },
-    { value: '500+', label: 'Projects Completed' },
-    { value: '50+', label: 'Expert Team Members' },
-    { value: '100%', label: 'Client Satisfaction' }
+    { value: '15+', label: t('about.stats.experience') },
+    { value: '500+', label: t('about.stats.projects') },
+    { value: '50+', label: t('about.stats.team') },
+    { value: '100%', label: t('about.stats.satisfaction') }
   ];
 
   const values = [
     {
       icon: <Shield className="h-6 w-6" />,
-      title: 'Quality First',
-      description: 'Uncompromising commitment to excellence in every project'
+      title: t('about.values.qualityFirst.title'),
+      description: t('about.values.qualityFirst.description')
     },
     {
       icon: <Target className="h-6 w-6" />,
-      title: 'Innovation',
-      description: 'Embracing cutting-edge technology and modern solutions'
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.description')
     },
     {
       icon: <Users className="h-6 w-6" />,
-      title: 'Expert Team',
-      description: 'Highly skilled professionals with extensive industry experience'
+      title: t('about.values.expertTeam.title'),
+      description: t('about.values.expertTeam.description')
     },
     {
       icon: <Globe className="h-6 w-6" />,
-      title: 'Global Reach',
-      description: 'Serving clients worldwide with local expertise'
+      title: t('about.values.globalReach.title'),
+      description: t('about.values.globalReach.description')
     }
   ];
 
   const certifications = [
-    'ISO 9001:2015 Certified',
-    'Maritime Safety Standards Compliant',
-    'Environmental Management Certified',
-    'International Ship Classification Approved'
+    t('about.certifications.iso9001'),
+    t('about.certifications.maritime'),
+    t('about.certifications.environmental'),
+    t('about.certifications.classification')
   ];
 
   return (
@@ -66,10 +66,9 @@ const AboutPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-white"
           >
-            <h1 className="text-4xl font-bold mb-4">About EkoFlex</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('about.title')}</h1>
             <p className="text-xl text-gray-200">
-              Leading provider of professional ventilation solutions for marine vessels,
-              backed by 15 years of industry expertise and innovation.
+              {t('about.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -112,22 +111,16 @@ const AboutPage = () => {
               transition={{ duration: 0.5 }}
               className="space-y-6"
             >
-              <h2 className="text-2xl font-bold">Our Story</h2>
+              <h2 className="text-2xl font-bold">{t('about.story.title')}</h2>
               <p className="text-gray-600 dark:text-gray-400">
-                Since our establishment in 2010, EkoFlex has been at the forefront of marine 
-                ventilation technology. Our journey began with a simple mission: to provide 
-                superior ventilation solutions that enhance safety, comfort, and efficiency 
-                aboard marine vessels.
+                {t('about.story.description1')}
               </p>
               <p className="text-gray-600 dark:text-gray-400">
-                With over 15 years of combined expertise in the industry, we're proud to be a trusted 
-                partner for shipyards, vessel operators, and marine engineers worldwide. Our commitment 
-                to innovation and excellence has earned us a reputation as an industry leader in marine 
-                ventilation systems.
+                {t('about.story.description2')}
               </p>
               
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Certifications</h3>
+                <h3 className="text-xl font-semibold">{t('about.certifications.title')}</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {certifications.map((cert, index) => (
                     <li key={index} className="flex items-center text-gray-700 dark:text-gray-300">
@@ -146,7 +139,7 @@ const AboutPage = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-2xl font-bold mb-6">Our Values</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('about.values.title')}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {values.map((value, index) => (
                   <div key={index} className="card p-6">
@@ -177,15 +170,15 @@ const AboutPage = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">Ready to Work Together?</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('about.cta.title')}</h2>
             <p className="text-gray-200 mb-8">
-              Let's discuss how we can help improve your vessel's ventilation system
+              {t('about.cta.description')}
             </p>
             <Link
               to="/contact"
               className="btn btn-primary btn-lg"
             >
-              Contact Our Team
+              {t('about.cta.button')}
             </Link>
           </div>
         </div>

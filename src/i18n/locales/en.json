@@ -310,6 +310,49 @@
   },
   "about": {
     "title": "About EkoFlex",
+    "subtitle": "Leading provider of marine ventilation solutions, backed by 15 years of industry expertise and innovation.",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "team": "Expert Team Members",
+      "satisfaction": "Client Satisfaction"
+    },
+    "story": {
+      "title": "Our Story",
+      "description1": "Since our establishment in 2010, EkoFlex has been at the forefront of marine ventilation technology. Our journey began with a simple mission: to provide superior ventilation solutions that enhance safety, comfort, and efficiency aboard marine vessels.",
+      "description2": "With over 15 years of combined expertise in the industry, we're proud to be a trusted partner for shipyards, vessel operators, and marine engineers worldwide. Our commitment to innovation and excellence has earned us a reputation as an industry leader in marine ventilation systems."
+    },
+    "certifications": {
+      "title": "Certifications",
+      "iso9001": "ISO 9001:2015 Certified",
+      "maritime": "Maritime Safety Standards Compliant",
+      "environmental": "Environmental Management Certified",
+      "classification": "International Ship Classification Approved"
+    },
+    "values": {
+      "title": "Our Values",
+      "qualityFirst": {
+        "title": "Quality First",
+        "description": "Uncompromising commitment to excellence in every project"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Embracing cutting-edge technology and modern solutions"
+      },
+      "expertTeam": {
+        "title": "Expert Team",
+        "description": "Highly skilled professionals with extensive industry experience"
+      },
+      "globalReach": {
+        "title": "Global Reach",
+        "description": "Serving clients worldwide with local expertise"
+      }
+    },
+    "cta": {
+      "title": "Ready to Work Together?",
+      "description": "Let's discuss how we can help improve your vessel's ventilation system",
+      "button": "Contact Our Team"
+    },
     "mission": {
       "title": "Our Mission",
       "description": "To provide exceptional ventilation solutions that improve air quality and energy efficiency in maritime and industrial environments"

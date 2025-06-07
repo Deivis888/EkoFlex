@@ -310,6 +310,49 @@
   },
   "about": {
     "title": "Apie EkoFlex",
+    "subtitle": "Pirmaujantis jūrų ventiliacijos sprendimų tiekėjas, turintis 15 metų pramonės patirtį ir inovacijų.",
+    "stats": {
+      "experience": "Metų Patirtis",
+      "projects": "Užbaigtų Projektų",
+      "team": "Ekspertų Komandos Narių",
+      "satisfaction": "Klientų Pasitenkinimas"
+    },
+    "story": {
+      "title": "Mūsų Istorija",
+      "description1": "Nuo mūsų įsteigimo 2010 metais, EkoFlex buvo jūrų ventiliacijos technologijų priekyje. Mūsų kelionė prasidėjo su paprasta misija: teikti aukščiausios kokybės ventiliacijos sprendimus, kurie pagerina saugumą, komfortą ir efektyvumą jūrų laivuose.",
+      "description2": "Turėdami daugiau nei 15 metų bendrą patirtį pramonėje, didžiuojamės būdami patikimu partneriu laivų statykloms, laivų operatoriams ir jūrų inžinieriams visame pasaulyje. Mūsų įsipareigojimas inovacijoms ir puikybei atnešė mums reputaciją kaip pramonės lyderiui jūrų ventiliacijos sistemų srityje."
+    },
+    "certifications": {
+      "title": "Sertifikatai",
+      "iso9001": "ISO 9001:2015 Sertifikuotas",
+      "maritime": "Jūrų Saugos Standartų Atitiktis",
+      "environmental": "Aplinkos Valdymo Sertifikuotas",
+      "classification": "Tarptautinės Laivų Klasifikacijos Patvirtintas"
+    },
+    "values": {
+      "title": "Mūsų Vertybės",
+      "qualityFirst": {
+        "title": "Kokybė Pirmoje Vietoje",
+        "description": "Neprilygstamas įsipareigojimas puikybei kiekviename projekte"
+      },
+      "innovation": {
+        "title": "Inovacijos",
+        "description": "Naujausių technologijų ir šiuolaikinių sprendimų priėmimas"
+      },
+      "expertTeam": {
+        "title": "Ekspertų Komanda",
+        "description": "Aukštos kvalifikacijos specialistai su plačia pramonės patirtimi"
+      },
+      "globalReach": {
+        "title": "Globalus Pasiekiamumas",
+        "description": "Klientų aptarnavimas visame pasaulyje su vietine ekspertize"
+      }
+    },
+    "cta": {
+      "title": "Pasiruošę Dirbti Kartu?",
+      "description": "Aptarkime, kaip galime padėti pagerinti jūsų laivo ventiliacijos sistemą",
+      "button": "Susisiekti su Mūsų Komanda"
+    },
     "mission": {
       "title": "Mūsų Misija",
       "description": "Teikti išskirtinius ventiliacijos sprendimus, gerinančius oro kokybę ir energijos efektyvumą jūrų ir pramoninėje aplinkoje"
