@@ -209,33 +209,102 @@
   },
   "services": {
     "title": "Our Services",
+    "subtitle": "Professional marine ventilation solutions for all vessel types, backed by years of experience and modern technology.",
     "installation": {
       "title": "Ventilation Installation",
-      "description": "Complete ventilation system installation for all vessel types"
+      "description": "Complete ventilation system installation for marine vessels",
+      "features": {
+        "systemDesign": "System design and planning",
+        "customDuctwork": "Custom ductwork fabrication",
+        "airHandling": "Air handling unit installation",
+        "controlSystem": "Control system integration",
+        "fireDamper": "Fire and smoke damper setup",
+        "heatRecovery": "Heat recovery systems",
+        "testing": "Testing and commissioning"
+      }
+    },
+    "airflow": {
+      "title": "Airflow Measurement",
+      "description": "Professional airflow measurement and balancing services",
+      "features": {
+        "digitalReadings": "Digital anemometer readings",
+        "pressureTesting": "Pressure differential testing",
+        "volumeCalculation": "Volume flow rate calculation",
+        "temperatureMonitoring": "Temperature monitoring",
+        "airQualityAssessment": "Air quality assessment",
+        "systemBalance": "System balance verification",
+        "detailedReporting": "Detailed reporting"
+      }
+    },
+    "safety": {
+      "title": "Fire Safety Systems",
+      "description": "Fire and smoke control ventilation systems",
+      "features": {
+        "fireDamperInstallation": "Fire damper installation",
+        "smokeControl": "Smoke control systems",
+        "emergencyShutdown": "Emergency shutdown setup",
+        "safetyCertification": "Safety certification",
+        "regularTesting": "Regular testing",
+        "complianceVerification": "Compliance verification",
+        "documentation": "Documentation"
+      }
     },
     "maintenance": {
       "title": "Repair & Maintenance",
-      "description": "Regular maintenance and emergency repair services"
+      "description": "Regular maintenance and emergency repair services",
+      "features": {
+        "scheduledInspections": "Scheduled inspections",
+        "filterReplacement": "Filter replacement",
+        "systemCleaning": "System cleaning",
+        "performanceOptimization": "Performance optimization",
+        "emergencyRepairs": "Emergency repairs",
+        "preventiveMaintenance": "Preventive maintenance",
+        "componentUpgrades": "Component upgrades"
+      }
     },
-    "security": {
-      "title": "Security Solutions",
-      "description": "Safety-focused ventilation designs and upgrades"
+    "installationProcess": {
+      "title": "Installation Process",
+      "designPlanning": {
+        "title": "Design & Planning",
+        "description": "Custom system design based on vessel requirements",
+        "features": {
+          "vesselAnalysis": "Vessel analysis",
+          "systemModeling": "System modeling",
+          "componentSelection": "Component selection"
+        }
+      },
+      "installation": {
+        "title": "Installation",
+        "description": "Professional installation by certified technicians",
+        "features": {
+          "componentSetup": "Component setup",
+          "systemIntegration": "System integration",
+          "qualityControl": "Quality control"
+        }
+      },
+      "testing": {
+        "title": "Testing",
+        "description": "Comprehensive testing and system balancing",
+        "features": {
+          "performanceTests": "Performance tests",
+          "balanceChecks": "Balance checks",
+          "safetyVerification": "Safety verification"
+        }
+      },
+      "certification": {
+        "title": "Certification",
+        "description": "Complete documentation and certification",
+        "features": {
+          "complianceCheck": "Compliance check",
+          "documentation": "Documentation",
+          "finalApproval": "Final approval"
+        }
+      }
     },
-    "development": {
-      "title": "System Development",
-      "description": "Custom ventilation system design and implementation"
-    },
-    "optimization": {
-      "title": "Optimization",
-      "description": "Performance improvements for existing systems"
-    },
-    "testing": {
-      "title": "Diagnostics & Testing",
-      "description": "Comprehensive system evaluation and performance testing"
-    },
-    "cleaning": {
-      "title": "Duct Cleaning",
-      "description": "Professional cleaning of ventilation systems and ducts"
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Contact our team for a consultation and discover how we can enhance your vessel's ventilation system.",
+      "button": "Get a Free Consultation"
     },
     "readMore": "Read More"
   },

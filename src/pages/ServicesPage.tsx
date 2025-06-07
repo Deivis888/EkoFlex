@@ -15,61 +15,61 @@ const ServicesPage = () => {
     {
       id: 'installation',
       icon: <Wind className="h-10 w-10" />,
-      title: 'Ventilation Installation',
-      description: 'Complete ventilation system installation for marine vessels',
+      title: t('services.installation.title'),
+      description: t('services.installation.description'),
       features: [
-        'System design and planning',
-        'Custom ductwork fabrication',
-        'Air handling unit installation',
-        'Control system integration',
-        'Fire and smoke damper setup',
-        'Heat recovery systems',
-        'Testing and commissioning'
+        t('services.installation.features.systemDesign'),
+        t('services.installation.features.customDuctwork'),
+        t('services.installation.features.airHandling'),
+        t('services.installation.features.controlSystem'),
+        t('services.installation.features.fireDamper'),
+        t('services.installation.features.heatRecovery'),
+        t('services.installation.features.testing')
       ]
     },
     {
       id: 'airflow',
       icon: <Fan className="h-10 w-10" />,
-      title: 'Airflow Measurement',
-      description: 'Professional airflow measurement and balancing services',
+      title: t('services.airflow.title'),
+      description: t('services.airflow.description'),
       features: [
-        'Digital anemometer readings',
-        'Pressure differential testing',
-        'Volume flow rate calculation',
-        'Temperature monitoring',
-        'Air quality assessment',
-        'System balance verification',
-        'Detailed reporting'
+        t('services.airflow.features.digitalReadings'),
+        t('services.airflow.features.pressureTesting'),
+        t('services.airflow.features.volumeCalculation'),
+        t('services.airflow.features.temperatureMonitoring'),
+        t('services.airflow.features.airQualityAssessment'),
+        t('services.airflow.features.systemBalance'),
+        t('services.airflow.features.detailedReporting')
       ]
     },
     {
       id: 'safety',
       icon: <AlertTriangle className="h-10 w-10" />,
-      title: 'Fire Safety Systems',
-      description: 'Fire and smoke control ventilation systems',
+      title: t('services.safety.title'),
+      description: t('services.safety.description'),
       features: [
-        'Fire damper installation',
-        'Smoke control systems',
-        'Emergency shutdown setup',
-        'Safety certification',
-        'Regular testing',
-        'Compliance verification',
-        'Documentation'
+        t('services.safety.features.fireDamperInstallation'),
+        t('services.safety.features.smokeControl'),
+        t('services.safety.features.emergencyShutdown'),
+        t('services.safety.features.safetyCertification'),
+        t('services.safety.features.regularTesting'),
+        t('services.safety.features.complianceVerification'),
+        t('services.safety.features.documentation')
       ]
     },
     {
       id: 'maintenance',
       icon: <Wrench className="h-10 w-10" />,
-      title: 'Maintenance Services',
-      description: 'Regular maintenance and emergency repairs',
+      title: t('services.maintenance.title'),
+      description: t('services.maintenance.description'),
       features: [
-        'Scheduled inspections',
-        'Filter replacement',
-        'System cleaning',
-        'Performance optimization',
-        'Emergency repairs',
-        'Preventive maintenance',
-        'Component upgrades'
+        t('services.maintenance.features.scheduledInspections'),
+        t('services.maintenance.features.filterReplacement'),
+        t('services.maintenance.features.systemCleaning'),
+        t('services.maintenance.features.performanceOptimization'),
+        t('services.maintenance.features.emergencyRepairs'),
+        t('services.maintenance.features.preventiveMaintenance'),
+        t('services.maintenance.features.componentUpgrades')
       ]
     }
   ];
@@ -77,27 +77,43 @@ const ServicesPage = () => {
   const installationSteps = [
     {
       icon: <Tool className="h-8 w-8" />,
-      title: "Design & Planning",
-      description: "Custom system design based on vessel requirements",
-      features: ['Vessel analysis', 'System modeling', 'Component selection']
+      title: t('services.installationProcess.designPlanning.title'),
+      description: t('services.installationProcess.designPlanning.description'),
+      features: [
+        t('services.installationProcess.designPlanning.features.vesselAnalysis'),
+        t('services.installationProcess.designPlanning.features.systemModeling'),
+        t('services.installationProcess.designPlanning.features.componentSelection')
+      ]
     },
     {
       icon: <Cog className="h-8 w-8" />,
-      title: "Installation",
-      description: "Professional installation by certified technicians",
-      features: ['Component setup', 'System integration', 'Quality control']
+      title: t('services.installationProcess.installation.title'),
+      description: t('services.installationProcess.installation.description'),
+      features: [
+        t('services.installationProcess.installation.features.componentSetup'),
+        t('services.installationProcess.installation.features.systemIntegration'),
+        t('services.installationProcess.installation.features.qualityControl')
+      ]
     },
     {
       icon: <Gauge className="h-8 w-8" />,
-      title: "Testing",
-      description: "Comprehensive testing and system balancing",
-      features: ['Performance tests', 'Balance checks', 'Safety verification']
+      title: t('services.installationProcess.testing.title'),
+      description: t('services.installationProcess.testing.description'),
+      features: [
+        t('services.installationProcess.testing.features.performanceTests'),
+        t('services.installationProcess.testing.features.balanceChecks'),
+        t('services.installationProcess.testing.features.safetyVerification')
+      ]
     },
     {
       icon: <CheckCircle2 className="h-8 w-8" />,
-      title: "Certification",
-      description: "Complete documentation and certification",
-      features: ['Compliance check', 'Documentation', 'Final approval']
+      title: t('services.installationProcess.certification.title'),
+      description: t('services.installationProcess.certification.description'),
+      features: [
+        t('services.installationProcess.certification.features.complianceCheck'),
+        t('services.installationProcess.certification.features.documentation'),
+        t('services.installationProcess.certification.features.finalApproval')
+      ]
     }
   ];
 
@@ -119,10 +135,9 @@ const ServicesPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-white"
           >
-            <h1 className="text-4xl font-bold mb-4">Marine Ventilation Services</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('services.title')}</h1>
             <p className="text-xl text-gray-200">
-              Professional ventilation solutions for all marine vessels, backed by
-              years of experience and modern technology.
+              {t('services.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -168,7 +183,7 @@ const ServicesPage = () => {
 
       <section className="py-16 bg-white dark:bg-gray-800">
         <div className="container-custom">
-          <h2 className="text-2xl font-bold text-center mb-12">Installation Process</h2>
+          <h2 className="text-2xl font-bold text-center mb-12">{t('services.installationProcess.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {installationSteps.map((step, index) => (
               <motion.div
@@ -209,16 +224,15 @@ const ServicesPage = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('services.cta.title')}</h2>
             <p className="text-gray-200 mb-8">
-              Contact our team for a consultation and discover how we can enhance
-              your vessel's ventilation system.
+              {t('services.cta.description')}
             </p>
             <Link 
               to="/contact" 
               className="btn btn-primary btn-lg"
             >
-              Get a Free Consultation
+              {t('services.cta.button')}
             </Link>
           </div>
         </div>

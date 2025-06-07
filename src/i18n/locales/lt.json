@@ -209,33 +209,102 @@
   },
   "services": {
     "title": "Mūsų Paslaugos",
+    "subtitle": "Profesionalūs jūrų ventiliacijos sprendimai visų tipų laivams, paremti metų patirtimi ir šiuolaikiškomis technologijomis.",
     "installation": {
       "title": "Ventiliacijos Montavimas",
-      "description": "Pilnas ventiliacijos sistemų montavimas visų tipų laivams"
+      "description": "Pilnas ventiliacijos sistemų montavimas jūrų laivams",
+      "features": {
+        "systemDesign": "Sistemos projektavimas ir planavimas",
+        "customDuctwork": "Individualių oro kanalų gamyba",
+        "airHandling": "Oro tvarkymo įrenginių montavimas",
+        "controlSystem": "Valdymo sistemų integracija",
+        "fireDamper": "Gaisro ir dūmų sklendžių įrengimas",
+        "heatRecovery": "Šilumos atgavimo sistemos",
+        "testing": "Testavimas ir paleidimas"
+      }
+    },
+    "airflow": {
+      "title": "Oro Srauto Matavimas",
+      "description": "Profesionalūs oro srauto matavimo ir balansavimo darbai",
+      "features": {
+        "digitalReadings": "Skaitmeninių anemometrų rodmenys",
+        "pressureTesting": "Slėgio skirtumo testavimas",
+        "volumeCalculation": "Tūrinio srauto greičio skaičiavimas",
+        "temperatureMonitoring": "Temperatūros stebėjimas",
+        "airQualityAssessment": "Oro kokybės vertinimas",
+        "systemBalance": "Sistemos balanso tikrinimas",
+        "detailedReporting": "Išsamūs ataskaitos"
+      }
+    },
+    "safety": {
+      "title": "Gaisrinės Saugos Sistemos",
+      "description": "Gaisro ir dūmų kontrolės ventiliacijos sistemos",
+      "features": {
+        "fireDamperInstallation": "Gaisro sklendžių montavimas",
+        "smokeControl": "Dūmų kontrolės sistemos",
+        "emergencyShutdown": "Avarinės sustabdymo sistemos",
+        "safetyCertification": "Saugos sertifikavimas",
+        "regularTesting": "Reguliarūs testai",
+        "complianceVerification": "Atitikties tikrinimas",
+        "documentation": "Dokumentacija"
+      }
     },
     "maintenance": {
       "title": "Remontas ir Priežiūra",
-      "description": "Reguliari priežiūra ir avarinių remontų paslaugos"
+      "description": "Reguliari priežiūra ir avarinių remontų paslaugos",
+      "features": {
+        "scheduledInspections": "Suplanuotos apžiūros",
+        "filterReplacement": "Filtrų keitimas",
+        "systemCleaning": "Sistemų valymas",
+        "performanceOptimization": "Veikimo optimizavimas",
+        "emergencyRepairs": "Avariniai remontai",
+        "preventiveMaintenance": "Prevencinė priežiūra",
+        "componentUpgrades": "Komponentų atnaujinimai"
+      }
     },
-    "security": {
-      "title": "Saugumo Sprendimai",
-      "description": "Saugumu paremti ventiliacijos projektai ir atnaujinimai"
+    "installationProcess": {
+      "title": "Montavimo Procesas",
+      "designPlanning": {
+        "title": "Projektavimas ir Planavimas",
+        "description": "Individualus sistemos projektavimas pagal laivo reikalavimus",
+        "features": {
+          "vesselAnalysis": "Laivo analizė",
+          "systemModeling": "Sistemos modeliavimas",
+          "componentSelection": "Komponentų parinkimas"
+        }
+      },
+      "installation": {
+        "title": "Montavimas",
+        "description": "Profesionalus montavimas sertifikuotų technikų",
+        "features": {
+          "componentSetup": "Komponentų įrengimas",
+          "systemIntegration": "Sistemos integracija",
+          "qualityControl": "Kokybės kontrolė"
+        }
+      },
+      "testing": {
+        "title": "Testavimas",
+        "description": "Išsamus testavimas ir sistemos balansavimas",
+        "features": {
+          "performanceTests": "Veikimo testai",
+          "balanceChecks": "Balanso patikrinimai",
+          "safetyVerification": "Saugos tikrinimas"
+        }
+      },
+      "certification": {
+        "title": "Sertifikavimas",
+        "description": "Pilna dokumentacija ir sertifikavimas",
+        "features": {
+          "complianceCheck": "Atitikties tikrinimas",
+          "documentation": "Dokumentacija",
+          "finalApproval": "Galutinis patvirtinimas"
+        }
+      }
     },
-    "development": {
-      "title": "Sistemų Kūrimas",
-      "description": "Individualūs ventiliacijos sistemų projektai ir įgyvendinimas"
-    },
-    "optimization": {
-      "title": "Optimizavimas",
-      "description": "Esamų sistemų našumo gerinimas"
-    },
-    "testing": {
-      "title": "Diagnostika ir Testavimas",
-      "description": "Išsami sistemų analizė ir veikimo testavimas"
-    },
-    "cleaning": {
-      "title": "Kanalų Valymas",
-      "description": "Profesionalus ventiliacijos sistemų ir kanalų valymas"
+    "cta": {
+      "title": "Pasiruošę Pradėti?",
+      "description": "Susisiekite su mūsų komanda konsultacijai ir sužinokite, kaip galime pagerinti jūsų laivo ventiliacijos sistemą.",
+      "button": "Gauti Nemokamą Konsultaciją"
     },
     "readMore": "Skaityti daugiau"
   },
