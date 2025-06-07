@@ -141,7 +141,7 @@ const ContactPage = () => {
     if (!selectedDepartment) {
       setStatus({
         type: 'error',
-        message: 'Please select a department'
+        message: t('contact.form.selectDepartmentError')
       });
       setIsSubmitting(false);
       return;
@@ -154,7 +154,7 @@ const ContactPage = () => {
     if (!recaptchaResponse) {
       setStatus({
         type: 'error',
-        message: 'Please complete the reCAPTCHA verification'
+        message: t('contact.form.recaptchaError')
       });
       setIsSubmitting(false);
       return;
@@ -217,7 +217,7 @@ const ContactPage = () => {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('contact.title')}</h1>
             <p className="text-xl text-gray-200">
-              Have questions or need assistance? Reach out to our team of ventilation experts.
+              {t('contact.subtitle')}
             </p>
             <div className="flex space-x-4 mt-6">
               <a 
@@ -273,23 +273,23 @@ const ContactPage = () => {
           >
             <h2 className="text-2xl font-bold mb-6 flex items-center">
               <Building2 className="h-6 w-6 mr-2" />
-              Company Information
+              {t('contact.companyInfo.title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-semibold mb-4">Legal Information</h3>
+                <h3 className="font-semibold mb-4">{t('contact.companyInfo.legalInfo')}</h3>
                 <div className="space-y-2 text-gray-600 dark:text-gray-400">
-                  <p><strong>Company Name:</strong> {companyInfo.name}</p>
-                  <p><strong>Company Code:</strong> {companyInfo.code}</p>
-                  <p><strong>VAT Code:</strong> {companyInfo.vatCode}</p>
+                  <p><strong>{t('contact.companyInfo.companyName')}:</strong> {companyInfo.name}</p>
+                  <p><strong>{t('contact.companyInfo.companyCode')}:</strong> {companyInfo.code}</p>
+                  <p><strong>{t('contact.companyInfo.vatCode')}:</strong> {companyInfo.vatCode}</p>
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold mb-4">Banking Details</h3>
+                <h3 className="font-semibold mb-4">{t('contact.companyInfo.bankingDetails')}</h3>
                 <div className="space-y-2 text-gray-600 dark:text-gray-400">
-                  <p><strong>Bank:</strong> {companyInfo.bankName}</p>
-                  <p><strong>Account:</strong> {companyInfo.bankAccount}</p>
-                  <p><strong>SWIFT:</strong> {companyInfo.swift}</p>
+                  <p><strong>{t('contact.companyInfo.bank')}:</strong> {companyInfo.bankName}</p>
+                  <p><strong>{t('contact.companyInfo.account')}:</strong> {companyInfo.bankAccount}</p>
+                  <p><strong>{t('contact.companyInfo.swift')}:</strong> {companyInfo.swift}</p>
                 </div>
               </div>
             </div>
@@ -300,7 +300,7 @@ const ContactPage = () => {
       {/* Departments */}
       <section className="py-12 bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
-          <h2 className="text-2xl font-bold mb-8">Department Contacts</h2>
+          <h2 className="text-2xl font-bold mb-8">{t('contact.departments.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {departments.map((dept, index) => (
               <motion.div
@@ -315,13 +315,19 @@ const ContactPage = () => {
                   {dept.name === 'Accounting Department' && <Calculator className="h-5 w-5 mr-2" />}
                   {dept.name === 'HR Department' && <Users className="h-5 w-5 mr-2" />}
                   {dept.name === 'Management' && <Building2 className="h-5 w-5 mr-2" />}
-                  {dept.name}
+                  {dept.name === 'Accounting Department' && t('contact.departments.accounting')}
+                  {dept.name === 'HR Department' && t('contact.departments.hr')}
+                  {dept.name === 'Management' && t('contact.departments.management')}
                 </h3>
                 <div className="space-y-4">
                   {dept.contacts.map((contact, i) => (
                     <div key={i} className="border-t dark:border-gray-700 pt-4 first:border-0 first:pt-0">
                       {contact.name && <p className="font-medium">{contact.name}</p>}
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{contact.position}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {contact.position === 'Chief Accountant' && t('contact.departments.chiefAccountant')}
+                        {contact.position === 'HR Manager' && t('contact.departments.hrManager')}
+                        {contact.position === 'Operations Director' && t('contact.departments.operationsDirector')}
+                      </p>
                       <div className="mt-2 space-y-1">
                         <a 
                           href={`mailto:${contact.email}`}
@@ -362,12 +368,12 @@ const ContactPage = () => {
               className="bg-white dark:bg-gray-800"
             >
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+                <h2 className="text-2xl font-bold mb-6">{t('contact.form.title')}</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="department" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                      Select Department
+                      {t('contact.form.selectDepartment')}
                     </label>
                     <select
                       id="department"
@@ -377,9 +383,14 @@ const ContactPage = () => {
                       onChange={(e) => setSelectedDepartment(e.target.value)}
                       required
                     >
-                      <option value="">-- Select Department --</option>
+                      <option value="">{t('contact.form.selectDepartmentPlaceholder')}</option>
                       {Object.keys(formspreeIds).map((dept) => (
-                        <option key={dept} value={dept}>{dept}</option>
+                        <option key={dept} value={dept}>
+                          {dept === 'General Inquiry' && t('contact.generalInquiry')}
+                          {dept === 'HR Department' && t('contact.hrDepartment')}
+                          {dept === 'Accountant' && t('contact.accountant')}
+                          {dept === 'Operations Director' && t('contact.operationsDirector')}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -461,7 +472,7 @@ const ContactPage = () => {
                     </div>
                     <div className="absolute inset-[1px] bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center transition-transform group-hover:scale-[0.99]">
                       <Send className="h-5 w-5 mr-2" />
-                      {isSubmitting ? 'Sending...' : t('contact.form.send')}
+                      {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
                     </div>
                   </button>
                 </form>
@@ -525,7 +536,7 @@ const ContactPage = () => {
       {/* Map */}
       <section className="py-12 bg-gray-50 dark:bg-gray-900">
         <div className="container-custom">
-          <h2 className="text-2xl font-bold mb-8 text-center">Our Headquarters</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">{t('contact.offices.mapTitle')}</h2>
           <div className="rounded-lg overflow-hidden h-[400px] shadow-md">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2294.2606447937243!2d23.95963937678168!3d54.91422997429161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e718f1e1b0d4d9%3A0x3c4b5f5b5b5b5b5b!2sChemijos%20g.%2027C-62%2C%20Kaunas%2051332!5e0!3m2!1sen!2slt!4v1620000000000!5m2!1sen!2slt" 
