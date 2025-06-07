@@ -47,7 +47,6 @@ const Header = () => {
   const navLinks = [
     { href: '/', label: t('navigation.home') },
     { href: '/market', label: t('navigation.market') },
-    { href: '/services', label: t('navigation.services') },
     { href: '/about', label: t('navigation.about') },
     { href: '/works', label: t('navigation.works') },
     { href: '/careers', label: t('navigation.careers') },
@@ -86,19 +85,29 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            {navLinks.filter(link => link.href !== '/services').map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
-                  location.pathname === link.href
-                    ? 'text-primary-600 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {/* Home */}
+            <Link
+              to="/"
+              className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+                location.pathname === '/'
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {t('navigation.home')}
+            </Link>
+            
+            {/* Market */}
+            <Link
+              to="/market"
+              className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+                location.pathname === '/market'
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {t('navigation.market')}
+            </Link>
             
             {/* Services Dropdown */}
             <div className="relative" ref={servicesDropdownRef}>
@@ -140,6 +149,54 @@ const Header = () => {
                 </motion.div>
               )}
             </div>
+            
+            {/* About */}
+            <Link
+              to="/about"
+              className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+                location.pathname === '/about'
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {t('navigation.about')}
+            </Link>
+            
+            {/* Works */}
+            <Link
+              to="/works"
+              className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+                location.pathname === '/works'
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {t('navigation.works')}
+            </Link>
+            
+            {/* Careers */}
+            <Link
+              to="/careers"
+              className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+                location.pathname === '/careers'
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {t('navigation.careers')}
+            </Link>
+            
+            {/* Contact */}
+            <Link
+              to="/contact"
+              className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
+                location.pathname === '/contact'
+                  ? 'text-primary-600 dark:text-primary-400'
+                  : 'text-gray-700 dark:text-gray-300'
+              }`}
+            >
+              {t('navigation.contact')}
+            </Link>
           </nav>
 
           {/* Right side actions */}
@@ -192,19 +249,29 @@ const Header = () => {
         >
           <div className="container-custom py-4 flex flex-col space-y-4">
             <nav className="flex flex-col space-y-4">
-              {navLinks.filter(link => link.href !== '/services').map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`text-sm font-medium p-2 rounded-md transition-colors ${
-                    location.pathname === link.href
-                      ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {/* Home */}
+              <Link
+                to="/"
+                className={`text-sm font-medium p-2 rounded-md transition-colors ${
+                  location.pathname === '/'
+                    ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                {t('navigation.home')}
+              </Link>
+              
+              {/* Market */}
+              <Link
+                to="/market"
+                className={`text-sm font-medium p-2 rounded-md transition-colors ${
+                  location.pathname === '/market'
+                    ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                {t('navigation.market')}
+              </Link>
               
               {/* Mobile Services Menu */}
               <div className="space-y-2">
@@ -225,6 +292,54 @@ const Header = () => {
                   </Link>
                 ))}
               </div>
+              
+              {/* About */}
+              <Link
+                to="/about"
+                className={`text-sm font-medium p-2 rounded-md transition-colors ${
+                  location.pathname === '/about'
+                    ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                {t('navigation.about')}
+              </Link>
+              
+              {/* Works */}
+              <Link
+                to="/works"
+                className={`text-sm font-medium p-2 rounded-md transition-colors ${
+                  location.pathname === '/works'
+                    ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                {t('navigation.works')}
+              </Link>
+              
+              {/* Careers */}
+              <Link
+                to="/careers"
+                className={`text-sm font-medium p-2 rounded-md transition-colors ${
+                  location.pathname === '/careers'
+                    ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                {t('navigation.careers')}
+              </Link>
+              
+              {/* Contact */}
+              <Link
+                to="/contact"
+                className={`text-sm font-medium p-2 rounded-md transition-colors ${
+                  location.pathname === '/contact'
+                    ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                {t('navigation.contact')}
+              </Link>
             </nav>
             <div className="flex flex-col space-y-2 pt-2 border-t border-gray-200 dark:border-gray-800">
               <Link
