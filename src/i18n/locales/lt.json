@@ -114,21 +114,96 @@
   },
   "market": {
     "title": "Mūsų Rinkos Sektoriai",
+    "subtitle": "Specializuoti ventiliacijos sprendimai kiekvienam laivo tipui, užtikrinantys optimalų veikimą ir atitiktį pramonės standartams.",
     "cruise": {
-      "title": "Kruiziniai ir Keltai",
-      "description": "Ventiliacijos sprendimai kruiziniams laivams ir keleiviams keltams"
+      "title": "Kruiziniai Laivai",
+      "description": "Pažangūs ventiliacijos sprendimai keleiviniams kruiziniams laivams",
+      "features": {
+        "airDistribution": "Pažangus oro paskirstymas",
+        "energyEfficient": "Energijos taupymo sistemos",
+        "passengerComfort": "Keleivių komforto užtikrinimas",
+        "zoneControl": "Zonų klimato valdymas",
+        "airQuality": "Oro kokybės stebėjimas"
+      }
+    },
+    "ferry": {
+      "title": "Keltų Laivai",
+      "description": "Specializuotos sistemos keleivių ir transporto priemonių keltams",
+      "features": {
+        "dualPurpose": "Dviejų tikslų ventiliacija",
+        "vehicleDeck": "Transporto priemonių denio išmetimas",
+        "quickExchange": "Greitas oro keitimas",
+        "weatherAdaptive": "Prisitaikantis prie oro sąlygų",
+        "energyOptimization": "Energijos optimizavimas"
+      }
     },
     "yachting": {
-      "title": "Jachtos",
-      "description": "Individualios sistemos prabangos jachtoms ir privatiems laivams"
+      "title": "Prabangos Jachtos",
+      "description": "Aukščiausios kokybės ventiliacijos sprendimai privatiems laivams",
+      "features": {
+        "customDesign": "Individualus prabangos dizainas",
+        "silentOperation": "Tylus veikimas",
+        "smartControl": "Išmanusis klimato valdymas",
+        "individualZones": "Individualios zonos",
+        "premiumQuality": "Aukščiausia oro kokybė"
+      }
     },
     "naval": {
       "title": "Karinis Laivynas",
-      "description": "Specializuoti sprendimai kariniams laivams"
+      "description": "Karinės klasės ventiliacijos sistemos",
+      "features": {
+        "nbcFiltration": "NBC filtracija",
+        "battleReady": "Kovos paruoštumo sistemos",
+        "redundantSetup": "Atsarginis nustatymas",
+        "highSecurity": "Aukštas saugumas",
+        "militaryCompliance": "Karinių standartų atitiktis"
+      }
+    },
+    "cargo": {
+      "title": "Krovinių Laivai",
+      "description": "Efektyvūs sprendimai komerciniams laivams",
+      "features": {
+        "cargoVentilation": "Krovinių ventiliacija",
+        "engineRoom": "Variklio skyriaus sistemos",
+        "crewComfort": "Įgulos komfortas",
+        "lowMaintenance": "Mažas priežiūros poreikis",
+        "energyEfficient": "Energijos taupymas"
+      }
     },
     "specialized": {
-      "title": "Specializuoti Laivai",
-      "description": "Techniniai sprendimai pramoniniams ir specializuotiems laivams"
+      "title": "Tyrimų Laivai",
+      "description": "Individualūs sprendimai specializuotiems laivams",
+      "features": {
+        "labGrade": "Laboratorijos klasės sistemos",
+        "cleanRoom": "Švarių patalpų įrengimas",
+        "equipmentCooling": "Įrangos aušinimas",
+        "preciseControl": "Tikslus valdymas",
+        "customFiltration": "Individuali filtracija"
+      }
+    },
+    "expertise": {
+      "title": "Mūsų Kompetencija",
+      "customDesign": {
+        "title": "Individualus Dizainas",
+        "description": "Pritaikyti sprendimai kiekvienam laivo tipui"
+      },
+      "safetyFirst": {
+        "title": "Saugumas Pirmoje Vietoje",
+        "description": "Atitiktis jūrų transporto reglamentams"
+      },
+      "performance": {
+        "title": "Našumas",
+        "description": "Optimalus oro srautas ir efektyvumas"
+      },
+      "innovation": {
+        "title": "Inovacijos",
+        "description": "Naujausia ventiliacijos technologija"
+      }
+    },
+    "cta": {
+      "title": "Pasiruošę Pradėti?",
+      "description": "Susisiekite su mūsų komanda aptarti jūsų laivo ventiliacijos poreikius ir atrasti mūsų pritaikytus sprendimus.",
+      "button": "Gauti Nemokamą Konsultaciją"
     }
   },
   "services": {

@@ -114,21 +114,96 @@
   },
   "market": {
     "title": "Our Market Sectors",
+    "subtitle": "Specialized ventilation solutions for every type of vessel, ensuring optimal performance and compliance with industry standards.",
     "cruise": {
-      "title": "Cruise and Ferry",
-      "description": "Ventilation solutions for cruise ships and passenger ferries"
+      "title": "Cruise Ships",
+      "description": "Advanced ventilation solutions for passenger cruise vessels",
+      "features": {
+        "airDistribution": "Advanced air distribution",
+        "energyEfficient": "Energy-efficient systems",
+        "passengerComfort": "Passenger comfort focus",
+        "zoneControl": "Zone climate control",
+        "airQuality": "Air quality monitoring"
+      }
+    },
+    "ferry": {
+      "title": "Ferry Vessels",
+      "description": "Specialized systems for passenger and vehicle ferries",
+      "features": {
+        "dualPurpose": "Dual-purpose ventilation",
+        "vehicleDeck": "Vehicle deck exhaust",
+        "quickExchange": "Quick air exchange",
+        "weatherAdaptive": "Weather-adaptive",
+        "energyOptimization": "Energy optimization"
+      }
     },
     "yachting": {
-      "title": "Yachting",
-      "description": "Custom systems for luxury yachts and private vessels"
+      "title": "Luxury Yachts",
+      "description": "Premium ventilation solutions for private vessels",
+      "features": {
+        "customDesign": "Custom luxury design",
+        "silentOperation": "Silent operation",
+        "smartControl": "Smart climate control",
+        "individualZones": "Individual zones",
+        "premiumQuality": "Premium air quality"
+      }
     },
     "naval": {
       "title": "Naval",
-      "description": "Specialized solutions for naval and military vessels"
+      "description": "Military-grade ventilation systems",
+      "features": {
+        "nbcFiltration": "NBC filtration",
+        "battleReady": "Battle-ready systems",
+        "redundantSetup": "Redundant setup",
+        "highSecurity": "High security",
+        "militaryCompliance": "Military compliance"
+      }
+    },
+    "cargo": {
+      "title": "Cargo Ships",
+      "description": "Efficient solutions for commercial vessels",
+      "features": {
+        "cargoVentilation": "Cargo ventilation",
+        "engineRoom": "Engine room systems",
+        "crewComfort": "Crew comfort",
+        "lowMaintenance": "Low maintenance",
+        "energyEfficient": "Energy efficient"
+      }
     },
     "specialized": {
-      "title": "Specialized Vessels",
-      "description": "Technical solutions for industrial and specialized ships"
+      "title": "Research Vessels",
+      "description": "Custom solutions for specialized ships",
+      "features": {
+        "labGrade": "Lab-grade systems",
+        "cleanRoom": "Clean room setup",
+        "equipmentCooling": "Equipment cooling",
+        "preciseControl": "Precise control",
+        "customFiltration": "Custom filtration"
+      }
+    },
+    "expertise": {
+      "title": "Our Expertise",
+      "customDesign": {
+        "title": "Custom Design",
+        "description": "Tailored solutions for each vessel type"
+      },
+      "safetyFirst": {
+        "title": "Safety First",
+        "description": "Compliance with maritime regulations"
+      },
+      "performance": {
+        "title": "Performance",
+        "description": "Optimal airflow and efficiency"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Latest ventilation technology"
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Contact our team to discuss your vessel's ventilation needs and discover our tailored solutions.",
+      "button": "Get a Free Consultation"
     }
   },
   "services": {

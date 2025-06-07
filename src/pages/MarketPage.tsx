@@ -12,80 +12,80 @@ const MarketPage = () => {
   const marketSectors = [
     {
       id: 'cruise',
-      title: 'Cruise Ships',
-      description: 'Advanced ventilation solutions for passenger cruise vessels',
+      title: t('market.cruise.title'),
+      description: t('market.cruise.description'),
       icon: <Ship className="h-8 w-8" />,
       features: [
-        'Advanced air distribution',
-        'Energy-efficient systems',
-        'Passenger comfort focus',
-        'Zone climate control',
-        'Air quality monitoring'
+        t('market.cruise.features.airDistribution'),
+        t('market.cruise.features.energyEfficient'),
+        t('market.cruise.features.passengerComfort'),
+        t('market.cruise.features.zoneControl'),
+        t('market.cruise.features.airQuality')
       ]
     },
     {
       id: 'ferry',
-      title: 'Ferry Vessels',
-      description: 'Specialized systems for passenger and vehicle ferries',
+      title: t('market.ferry.title'),
+      description: t('market.ferry.description'),
       icon: <LifeBuoy className="h-8 w-8" />,
       features: [
-        'Dual-purpose ventilation',
-        'Vehicle deck exhaust',
-        'Quick air exchange',
-        'Weather-adaptive',
-        'Energy optimization'
+        t('market.ferry.features.dualPurpose'),
+        t('market.ferry.features.vehicleDeck'),
+        t('market.ferry.features.quickExchange'),
+        t('market.ferry.features.weatherAdaptive'),
+        t('market.ferry.features.energyOptimization')
       ]
     },
     {
       id: 'yachting',
-      title: 'Luxury Yachts',
-      description: 'Premium ventilation solutions for private vessels',
+      title: t('market.yachting.title'),
+      description: t('market.yachting.description'),
       icon: <Anchor className="h-8 w-8" />,
       features: [
-        'Custom luxury design',
-        'Silent operation',
-        'Smart climate control',
-        'Individual zones',
-        'Premium air quality'
+        t('market.yachting.features.customDesign'),
+        t('market.yachting.features.silentOperation'),
+        t('market.yachting.features.smartControl'),
+        t('market.yachting.features.individualZones'),
+        t('market.yachting.features.premiumQuality')
       ]
     },
     {
       id: 'naval',
-      title: 'Naval Vessels',
-      description: 'Military-grade ventilation systems',
+      title: t('market.naval.title'),
+      description: t('market.naval.description'),
       icon: <Compass className="h-8 w-8" />,
       features: [
-        'NBC filtration',
-        'Battle-ready systems',
-        'Redundant setup',
-        'High security',
-        'Military compliance'
+        t('market.naval.features.nbcFiltration'),
+        t('market.naval.features.battleReady'),
+        t('market.naval.features.redundantSetup'),
+        t('market.naval.features.highSecurity'),
+        t('market.naval.features.militaryCompliance')
       ]
     },
     {
       id: 'cargo',
-      title: 'Cargo Ships',
-      description: 'Efficient solutions for commercial vessels',
+      title: t('market.cargo.title'),
+      description: t('market.cargo.description'),
       icon: <Navigation className="h-8 w-8" />,
       features: [
-        'Cargo ventilation',
-        'Engine room systems',
-        'Crew comfort',
-        'Low maintenance',
-        'Energy efficient'
+        t('market.cargo.features.cargoVentilation'),
+        t('market.cargo.features.engineRoom'),
+        t('market.cargo.features.crewComfort'),
+        t('market.cargo.features.lowMaintenance'),
+        t('market.cargo.features.energyEfficient')
       ]
     },
     {
       id: 'specialized',
-      title: 'Research Vessels',
-      description: 'Custom solutions for specialized ships',
+      title: t('market.specialized.title'),
+      description: t('market.specialized.description'),
       icon: <Crosshair className="h-8 w-8" />,
       features: [
-        'Lab-grade systems',
-        'Clean room setup',
-        'Equipment cooling',
-        'Precise control',
-        'Custom filtration'
+        t('market.specialized.features.labGrade'),
+        t('market.specialized.features.cleanRoom'),
+        t('market.specialized.features.equipmentCooling'),
+        t('market.specialized.features.preciseControl'),
+        t('market.specialized.features.customFiltration')
       ]
     }
   ];
@@ -93,23 +93,23 @@ const MarketPage = () => {
   const expertise = [
     {
       icon: <Tool className="h-6 w-6" />,
-      title: 'Custom Design',
-      description: 'Tailored solutions for each vessel type'
+      title: t('market.expertise.customDesign.title'),
+      description: t('market.expertise.customDesign.description')
     },
     {
       icon: <Shield className="h-6 w-6" />,
-      title: 'Safety First',
-      description: 'Compliance with maritime regulations'
+      title: t('market.expertise.safetyFirst.title'),
+      description: t('market.expertise.safetyFirst.description')
     },
     {
       icon: <Activity className="h-6 w-6" />,
-      title: 'Performance',
-      description: 'Optimal airflow and efficiency'
+      title: t('market.expertise.performance.title'),
+      description: t('market.expertise.performance.description')
     },
     {
       icon: <Zap className="h-6 w-6" />,
-      title: 'Innovation',
-      description: 'Latest ventilation technology'
+      title: t('market.expertise.innovation.title'),
+      description: t('market.expertise.innovation.description')
     }
   ];
 
@@ -131,10 +131,9 @@ const MarketPage = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl text-white"
           >
-            <h1 className="text-4xl font-bold mb-4">Marine Market Sectors</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('market.title')}</h1>
             <p className="text-xl text-gray-200">
-              Specialized ventilation solutions for every type of vessel,
-              ensuring optimal performance and compliance with industry standards.
+              {t('market.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -180,7 +179,7 @@ const MarketPage = () => {
 
       <section className="py-16 bg-white dark:bg-gray-800">
         <div className="container-custom">
-          <h2 className="text-2xl font-bold text-center mb-12">Our Expertise</h2>
+          <h2 className="text-2xl font-bold text-center mb-12">{t('market.expertise.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {expertise.map((item, index) => (
               <motion.div
@@ -215,16 +214,15 @@ const MarketPage = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="max-w-2xl mx-auto text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('market.cta.title')}</h2>
             <p className="text-gray-200 mb-8">
-              Contact our team to discuss your vessel's ventilation needs
-              and discover our tailored solutions.
+              {t('market.cta.description')}
             </p>
             <Link 
               to="/contact" 
               className="btn btn-primary btn-lg"
             >
-              Get a Free Consultation
+              {t('market.cta.button')}
             </Link>
           </div>
         </div>
