@@ -47,6 +47,7 @@ const Header = () => {
   const navLinks = [
     { href: '/', label: t('navigation.home') },
     { href: '/market', label: t('navigation.market') },
+    { href: '/services', label: t('navigation.services') },
     { href: '/about', label: t('navigation.about') },
     { href: '/works', label: t('navigation.works') },
     { href: '/careers', label: t('navigation.careers') },
@@ -54,7 +55,7 @@ const Header = () => {
   ];
 
   const servicesSubMenu = [
-    { href: '/services', label: 'Ventiliacijos darbai' }
+    { href: '/services', label: t('navigation.ventilationWorks') }
   ];
 
   return (
@@ -85,7 +86,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            {navLinks.map((link) => (
+            {navLinks.filter(link => link.href !== '/services').map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
@@ -191,7 +192,7 @@ const Header = () => {
         >
           <div className="container-custom py-4 flex flex-col space-y-4">
             <nav className="flex flex-col space-y-4">
-              {navLinks.map((link) => (
+              {navLinks.filter(link => link.href !== '/services').map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
