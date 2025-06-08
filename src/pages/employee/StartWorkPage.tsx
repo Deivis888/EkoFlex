@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Square, Clock, Calendar, AlertCircle, Pause, Coffee, Edit, X, Save } from 'lucide-react';
+import { Play, Square, Clock, Calendar, AlertCircle, Pause, Coffee, Edit, X } from 'lucide-react';
 import { useEmployee } from '../../contexts/EmployeeContext';
 
 const StartWorkPage = () => {
@@ -618,4 +618,191 @@ const StartWorkPage = () => {
                     className={`w-full text-left p-3 rounded-lg border transition-colors ${
                       pauseReason === reason
                         ? 'bg-orange-50 border-orange-300 text-orange-700 dark:bg-orange-900/20 dark:border-orange-700 dark:text-orange-300'
-                        : 'border-gray
+                        : 'border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    {reason}
+                  </button>
+                ))}
+              </div>
+              
+              {pauseReason === 'Kita' && (
+                <textarea
+                  value={pauseReason === 'Kita' ? '' : pauseReason}
+                  onChange={(e) => setPauseReason(e.target.value)}
+                  placeholder="Įveskite pauzės priežastį..."
+                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white mb-4"
+                  rows={3}
+                />
+              )}
+              
+              <div className="flex justify-end space-x-3">
+                <button
+                  onClick={() => {
+                    setShowPauseModal(false);
+                    setPauseReason('');
+                  }}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+                <button
+                  onClick={handleStartPause}
+                  disabled={!pauseReason.trim()}
+                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Pradėti pauzę
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* Manual Time Entry Modal */}
+        {showManualTimeModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
+            >
+              <div className="flex items-center mb-4">
+                <Edit className="h-6 w-6 text-blue-500 mr-3" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {editingWorkDayId ? 'Redaguoti darbo laiką' : 'Rankiniu būdu įvesti darbo laiką'}
+                </h3>
+              </div>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Įveskite tikslų darbo pradžios ir pabaigos laiką. Pietų pertrauka (1h) bus automatiškai išskaičiuota.
+              </p>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Darbo pradžia
+                  </label>
+                  <input
+                    type="time"
+                    value={manualTimes.startTime}
+                    onChange={(e) => setManualTimes(prev => ({ ...prev, startTime: e.target.value }))}
+                    className="input"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Darbo pabaiga
+                  </label>
+                  <input
+                    type="time"
+                    value={manualTimes.endTime}
+                    onChange={(e) => setManualTimes(prev => ({ ...prev, endTime: e.target.value }))}
+                    className="input"
+                    required
+                  />
+                </div>
+
+                {manualTimes.startTime && manualTimes.endTime && (
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                    <p className="text-blue-800 dark:text-blue-200 text-sm">
+                      <strong>Darbo laikas:</strong> {manualTimes.startTime} - {manualTimes.endTime}
+                      <br />
+                      <strong>Iš viso:</strong> {(() => {
+                        const start = new Date(`2000-01-01T${manualTimes.startTime}:00`);
+                        const end = new Date(`2000-01-01T${manualTimes.endTime}:00`);
+                        let totalMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
+                        
+                        const hours = Math.floor(totalMinutes / 60);
+                        const minutes = Math.round(totalMinutes % 60);
+                        return `${hours}h ${minutes}min`;
+                      })()}
+                    </p>
+                  </div>
+                )}
+              </div>
+              
+              <div className="flex justify-end space-x-3 mt-6">
+                <button
+                  onClick={() => {
+                    setShowManualTimeModal(false);
+                    setManualTimes({ startTime: '', endTime: '' });
+                    setEditingWorkDayId(null);
+                  }}
+                  className="relative px-6 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
+                >
+                  <div className="flex items-center justify-center font-medium">
+                    <X className="h-4 w-4 mr-2" />
+                    Atšaukti
+                  </div>
+                </button>
+                <button
+                  onClick={handleSaveManualTime}
+                  disabled={!manualTimes.startTime || !manualTimes.endTime}
+                  className="relative px-6 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-accent-500 hover:bg-accent-600 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <div className="flex items-center justify-center font-medium">
+                    <Save className="h-4 w-4 mr-2" />
+                    Išsaugoti laiką
+                  </div>
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* Early Finish Modal */}
+        {showReasonModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
+            >
+              <div className="flex items-center mb-4">
+                <AlertCircle className="h-6 w-6 text-orange-500 mr-3" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Ankstyvas darbo dienos pabaigimas
+                </h3>
+              </div>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                Darbo diena baigiama anksčiau nei įprastai. Prašome nurodyti priežastį:
+              </p>
+              
+              <textarea
+                value={earlyFinishReason}
+                onChange={(e) => setEarlyFinishReason(e.target.value)}
+                placeholder="Įveskite priežastį..."
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                rows={3}
+                required
+              />
+              
+              <div className="flex justify-end space-x-3 mt-6">
+                <button
+                  onClick={() => setShowReasonModal(false)}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+                <button
+                  onClick={handleEarlyFinish}
+                  disabled={!earlyFinishReason.trim()}
+                  className="btn btn-primary"
+                >
+                  Baigti darbo dieną
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default StartWorkPage;
+
+export default StartWorkPage
