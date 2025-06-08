@@ -210,6 +210,39 @@
   "services": {
     "title": "Our Services",
     "subtitle": "Professional marine ventilation solutions for all vessel types, backed by years of experience and modern technology.",
+    "seo": {
+      "title": "Ventilation Installation – Marine HVAC & Engineering Solutions",
+      "description": "Professional marine HVAC and ventilation installation services. Expert marine engineering solutions for ships with energy-efficient systems and certified installation.",
+      "keywords": "marine engineering, marine hvac, ventilation installation, marine hvac system, marine engineering companies, HVAC engineer, maritime engineering, naval engineer",
+      "introduction": "EkoFlex specializes in comprehensive **marine HVAC** and **ventilation installation** services for all types of vessels. Our expert team of **marine engineering** professionals delivers cutting-edge solutions that ensure optimal air quality, energy efficiency, and regulatory compliance across the maritime industry.",
+      "marineEngineering": {
+        "title": "Marine Engineering Excellence",
+        "content": "As one of the leading **marine engineering companies** in the Baltic region, we provide specialized **maritime engineering** solutions tailored to modern vessel requirements. Our **naval engineer** specialists work with advanced **marine HVAC systems** including **Dometic marine air conditioner** and **Daikin marine air conditioner** installations. Our comprehensive approach to **marine and naval engineering** ensures that every project meets the highest industry standards for performance and reliability."
+      },
+      "hvacSystems": {
+        "title": "Advanced Marine HVAC Systems",
+        "content": "Our **Marine HVAC Services** encompass the complete spectrum of **HVAC in ships**, from initial design to final commissioning. We specialize in **marine HVAC system** integration, working with leading brands and technologies to deliver optimal climate control solutions. Our **marine HVAC engineer** team has extensive experience with complex installations, ensuring that every **marine HVAC** solution is perfectly adapted to the vessel's specific operational requirements and environmental conditions."
+      },
+      "installation": {
+        "title": "Professional Ventilation Installation",
+        "content": "Our **ventilation installation** services are performed by certified **installation engineer HVAC** professionals who understand the unique challenges of marine environments. We provide complete **rekuperatorių montavimas** (heat recovery installation) services, ensuring maximum energy efficiency and air quality. Every **ventilation installation** project is executed with precision, using state-of-the-art equipment and following strict maritime safety protocols."
+      },
+      "expertise": {
+        "title": "Expert Engineering Team",
+        "content": "Our team includes experienced **HVAC engineer** and **heating and air conditioning engineer** specialists who bring decades of combined experience to every project. Each **marine HVAC engineer** on our team is certified and continuously trained on the latest technologies and industry best practices. This expertise allows us to handle complex **marine engineering** challenges and deliver solutions that exceed client expectations."
+      },
+      "efficiency": {
+        "title": "Energy Efficiency and Sustainability",
+        "content": "Modern **marine HVAC systems** must balance performance with energy efficiency. Our **marine engineering** approach focuses on sustainable solutions that reduce operational costs while maintaining optimal comfort and air quality. We specialize in advanced **rekuperatorių montavimas** systems that recover waste heat and significantly improve overall system efficiency, making our installations both environmentally responsible and cost-effective."
+      },
+      "whyChoose": {
+        "title": "Why Choose EkoFlex for Marine HVAC Solutions",
+        "experience": "15+ years of specialized experience in marine engineering and HVAC systems",
+        "certified": "Certified marine HVAC engineers and installation specialists",
+        "comprehensive": "Complete marine HVAC services from design to maintenance",
+        "support": "24/7 technical support and emergency service capabilities"
+      }
+    },
     "installation": {
       "title": "Ventilation Installation",
       "description": "Complete ventilation system installation for marine vessels",
@@ -306,7 +339,13 @@
       "description": "Contact our team for a consultation and discover how we can enhance your vessel's ventilation system.",
       "button": "Get a Free Consultation"
     },
-    "readMore": "Read More"
+    "readMore": "Read More",
+    "consultation": {
+      "title": "Request a Marine HVAC Consultation",
+      "description": "Get expert advice on your marine ventilation and HVAC needs. Our specialists are ready to help you find the perfect solution.",
+      "cta": "Request Consultation",
+      "learnMore": "Learn More About Our Services"
+    }
   },
   "about": {
     "title": "About EkoFlex",

@@ -210,6 +210,39 @@
   "services": {
     "title": "Mūsų Paslaugos",
     "subtitle": "Profesionalūs jūrų ventiliacijos sprendimai visų tipų laivams, paremti metų patirtimi ir šiuolaikiškomis technologijomis.",
+    "seo": {
+      "title": "Ventiliacijos Montavimas – Jūrų HVAC ir Inžinerijos Sprendimai",
+      "description": "Profesionalūs jūrų HVAC ir ventiliacijos montavimo paslaugos. Ekspertų jūrų inžinerijos sprendimai laivams su energijos taupymo sistemomis ir sertifikuotu montavimu.",
+      "keywords": "jūrų inžinerija, jūrų hvac, ventiliacijos montavimas, jūrų hvac sistema, jūrų inžinerijos įmonės, HVAC inžinierius, jūrų inžinerija, laivyno inžinierius",
+      "introduction": "EkoFlex specializuojasi išsamiose **jūrų HVAC** ir **ventiliacijos montavimo** paslaugose visų tipų laivams. Mūsų ekspertų **jūrų inžinerijos** specialistų komanda teikia pažangius sprendimus, užtikrinančius optimalų oro kokybę, energijos efektyvumą ir atitiktį reglamentams visoje jūrų pramonėje.",
+      "marineEngineering": {
+        "title": "Jūrų Inžinerijos Puikybė",
+        "content": "Kaip viena iš pirmaujančių **jūrų inžinerijos įmonių** Baltijos regione, teikiame specializuotus **jūrų inžinerijos** sprendimus, pritaikytus šiuolaikinių laivų reikalavimams. Mūsų **laivyno inžinierius** specialistai dirba su pažangiomis **jūrų HVAC sistemomis**, įskaitant **Dometic jūrų oro kondicionierius** ir **Daikin jūrų oro kondicionierius** montavimą. Mūsų išsamus **jūrų ir laivyno inžinerijos** požiūris užtikrina, kad kiekvienas projektas atitiktų aukščiausius pramonės standartus našumui ir patikimumui."
+      },
+      "hvacSystems": {
+        "title": "Pažangios Jūrų HVAC Sistemos",
+        "content": "Mūsų **Jūrų HVAC Paslaugos** apima visą **HVAC laivuose** spektrą, nuo pradinio projektavimo iki galutinio paleidimo. Specializuojamės **jūrų HVAC sistemos** integracijoje, dirbdami su pirmaujančiais prekės ženklais ir technologijomis, kad suteiktume optimalius klimato kontrolės sprendimus. Mūsų **jūrų HVAC inžinierius** komanda turi platų patirtį sudėtinguose montavimuose, užtikrindama, kad kiekvienas **jūrų HVAC** sprendimas būtų puikiai pritaikytas laivo specifiniams veiklos reikalavimams ir aplinkos sąlygoms."
+      },
+      "installation": {
+        "title": "Profesionalus Ventiliacijos Montavimas",
+        "content": "Mūsų **ventiliacijos montavimo** paslaugas atlieka sertifikuoti **montavimo inžinierius HVAC** specialistai, kurie supranta unikalius jūrų aplinkos iššūkius. Teikiame pilnas **rekuperatorių montavimo** paslaugas, užtikrindami maksimalų energijos efektyvumą ir oro kokybę. Kiekvienas **ventiliacijos montavimo** projektas vykdomas tiksliai, naudojant naujausią įrangą ir laikantis griežtų jūrų saugos protokolų."
+      },
+      "expertise": {
+        "title": "Ekspertų Inžinerijos Komanda",
+        "content": "Mūsų komandą sudaro patyrę **HVAC inžinierius** ir **šildymo ir oro kondicionavimo inžinierius** specialistai, kurie kiekvienam projektui atsineša dešimtmečių bendrą patirtį. Kiekvienas **jūrų HVAC inžinierius** mūsų komandoje yra sertifikuotas ir nuolat mokomas naujausių technologijų ir pramonės geriausių praktikų. Ši ekspertizė leidžia mums spręsti sudėtingus **jūrų inžinerijos** iššūkius ir teikti sprendimus, viršijančius klientų lūkesčius."
+      },
+      "efficiency": {
+        "title": "Energijos Efektyvumas ir Tvarumas",
+        "content": "Šiuolaikinės **jūrų HVAC sistemos** turi subalansuoti našumą su energijos efektyvumu. Mūsų **jūrų inžinerijos** požiūris orientuotas į tvarius sprendimus, kurie sumažina eksploatacijos sąnaudas, tuo pačiu išlaikydami optimalų komfortą ir oro kokybę. Specializuojamės pažangiose **rekuperatorių montavimo** sistemose, kurios atkuria atliekamą šilumą ir žymiai pagerina bendrą sistemos efektyvumą, todėl mūsų montavimai yra tiek aplinkos atžvilgiu atsakingi, tiek ekonomiškai efektyvūs."
+      },
+      "whyChoose": {
+        "title": "Kodėl Pasirinkti EkoFlex Jūrų HVAC Sprendimams",
+        "experience": "15+ metų specializuotos patirties jūrų inžinerijoje ir HVAC sistemose",
+        "certified": "Sertifikuoti jūrų HVAC inžinieriai ir montavimo specialistai",
+        "comprehensive": "Pilnos jūrų HVAC paslaugos nuo projektavimo iki priežiūros",
+        "support": "24/7 techninė pagalba ir avarinių paslaugų galimybės"
+      }
+    },
     "installation": {
       "title": "Ventiliacijos Montavimas",
       "description": "Pilnas ventiliacijos sistemų montavimas jūrų laivams",
@@ -306,7 +339,13 @@
       "description": "Susisiekite su mūsų komanda konsultacijai ir sužinokite, kaip galime pagerinti jūsų laivo ventiliacijos sistemą.",
       "button": "Gauti Nemokamą Konsultaciją"
     },
-    "readMore": "Skaityti daugiau"
+    "readMore": "Skaityti daugiau",
+    "consultation": {
+      "title": "Užsisakyti Jūrų HVAC Konsultaciją",
+      "description": "Gaukite ekspertų patarimą dėl jūsų jūrų ventiliacijos ir HVAC poreikių. Mūsų specialistai pasiruošę padėti rasti tobulą sprendimą.",
+      "cta": "Užsisakyti Konsultaciją",
+      "learnMore": "Sužinoti Daugiau Apie Mūsų Paslaugas"
+    }
   },
   "about": {
     "title": "Apie EkoFlex",

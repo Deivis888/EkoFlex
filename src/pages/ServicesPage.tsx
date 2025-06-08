@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { 
   Wind, Wrench, ShieldCheck, Cog, LineChart, 
   Activity, Droplet, Fan, Ruler, Thermometer, 
-  Gauge, PenTool as Tool, AlertTriangle, CheckCircle2
+  Gauge, PenTool as Tool, AlertTriangle, CheckCircle2,
+  Send, Mail, Phone
 } from 'lucide-react';
 
 const ServicesPage = () => {
@@ -119,6 +120,11 @@ const ServicesPage = () => {
 
   return (
     <>
+      {/* SEO Meta Tags */}
+      <title>{t('services.seo.title')}</title>
+      <meta name="description" content={t('services.seo.description')} />
+      <meta name="keywords" content={t('services.seo.keywords')} />
+
       <section className="relative py-20">
         <div className="absolute inset-0">
           <img
@@ -140,6 +146,74 @@ const ServicesPage = () => {
               {t('services.subtitle')}
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="prose prose-lg dark:prose-invert max-w-none"
+            >
+              <div className="text-gray-700 dark:text-gray-300 space-y-6">
+                <p className="text-lg leading-relaxed">
+                  {t('services.seo.introduction')}
+                </p>
+
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  {t('services.seo.marineEngineering.title')}
+                </h2>
+                <p className="leading-relaxed">
+                  {t('services.seo.marineEngineering.content')}
+                </p>
+
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  {t('services.seo.hvacSystems.title')}
+                </h2>
+                <p className="leading-relaxed">
+                  {t('services.seo.hvacSystems.content')}
+                </p>
+
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  {t('services.seo.installation.title')}
+                </h2>
+                <p className="leading-relaxed">
+                  {t('services.seo.installation.content')}
+                </p>
+
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  {t('services.seo.expertise.title')}
+                </h2>
+                <p className="leading-relaxed">
+                  {t('services.seo.expertise.content')}
+                </p>
+
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                  {t('services.seo.efficiency.title')}
+                </h2>
+                <p className="leading-relaxed">
+                  {t('services.seo.efficiency.content')}
+                </p>
+
+                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg mt-8">
+                  <h3 className="text-xl font-semibold text-primary-800 dark:text-primary-200 mb-3">
+                    {t('services.seo.whyChoose.title')}
+                  </h3>
+                  <ul className="list-disc list-inside space-y-2 text-primary-700 dark:text-primary-300">
+                    <li>{t('services.seo.whyChoose.experience')}</li>
+                    <li>{t('services.seo.whyChoose.certified')}</li>
+                    <li>{t('services.seo.whyChoose.comprehensive')}</li>
+                    <li>{t('services.seo.whyChoose.support')}</li>
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -209,6 +283,53 @@ const ServicesPage = () => {
                 </ul>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="card p-8 text-center"
+            >
+              <h2 className="text-2xl font-bold mb-4">{t('services.consultation.title')}</h2>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                {t('services.consultation.description')}
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="flex items-center justify-center">
+                  <Mail className="h-5 w-5 text-primary-600 dark:text-primary-400 mr-2" />
+                  <span className="text-gray-700 dark:text-gray-300">info@ekoflex.lt</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <Phone className="h-5 w-5 text-primary-600 dark:text-primary-400 mr-2" />
+                  <span className="text-gray-700 dark:text-gray-300">+37069018889</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/contact"
+                  className="btn btn-primary btn-lg inline-flex items-center justify-center"
+                >
+                  <Send className="mr-2 h-5 w-5" />
+                  {t('services.consultation.cta')}
+                </Link>
+                <Link
+                  to="/market"
+                  className="btn btn-outline btn-lg"
+                >
+                  {t('services.consultation.learnMore')}
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
