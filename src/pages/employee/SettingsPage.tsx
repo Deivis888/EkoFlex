@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Settings, User, Lock, Mail, Bell, Phone, 
-  Save, Edit, Eye, EyeOff, AlertCircle 
+  Save, Edit, Eye, EyeOff, AlertCircle, CreditCard 
 } from 'lucide-react';
 import { useEmployee } from '../../contexts/EmployeeContext';
 
 const SettingsPage = () => {
-  const { employee, updateProfile, updateEmergencyContact, updatePassword } = useEmployee();
+  const { employee, updateProfile, updateEmergencyContact, updatePassword, updateBankDetails } = useEmployee();
   const [activeTab, setActiveTab] = useState('profile');
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -33,6 +33,14 @@ const SettingsPage = () => {
     phone: employee?.emergencyContact?.phone || '',
     relationship: employee?.emergencyContact?.relationship || ''
   });
+
+  // Bank details form state
+  const [bankData, setBankData] = useState({
+    bankName: employee?.bankDetails?.bankName || '',
+    accountNumber: employee?.bankDetails?.accountNumber || '',
+    swiftCode: employee?.bankDetails?.swiftCode || ''
+  });
+  const [showAccountNumber, setShowAccountNumber] = useState(false);
 
   // Notifications state
   const [notifications, setNotifications] = useState({
@@ -71,9 +79,33 @@ const SettingsPage = () => {
     alert('Avarinės situacijos kontaktas atnaujintas sėkmingai');
   };
 
+  const handleBankDetailsSave = async () => {
+    await updateBankDetails(bankData);
+    alert('Banko duomenys atnaujinti sėkmingai');
+  };
+
+  const maskAccountNumber = (accountNumber: string) => {
+    if (!accountNumber) return '';
+    const visible = accountNumber.slice(-4);
+    const masked = '*'.repeat(Math.max(0, accountNumber.length - 4));
+    return masked + visible;
+  };
+
+  const lithuanianBanks = [
+    'SEB Bank',
+    'Swedbank',
+    'Luminor Bank',
+    'Šiaulių bankas',
+    'Medicinos bankas',
+    'Citadele Bank',
+    'Revolut',
+    'Paysera'
+  ];
+
   const tabs = [
     { id: 'profile', label: 'Profilio informacija', icon: <User className="h-4 w-4" /> },
     { id: 'password', label: 'Slaptažodis', icon: <Lock className="h-4 w-4" /> },
+    { id: 'bank', label: 'Banko duomenys', icon: <CreditCard className="h-4 w-4" /> },
     { id: 'emergency', label: 'Avarinės situacijos kontaktas', icon: <Phone className="h-4 w-4" /> },
     { id: 'notifications', label: 'Pranešimai', icon: <Bell className="h-4 w-4" /> }
   ];
@@ -261,6 +293,114 @@ const SettingsPage = () => {
                     >
                       <Save className="h-4 w-4 mr-2" />
                       Pakeisti slaptažodį
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Bank Details Tab */}
+              {activeTab === 'bank' && (
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+                    Banko duomenys
+                  </h2>
+                  <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6">
+                    <div className="flex items-center">
+                      <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 mr-2" />
+                      <p className="text-blue-800 dark:text-blue-200 text-sm">
+                        Atlyginimo pervedimai bus atliekami į šią banko sąskaitą.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Banko pavadinimas
+                      </label>
+                      <input
+                        type="text"
+                        value={bankData.bankName}
+                        onChange={(e) => setBankData(prev => ({ ...prev, bankName: e.target.value }))}
+                        className="input"
+                        placeholder="Pasirinkite banką"
+                        list="bank-suggestions"
+                        required
+                      />
+                      <datalist id="bank-suggestions">
+                        {lithuanianBanks.map(bank => (
+                          <option key={bank} value={bank} />
+                        ))}
+                      </datalist>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        Sąskaitos numeris (IBAN)
+                      </label>
+                      <div className="relative">
+                        <input
+                          type={showAccountNumber ? "text" : "password"}
+                          value={bankData.accountNumber}
+                          onChange={(e) => setBankData(prev => ({ ...prev, accountNumber: e.target.value }))}
+                          className="input pr-10"
+                          placeholder="LT12 3456 7890 1234 5678"
+                          pattern="[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}"
+                          required
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowAccountNumber(!showAccountNumber)}
+                          className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                        >
+                          {showAccountNumber ? (
+                            <EyeOff className="h-5 w-5 text-gray-400" />
+                          ) : (
+                            <Eye className="h-5 w-5 text-gray-400" />
+                          )}
+                        </button>
+                      </div>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        Įveskite IBAN formatą (pvz., LT12 3456 7890 1234 5678)
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        SWIFT kodas
+                      </label>
+                      <input
+                        type="text"
+                        value={bankData.swiftCode}
+                        onChange={(e) => setBankData(prev => ({ ...prev, swiftCode: e.target.value }))}
+                        className="input"
+                        placeholder="CBVILT2X"
+                        pattern="[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?"
+                        required
+                      />
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        8 arba 11 simbolių SWIFT kodas
+                      </p>
+                    </div>
+
+                    {employee?.bankDetails && (
+                      <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+                        <h3 className="font-medium text-green-800 dark:text-green-200 mb-2">
+                          Dabartiniai banko duomenys:
+                        </h3>
+                        <div className="text-sm text-green-700 dark:text-green-300 space-y-1">
+                          <p><strong>Bankas:</strong> {employee.bankDetails.bankName}</p>
+                          <p><strong>Sąskaita:</strong> {maskAccountNumber(employee.bankDetails.accountNumber)}</p>
+                          <p><strong>SWIFT:</strong> {employee.bankDetails.swiftCode}</p>
+                        </div>
+                      </div>
+                    )}
+
+                    <button
+                      onClick={handleBankDetailsSave}
+                      className="btn btn-primary inline-flex items-center"
+                    >
+                      <Save className="h-4 w-4 mr-2" />
+                      Išsaugoti banko duomenis
                     </button>
                   </div>
                 </div>

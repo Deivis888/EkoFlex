@@ -15,7 +15,6 @@ const EmployeeLayout = () => {
 
   const menuItems = [
     { icon: <LayoutDashboard className="h-5 w-5" />, label: 'Dashboard', path: '/employee/dashboard' },
-    { icon: <User className="h-5 w-5" />, label: 'Profilis', path: '/employee/profile' },
     { icon: <Play className="h-5 w-5" />, label: 'Darbo pradžia/pabaiga', path: '/employee/start' },
     { icon: <Briefcase className="h-5 w-5" />, label: 'Atlikti darbai', path: '/employee/work' },
     { icon: <Wrench className="h-5 w-5" />, label: 'Įrankiai', path: '/employee/tools' },
@@ -25,7 +24,6 @@ const EmployeeLayout = () => {
     { icon: <GraduationCap className="h-5 w-5" />, label: 'Profesija', path: '/employee/profession' },
     { icon: <Users className="h-5 w-5" />, label: 'Vadovai', path: '/employee/supervisors' },
     { icon: <Plane className="h-5 w-5" />, label: 'Komandiruotė', path: '/employee/business-trip' },
-    { icon: <CreditCard className="h-5 w-5" />, label: 'Bankas', path: '/employee/bank' },
     { icon: <Euro className="h-5 w-5" />, label: 'Avansai', path: '/employee/advances' },
     { icon: <Settings className="h-5 w-5" />, label: 'Nustatymai', path: '/employee/settings' }
   ];

@@ -102,7 +102,6 @@ function App() {
           <Route path="/employee/login" element={<EmployeeLoginPage />} />
           <Route path="/employee" element={<EmployeeLayout />}>
             <Route path="dashboard" element={<DashboardPage />} />
-            <Route path="profile" element={<ProfilePage />} />
             <Route path="start" element={<StartWorkPage />} />
             <Route path="work" element={<WorkPage />} />
             <Route path="tools" element={<ToolsPage />} />
@@ -112,7 +111,6 @@ function App() {
             <Route path="profession" element={<ProfessionPage />} />
             <Route path="supervisors" element={<SupervisorsPage />} />
             <Route path="business-trip" element={<BusinessTripPage />} />
-            <Route path="bank" element={<BankPage />} />
             <Route path="advances" element={<AdvancesPage />} />
             <Route path="settings" element={<SettingsPage />} />
           </Route>
