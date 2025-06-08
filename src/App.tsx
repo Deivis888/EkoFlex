@@ -20,9 +20,13 @@ import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import ThankYouPage from './pages/ThankYouPage';
+import EmployeeLoginPage from './pages/EmployeeLoginPage';
+import EmployeeDashboardPage from './pages/EmployeeDashboardPage';
+import EmployeeProfilePage from './pages/EmployeeProfilePage';
 
 // Contexts
 import { ThemeProvider } from './contexts/ThemeContext';
+import { EmployeeProvider } from './contexts/EmployeeContext';
 
 function App() {
   const { i18n } = useTranslation();
@@ -62,24 +66,31 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="market" element={<MarketPage />} />
-          <Route path="services" element={<ServicesPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="works" element={<WorksPage />} />
-          <Route path="careers" element={<CareersPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="privacy" element={<PrivacyPolicyPage />} />
-          <Route path="terms" element={<TermsOfServicePage />} />
-          <Route path="thank-you" element={<ThankYouPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
+      <EmployeeProvider>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="market" element={<MarketPage />} />
+            <Route path="services" element={<ServicesPage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="works" element={<WorksPage />} />
+            <Route path="careers" element={<CareersPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="register" element={<RegisterPage />} />
+            <Route path="forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="privacy" element={<PrivacyPolicyPage />} />
+            <Route path="terms" element={<TermsOfServicePage />} />
+            <Route path="thank-you" element={<ThankYouPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+          
+          {/* Employee Routes */}
+          <Route path="/employee/login" element={<EmployeeLoginPage />} />
+          <Route path="/employee/dashboard" element={<EmployeeDashboardPage />} />
+          <Route path="/employee/profile" element={<EmployeeProfilePage />} />
+        </Routes>
+      </EmployeeProvider>
     </ThemeProvider>
   );
 }
