@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Clock, Euro, Calendar, TrendingUp, 
@@ -9,10 +10,32 @@ import { useEmployee } from '../../contexts/EmployeeContext';
 import { useNavigate } from 'react-router-dom';
 
 const DashboardPage = () => {
-  const { employee, stats, workDays, startWorkDay, startWorkDayWithTime, endWorkDay } = useEmployee();
+  const { employee, stats, workDays, startWorkDay, startWorkDayWithTime, endWorkDay, isAuthenticated } = useEmployee();
   const navigate = useNavigate();
   const [showTimeModal, setShowTimeModal] = React.useState(false);
   const [selectedTime, setSelectedTime] = React.useState('');
+
+  // Check if user is authenticated
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/employee/login');
+      return;
+    }
+  }, [isAuthenticated, navigate]);
+
+  // Don't render anything if not authenticated or no employee data
+  if (!isAuthenticated || !employee) {
+    return (
+      <div className="p-6">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <div className="text-center">
+            <div className="h-16 w-16 animate-spin rounded-full border-b-2 border-t-2 border-primary-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 dark:text-gray-400">Kraunama...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const todayWorkDay = workDays.find(day => 
     day.date === new Date().toISOString().split('T')[0]

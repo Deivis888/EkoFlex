@@ -61,93 +61,94 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     const savedAuth = localStorage.getItem('employee_auth');
     if (savedAuth === 'true') {
       setIsAuthenticated(true);
+      
+      // Initialize mock employee data when authenticated
+      const mockEmployee: Employee = {
+        id: '1',
+        email: 'jonas.petraitis@ekoflex.lt',
+        name: 'Jonas',
+        surname: 'Petraitis',
+        birthDate: '1985-03-15',
+        nationality: 'Lithuanian',
+        profilePhoto: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+        registrationAddress: {
+          country: 'Lithuania',
+          city: 'Vilnius',
+          street: 'Gedimino pr.',
+          houseNumber: '15',
+          apartmentNumber: '25',
+          postalCode: 'LT-01103'
+        },
+        assignedAddress: {
+          country: 'Norway',
+          city: 'Oslo',
+          street: 'Karl Johans gate',
+          houseNumber: '22',
+          postalCode: '0159'
+        },
+        emergencyContact: {
+          name: 'Ona Petraitienė',
+          phone: '+37060123456',
+          relationship: 'Žmona'
+        },
+        bankDetails: {
+          bankName: 'SEB Bank',
+          accountNumber: 'LT12 7044 0600 0123 4567',
+          swiftCode: 'CBVILT2X'
+        },
+        createdAt: '2024-01-15T10:00:00Z',
+        updatedAt: '2024-02-15T10:00:00Z'
+      };
+
+      const mockStats: EmployeeStats = {
+        totalHours: 168,
+        totalSalary: 3200,
+        totalAdvances: 800,
+        workDays: 21
+      };
+
+      const mockTools: Tool[] = [
+        {
+          id: '1',
+          name: 'Bosch Professional Drill',
+          toolNumber: 'T001',
+          assignedDate: '2024-02-01',
+          assignedTime: '08:00',
+          supervisorName: 'Petras Kazlauskas',
+          photo: 'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=400',
+          isAccepted: true,
+          employeeId: '1'
+        },
+        {
+          id: '2',
+          name: 'Safety Helmet',
+          toolNumber: 'T002',
+          assignedDate: '2024-02-01',
+          assignedTime: '08:00',
+          supervisorName: 'Petras Kazlauskas',
+          isAccepted: false,
+          employeeId: '1'
+        }
+      ];
+
+      const mockVehicles: Vehicle[] = [
+        {
+          id: '1',
+          name: 'Ford Transit Van',
+          licensePlate: 'ABC 123',
+          assignedDate: '2024-02-01',
+          assignedTime: '07:00',
+          photo: 'https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg?auto=compress&cs=tinysrgb&w=400',
+          status: 'pending',
+          employeeId: '1'
+        }
+      ];
+
+      setEmployee(mockEmployee);
+      setStats(mockStats);
+      setTools(mockTools);
+      setVehicles(mockVehicles);
     }
-    
-    const mockEmployee: Employee = {
-      id: '1',
-      email: 'jonas.petraitis@ekoflex.lt',
-      name: 'Jonas',
-      surname: 'Petraitis',
-      birthDate: '1985-03-15',
-      nationality: 'Lithuanian',
-      profilePhoto: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      registrationAddress: {
-        country: 'Lithuania',
-        city: 'Vilnius',
-        street: 'Gedimino pr.',
-        houseNumber: '15',
-        apartmentNumber: '25',
-        postalCode: 'LT-01103'
-      },
-      assignedAddress: {
-        country: 'Norway',
-        city: 'Oslo',
-        street: 'Karl Johans gate',
-        houseNumber: '22',
-        postalCode: '0159'
-      },
-      emergencyContact: {
-        name: 'Ona Petraitienė',
-        phone: '+37060123456',
-        relationship: 'Žmona'
-      },
-      bankDetails: {
-        bankName: 'SEB Bank',
-        accountNumber: 'LT12 7044 0600 0123 4567',
-        swiftCode: 'CBVILT2X'
-      },
-      createdAt: '2024-01-15T10:00:00Z',
-      updatedAt: '2024-02-15T10:00:00Z'
-    };
-
-    const mockStats: EmployeeStats = {
-      totalHours: 168,
-      totalSalary: 3200,
-      totalAdvances: 800,
-      workDays: 21
-    };
-
-    const mockTools: Tool[] = [
-      {
-        id: '1',
-        name: 'Bosch Professional Drill',
-        toolNumber: 'T001',
-        assignedDate: '2024-02-01',
-        assignedTime: '08:00',
-        supervisorName: 'Petras Kazlauskas',
-        photo: 'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=400',
-        isAccepted: true,
-        employeeId: '1'
-      },
-      {
-        id: '2',
-        name: 'Safety Helmet',
-        toolNumber: 'T002',
-        assignedDate: '2024-02-01',
-        assignedTime: '08:00',
-        supervisorName: 'Petras Kazlauskas',
-        isAccepted: false,
-        employeeId: '1'
-      }
-    ];
-
-    const mockVehicles: Vehicle[] = [
-      {
-        id: '1',
-        name: 'Ford Transit Van',
-        licensePlate: 'ABC 123',
-        assignedDate: '2024-02-01',
-        assignedTime: '07:00',
-        photo: 'https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg?auto=compress&cs=tinysrgb&w=400',
-        status: 'pending',
-        employeeId: '1'
-      }
-    ];
-
-    setEmployee(mockEmployee);
-    setStats(mockStats);
-    setTools(mockTools);
-    setVehicles(mockVehicles);
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
@@ -155,6 +156,94 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     if (email === 'jonas.petraitis@ekoflex.lt' && password === 'password123') {
       setIsAuthenticated(true);
       localStorage.setItem('employee_auth', 'true');
+      
+      // Set employee data after successful login
+      const mockEmployee: Employee = {
+        id: '1',
+        email: 'jonas.petraitis@ekoflex.lt',
+        name: 'Jonas',
+        surname: 'Petraitis',
+        birthDate: '1985-03-15',
+        nationality: 'Lithuanian',
+        profilePhoto: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
+        registrationAddress: {
+          country: 'Lithuania',
+          city: 'Vilnius',
+          street: 'Gedimino pr.',
+          houseNumber: '15',
+          apartmentNumber: '25',
+          postalCode: 'LT-01103'
+        },
+        assignedAddress: {
+          country: 'Norway',
+          city: 'Oslo',
+          street: 'Karl Johans gate',
+          houseNumber: '22',
+          postalCode: '0159'
+        },
+        emergencyContact: {
+          name: 'Ona Petraitienė',
+          phone: '+37060123456',
+          relationship: 'Žmona'
+        },
+        bankDetails: {
+          bankName: 'SEB Bank',
+          accountNumber: 'LT12 7044 0600 0123 4567',
+          swiftCode: 'CBVILT2X'
+        },
+        createdAt: '2024-01-15T10:00:00Z',
+        updatedAt: '2024-02-15T10:00:00Z'
+      };
+
+      const mockStats: EmployeeStats = {
+        totalHours: 168,
+        totalSalary: 3200,
+        totalAdvances: 800,
+        workDays: 21
+      };
+
+      const mockTools: Tool[] = [
+        {
+          id: '1',
+          name: 'Bosch Professional Drill',
+          toolNumber: 'T001',
+          assignedDate: '2024-02-01',
+          assignedTime: '08:00',
+          supervisorName: 'Petras Kazlauskas',
+          photo: 'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=400',
+          isAccepted: true,
+          employeeId: '1'
+        },
+        {
+          id: '2',
+          name: 'Safety Helmet',
+          toolNumber: 'T002',
+          assignedDate: '2024-02-01',
+          assignedTime: '08:00',
+          supervisorName: 'Petras Kazlauskas',
+          isAccepted: false,
+          employeeId: '1'
+        }
+      ];
+
+      const mockVehicles: Vehicle[] = [
+        {
+          id: '1',
+          name: 'Ford Transit Van',
+          licensePlate: 'ABC 123',
+          assignedDate: '2024-02-01',
+          assignedTime: '07:00',
+          photo: 'https://images.pexels.com/photos/1335077/pexels-photo-1335077.jpeg?auto=compress&cs=tinysrgb&w=400',
+          status: 'pending',
+          employeeId: '1'
+        }
+      ];
+
+      setEmployee(mockEmployee);
+      setStats(mockStats);
+      setTools(mockTools);
+      setVehicles(mockVehicles);
+      
       return true;
     }
     return false;

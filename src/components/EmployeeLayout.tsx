@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
@@ -9,9 +10,29 @@ import {
 import { useEmployee } from '../contexts/EmployeeContext';
 
 const EmployeeLayout = () => {
-  const { employee, logout } = useEmployee();
+  const { employee, logout, isAuthenticated } = useEmployee();
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Check authentication
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/employee/login');
+      return;
+    }
+  }, [isAuthenticated, navigate]);
+
+  // Don't render if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="h-16 w-16 animate-spin rounded-full border-b-2 border-t-2 border-primary-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 dark:text-gray-400">Kraunama...</p>
+        </div>
+      </div>
+    );
+  }
 
   const menuItems = [
     { icon: <LayoutDashboard className="h-5 w-5" />, label: 'Dashboard', path: '/employee/dashboard' },
