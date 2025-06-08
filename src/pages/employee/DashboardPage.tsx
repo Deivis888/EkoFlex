@@ -436,10 +436,10 @@ const DashboardPage = () => {
                 {/* Quick Time Buttons */}
                 <div className="grid grid-cols-4 gap-2">
                   {[
+                    { hour: 6, minute: 0, label: '06:00' },
                     { hour: 7, minute: 0, label: '07:00' },
                     { hour: 8, minute: 0, label: '08:00' },
-                    { hour: 9, minute: 0, label: '09:00' },
-                    { hour: 10, minute: 0, label: '10:00' }
+                    { hour: 9, minute: 0, label: '09:00' }
                   ].map(time => (
                     <button
                       key={time.label}
