@@ -104,10 +104,10 @@ const SettingsPage = () => {
 
   const tabs = [
     { id: 'profile', label: 'Profilio informacija', icon: <User className="h-4 w-4" /> },
-    { id: 'password', label: 'Slaptažodis', icon: <Lock className="h-4 w-4" /> },
     { id: 'bank', label: 'Banko duomenys', icon: <CreditCard className="h-4 w-4" /> },
-    { id: 'emergency', label: 'Avarinės situacijos kontaktas', icon: <Phone className="h-4 w-4" /> },
-    { id: 'notifications', label: 'Pranešimai', icon: <Bell className="h-4 w-4" /> }
+    { id: 'notifications', label: 'Pranešimai', icon: <Bell className="h-4 w-4" /> },
+    { id: 'password', label: 'Slaptažodis', icon: <Lock className="h-4 w-4" /> },
+    { id: 'emergency', label: 'Avarinės situacijos kontaktas', icon: <Phone className="h-4 w-4" /> }
   ];
 
   return (
