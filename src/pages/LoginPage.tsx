@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AtSign, Lock, Facebook, Eye, EyeOff } from 'lucide-react';
+import { useEmployee } from '../contexts/EmployeeContext';
 
 const LoginPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { login: employeeLogin } = useEmployee();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -18,16 +21,26 @@ const LoginPage = () => {
     setIsLoading(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock validation
-      if (email === '' || password === '') {
-        throw new Error('Please fill in all fields');
+      // Check if this is an employee login
+      if (email.includes('@ekoflex.lt')) {
+        const success = await employeeLogin(email, password);
+        if (success) {
+          navigate('/employee/dashboard');
+          return;
+        } else {
+          throw new Error('Neteisingas el. paštas arba slaptažodis. Bandykite: jonas.petraitis@ekoflex.lt / password123');
+        }
       }
       
-      // Mock login success
-      console.log('Logged in with:', { email, password });
+      // Regular client login (mock)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      if (email === '' || password === '') {
+        throw new Error('Prašome užpildyti visus laukus');
+      }
+      
+      // For now, just show success message for non-employee logins
+      console.log('Client logged in with:', { email, password });
       
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
@@ -58,6 +71,12 @@ const LoginPage = () => {
               {t('auth.login.createAccount')}
             </Link>
           </p>
+          <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+            <p className="text-xs text-blue-700 dark:text-blue-300">
+              <strong>Darbuotojams:</strong> Naudokite savo @ekoflex.lt el. paštą<br />
+              <strong>Demo:</strong> jonas.petraitis@ekoflex.lt / password123
+            </p>
+          </div>
         </div>
         
         {error && (
