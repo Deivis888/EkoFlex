@@ -792,3 +792,5 @@ const StartWorkPage = () => {
 };
 
 export default StartWorkPage;
+
+export default StartWorkPage
