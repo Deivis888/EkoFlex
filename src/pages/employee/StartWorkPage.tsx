@@ -4,13 +4,11 @@ import { Play, Square, Clock, Calendar, AlertCircle, Pause, Coffee, Edit } from 
 import { useEmployee } from '../../contexts/EmployeeContext';
 
 const StartWorkPage = () => {
-  const { workDays, startWorkDay, startWorkDayWithTime, endWorkDay, startPause, endPause, updateWorkDay } = useEmployee();
+  const { workDays, startWorkDay, endWorkDay, startPause, endPause, updateWorkDay } = useEmployee();
   const [earlyFinishReason, setEarlyFinishReason] = useState('');
   const [showReasonModal, setShowReasonModal] = useState(false);
   const [pauseReason, setPauseReason] = useState('');
   const [showPauseModal, setShowPauseModal] = useState(false);
-  const [showTimePickerModal, setShowTimePickerModal] = useState(false);
-  const [selectedStartTime, setSelectedStartTime] = useState('');
   const [showManualTimeModal, setShowManualTimeModal] = useState(false);
   const [manualTimes, setManualTimes] = useState({
     startTime: '',
@@ -34,18 +32,7 @@ const StartWorkPage = () => {
   };
 
   const handleStartWork = async () => {
-    const now = new Date();
-    const currentTime = now.toTimeString().split(' ')[0].substring(0, 5); // HH:MM format
-    setSelectedStartTime(currentTime);
-    setShowTimePickerModal(true);
-  };
-
-  const handleConfirmStartTime = async () => {
-    if (selectedStartTime) {
-      await startWorkDayWithTime(selectedStartTime);
-      setShowTimePickerModal(false);
-      setSelectedStartTime('');
-    }
+    await startWorkDay();
   };
 
   const handleEndWork = async () => {
@@ -443,70 +430,6 @@ const StartWorkPage = () => {
           )}
         </motion.div>
 
-        {/* Time Picker Modal for Start Work */}
-        {showTimePickerModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
-            >
-              <div className="flex items-center mb-4">
-                <Clock className="h-6 w-6 text-primary-600 dark:text-primary-400 mr-3" />
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  Pasirinkite darbo pradžios laiką
-                </h3>
-              </div>
-              
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Nustatykite tikslų darbo dienos pradžios laiką:
-              </p>
-              
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Darbo pradžios laikas
-                </label>
-                <input
-                  type="time"
-                  value={selectedStartTime}
-                  onChange={(e) => setSelectedStartTime(e.target.value)}
-                  className="w-full p-3 text-lg border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  required
-                />
-              </div>
-
-              {selectedStartTime && (
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg mb-6">
-                  <p className="text-blue-800 dark:text-blue-200 text-sm">
-                    <strong>Darbo pradžia:</strong> {selectedStartTime}
-                    <br />
-                    <strong>Data:</strong> {new Date().toLocaleDateString('lt-LT')}
-                  </p>
-                </div>
-              )}
-              
-              <div className="flex justify-end space-x-3">
-                <button
-                  onClick={() => {
-                    setShowTimePickerModal(false);
-                    setSelectedStartTime('');
-                  }}
-                  className="btn btn-outline"
-                >
-                  Atšaukti
-                </button>
-                <button
-                  onClick={handleConfirmStartTime}
-                  disabled={!selectedStartTime}
-                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Pradėti darbo dieną
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
-
         {/* Pause Modal */}
         {showPauseModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -640,3 +563,81 @@ const StartWorkPage = () => {
                   </div>
                 )}
               </div>
+              
+              <div className="flex justify-end space-x-3 mt-6">
+                <button
+                  onClick={() => {
+                    setShowManualTimeModal(false);
+                    setManualTimes({ startTime: '', endTime: '' });
+                    setEditingWorkDayId(null);
+                  }}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+                <button
+                  onClick={handleSaveManualTime}
+                  disabled={!manualTimes.startTime || !manualTimes.endTime}
+                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Išsaugoti laiką
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* Early Finish Modal */}
+        {showReasonModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
+            >
+              <div className="flex items-center mb-4">
+                <AlertCircle className="h-6 w-6 text-orange-500 mr-3" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Ankstyvas darbo dienos pabaigimas
+                </h3>
+              </div>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                Darbo diena baigiama anksčiau nei įprastai. Prašome nurodyti priežastį:
+              </p>
+              
+              <textarea
+                value={earlyFinishReason}
+                onChange={(e) => setEarlyFinishReason(e.target.value)}
+                placeholder="Įveskite priežastį..."
+                className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                rows={3}
+                required
+              />
+              
+              <div className="flex justify-end space-x-3 mt-6">
+                <button
+                  onClick={() => setShowReasonModal(false)}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+                <button
+                  onClick={handleEarlyFinish}
+                  disabled={!earlyFinishReason.trim()}
+                  className="btn btn-primary"
+                >
+                  Baigti darbo dieną
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default StartWorkPage;
+
+export default StartWorkPage
