@@ -3,11 +3,24 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
-  Wind, Activity, BarChart, Shield, Users, ChevronRight, Check, Clock, FileCheck, PenTool as Tool, HelpCircle
+  Wind, Activity, BarChart, Shield, Users, ChevronRight, Check, Clock, FileCheck, PenTool as Tool, HelpCircle, Zap, Settings
 } from 'lucide-react';
 
 const HomePage = () => {
   const { t } = useTranslation();
+
+  // SEO Meta Tags
+  React.useEffect(() => {
+    document.title = t('home.seo.title');
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', t('home.seo.description'));
+    }
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', t('home.seo.keywords'));
+    }
+  }, [t]);
 
   const services = [
     {
@@ -130,6 +143,99 @@ const HomePage = () => {
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="prose prose-lg dark:prose-invert max-w-none"
+            >
+              <div className="text-gray-700 dark:text-gray-300 space-y-8">
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                    {t('home.seo.introduction.title')}
+                  </h2>
+                  <p className="text-lg leading-relaxed mb-6">
+                    {t('home.seo.introduction.content')}
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold text-primary-800 dark:text-primary-200 mb-3 flex items-center">
+                      <Zap className="h-6 w-6 mr-2" />
+                      {t('home.seo.expertise.title')}
+                    </h3>
+                    <p className="text-primary-700 dark:text-primary-300 leading-relaxed">
+                      {t('home.seo.expertise.content')}
+                    </p>
+                  </div>
+
+                  <div className="bg-secondary-50 dark:bg-secondary-900/20 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold text-secondary-800 dark:text-secondary-200 mb-3 flex items-center">
+                      <Settings className="h-6 w-6 mr-2" />
+                      {t('home.seo.systems.title')}
+                    </h3>
+                    <p className="text-secondary-700 dark:text-secondary-300 leading-relaxed">
+                      {t('home.seo.systems.content')}
+                    </p>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                    {t('home.seo.services.title')}
+                  </h3>
+                  <p className="leading-relaxed mb-6">
+                    {t('home.seo.services.content')}
+                  </p>
+                </div>
+
+                <div className="bg-accent-50 dark:bg-accent-900/20 p-8 rounded-lg">
+                  <h3 className="text-2xl font-semibold text-accent-800 dark:text-accent-200 mb-4">
+                    {t('home.seo.whyChoose.title')}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <ul className="space-y-3">
+                      <li className="flex items-start text-accent-700 dark:text-accent-300">
+                        <Check className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>{t('home.seo.whyChoose.experience')}</span>
+                      </li>
+                      <li className="flex items-start text-accent-700 dark:text-accent-300">
+                        <Check className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>{t('home.seo.whyChoose.certified')}</span>
+                      </li>
+                      <li className="flex items-start text-accent-700 dark:text-accent-300">
+                        <Check className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>{t('home.seo.whyChoose.comprehensive')}</span>
+                      </li>
+                    </ul>
+                    <ul className="space-y-3">
+                      <li className="flex items-start text-accent-700 dark:text-accent-300">
+                        <Check className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>{t('home.seo.whyChoose.technology')}</span>
+                      </li>
+                      <li className="flex items-start text-accent-700 dark:text-accent-300">
+                        <Check className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>{t('home.seo.whyChoose.compliance')}</span>
+                      </li>
+                      <li className="flex items-start text-accent-700 dark:text-accent-300">
+                        <Check className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>{t('home.seo.whyChoose.support')}</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
