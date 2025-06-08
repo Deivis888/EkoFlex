@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Square, Clock, Calendar, AlertCircle, Pause, Coffee } from 'lucide-react';
+import { Play, Square, Clock, Calendar, AlertCircle, Pause, Coffee, Edit } from 'lucide-react';
 import { useEmployee } from '../../contexts/EmployeeContext';
 
 const StartWorkPage = () => {
@@ -9,6 +9,11 @@ const StartWorkPage = () => {
   const [showReasonModal, setShowReasonModal] = useState(false);
   const [pauseReason, setPauseReason] = useState('');
   const [showPauseModal, setShowPauseModal] = useState(false);
+  const [showManualTimeModal, setShowManualTimeModal] = useState(false);
+  const [manualTimes, setManualTimes] = useState({
+    startTime: '',
+    endTime: ''
+  });
 
   const todayWorkDay = workDays.find(day => 
     day.date === new Date().toISOString().split('T')[0]
@@ -41,6 +46,72 @@ const StartWorkPage = () => {
     await endWorkDay(earlyFinishReason);
     setShowReasonModal(false);
     setEarlyFinishReason('');
+  };
+
+  const handleManualTimeEntry = () => {
+    const now = new Date();
+    const currentTime = now.toTimeString().split(' ')[0].substring(0, 5); // HH:MM format
+    
+    setManualTimes({
+      startTime: todayWorkDay?.startTime?.substring(0, 5) || '08:00',
+      endTime: currentTime
+    });
+    setShowManualTimeModal(true);
+  };
+
+  const handleSaveManualTime = async () => {
+    if (!manualTimes.startTime || !manualTimes.endTime) {
+      alert('Prašome užpildyti abu laikus');
+      return;
+    }
+
+    const startTime = new Date(`2000-01-01T${manualTimes.startTime}:00`);
+    const endTime = new Date(`2000-01-01T${manualTimes.endTime}:00`);
+    
+    if (endTime <= startTime) {
+      alert('Pabaigos laikas turi būti vėlesnis nei pradžios laikas');
+      return;
+    }
+
+    // Update the work day with manual times
+    setWorkDays(prev => prev.map(day => {
+      if (!day.isCompleted && day.date === new Date().toISOString().split('T')[0]) {
+        // Calculate total worked time
+        let totalMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
+        
+        // Subtract lunch break (1 hour = 60 minutes) if worked more than 4 hours
+        if (totalMinutes > 240) { // 4 hours
+          totalMinutes -= 60; // 1 hour lunch break
+        }
+        
+        // Subtract pause time
+        if (day.pauseEntries) {
+          const pauseMinutes = day.pauseEntries.reduce((total, pause) => {
+            if (pause.endTime) {
+              const pauseStart = new Date(`2000-01-01T${pause.startTime}`);
+              const pauseEnd = new Date(`2000-01-01T${pause.endTime}`);
+              return total + (pauseEnd.getTime() - pauseStart.getTime()) / (1000 * 60);
+            }
+            return total;
+          }, 0);
+          totalMinutes -= pauseMinutes;
+        }
+        
+        const totalHours = Math.max(0, totalMinutes / 60);
+        
+        return {
+          ...day,
+          startTime: `${manualTimes.startTime}:00`,
+          endTime: `${manualTimes.endTime}:00`,
+          isCompleted: true,
+          totalHours: Math.round(totalHours * 100) / 100
+        };
+      }
+      return day;
+    }));
+
+    setShowManualTimeModal(false);
+    setManualTimes({ startTime: '', endTime: '' });
   };
 
   const handleStartPause = async () => {
@@ -158,6 +229,13 @@ const StartWorkPage = () => {
                         >
                           <Pause className="h-4 w-4 mr-2" />
                           Pauzė
+                        </button>
+                        <button
+                          onClick={handleManualTimeEntry}
+                          className="btn btn-outline inline-flex items-center"
+                        >
+                          <Edit className="h-4 w-4 mr-2" />
+                          Rankiniu būdu
                         </button>
                         <button
                           onClick={handleEndWork}
@@ -394,6 +472,51 @@ const StartWorkPage = () => {
           </div>
         )}
 
+        {/* Manual Time Entry Modal */}
+        {showManualTimeModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
+            >
+              <div className="flex items-center mb-4">
+                <Edit className="h-6 w-6 text-blue-500 mr-3" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Rankiniu būdu įvesti darbo laiką
+                </h3>
+              </div>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Įveskite tikslų darbo pradžios ir pabaigos laiką. Pietų pertrauka (1h) bus automatiškai išskaičiuota.
+              </p>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Darbo pradžia
+                  </label>
+                  <input
+                    type="time"
+                    value={manualTimes.startTime}
+                    onChange={(e) => setManualTimes(prev => ({ ...prev, startTime: e.target.value }))}
+                    className="input"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    Darbo pabaiga
+                  </label>
+                  <input
+                    type="time"
+                    value={manualTimes.endTime}
+                    onChange={(e) => setManualTimes(prev => ({ ...prev, endTime: e.target.value }))}
+                    className="input"
+                    required
+                  />
+                </div>
         {/* Early Finish Modal */}
         {showReasonModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -445,4 +568,46 @@ const StartWorkPage = () => {
   );
 };
 
+                {manualTimes.startTime && manualTimes.endTime && (
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                    <p className="text-blue-800 dark:text-blue-200 text-sm">
+                      <strong>Darbo laikas:</strong> {manualTimes.startTime} - {manualTimes.endTime}
+                      <br />
+                      <strong>Iš viso:</strong> {(() => {
+                        const start = new Date(`2000-01-01T${manualTimes.startTime}:00`);
+                        const end = new Date(`2000-01-01T${manualTimes.endTime}:00`);
+                        let totalMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
+                        
+                        if (totalMinutes > 240) totalMinutes -= 60; // Lunch break
+                        
+                        const hours = Math.floor(totalMinutes / 60);
+                        const minutes = Math.round(totalMinutes % 60);
+                        return `${hours}h ${minutes}min (su pietų pertrauka)`;
+                      })()}
+                    </p>
+                  </div>
+                )}
+              </div>
+              
+              <div className="flex justify-end space-x-3 mt-6">
+                <button
+                  onClick={() => {
+                    setShowManualTimeModal(false);
+                    setManualTimes({ startTime: '', endTime: '' });
+                  }}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+                <button
+                  onClick={handleSaveManualTime}
+                  disabled={!manualTimes.startTime || !manualTimes.endTime}
+                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Išsaugoti laiką
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
 export default StartWorkPage;
