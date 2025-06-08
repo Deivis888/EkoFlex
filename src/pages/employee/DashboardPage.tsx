@@ -13,7 +13,8 @@ const DashboardPage = () => {
   const { employee, stats, workDays, startWorkDay, startWorkDayWithTime, endWorkDay, isAuthenticated } = useEmployee();
   const navigate = useNavigate();
   const [showTimeModal, setShowTimeModal] = React.useState(false);
-  const [selectedTime, setSelectedTime] = React.useState('');
+  const [selectedHour, setSelectedHour] = React.useState(8);
+  const [selectedMinute, setSelectedMinute] = React.useState(0);
 
   // Check if user is authenticated
   useEffect(() => {
@@ -98,17 +99,15 @@ const DashboardPage = () => {
 
   const handleStartWorkDay = () => {
     const now = new Date();
-    const currentTime = now.toTimeString().split(' ')[0].substring(0, 5); // HH:MM format
-    setSelectedTime(currentTime);
+    setSelectedHour(now.getHours());
+    setSelectedMinute(now.getMinutes());
     setShowTimeModal(true);
   };
 
   const handleConfirmStartTime = async () => {
-    if (selectedTime) {
-      await startWorkDayWithTime(selectedTime);
-      setShowTimeModal(false);
-      setSelectedTime('');
-    }
+    const timeString = `${selectedHour.toString().padStart(2, '0')}:${selectedMinute.toString().padStart(2, '0')}`;
+    await startWorkDayWithTime(timeString);
+    setShowTimeModal(false);
   };
 
   const handleQuickStart = async () => {
@@ -371,38 +370,107 @@ const DashboardPage = () => {
                 </h3>
               </div>
               
-              <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Nustatykite tikslų darbo dienos pradžios laiką:
-              </p>
-              
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Darbo pradžios laikas
-                </label>
-                <input
-                  type="time"
-                  value={selectedTime}
-                  onChange={(e) => setSelectedTime(e.target.value)}
-                  className="w-full p-3 text-lg border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  required
-                />
-              </div>
-
-              {selectedTime && (
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg mb-6">
-                  <p className="text-blue-800 dark:text-blue-200 text-sm">
-                    <strong>Darbo pradžia:</strong> {selectedTime}
-                    <br />
-                    <strong>Data:</strong> {new Date().toLocaleDateString('lt-LT')}
+              <div className="space-y-6">
+                {/* Digital Time Display */}
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                    {selectedHour.toString().padStart(2, '0')}:{selectedMinute.toString().padStart(2, '0')}
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {new Date().toLocaleDateString('lt-LT')}
                   </p>
                 </div>
-              )}
+
+                {/* Time Pickers */}
+                <div className="grid grid-cols-2 gap-6">
+                  {/* Hour Picker */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 text-center">
+                      Valandos
+                    </label>
+                    <div className="h-32 overflow-y-auto border border-gray-300 dark:border-gray-600 rounded-lg">
+                      {Array.from({ length: 24 }, (_, i) => i).map(hour => (
+                        <button
+                          key={hour}
+                          onClick={() => setSelectedHour(hour)}
+                          className={`w-full py-2 text-center transition-colors ${
+                            selectedHour === hour
+                              ? 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300'
+                              : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                          }`}
+                        >
+                          {hour.toString().padStart(2, '0')}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Minute Picker */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 text-center">
+                      Minutės
+                    </label>
+                    <div className="h-32 overflow-y-auto border border-gray-300 dark:border-gray-600 rounded-lg">
+                      {Array.from({ length: 60 }, (_, i) => i).filter(minute => minute % 5 === 0).map(minute => (
+                        <button
+                          key={minute}
+                          onClick={() => setSelectedMinute(minute)}
+                          className={`w-full py-2 text-center transition-colors ${
+                            selectedMinute === minute
+                              ? 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300'
+                              : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                          }`}
+                        >
+                          {minute.toString().padStart(2, '0')}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Time Buttons */}
+                <div className="grid grid-cols-4 gap-2">
+                  {[
+                    { hour: 7, minute: 0, label: '07:00' },
+                    { hour: 8, minute: 0, label: '08:00' },
+                    { hour: 9, minute: 0, label: '09:00' },
+                    { hour: 10, minute: 0, label: '10:00' }
+                  ].map(time => (
+                    <button
+                      key={time.label}
+                      onClick={() => {
+                        setSelectedHour(time.hour);
+                        setSelectedMinute(time.minute);
+                      }}
+                      className="btn btn-outline btn-sm"
+                    >
+                      {time.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Manual Input */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Arba įveskite rankiniu būdu:
+                  </label>
+                  <input
+                    type="time"
+                    value={`${selectedHour.toString().padStart(2, '0')}:${selectedMinute.toString().padStart(2, '0')}`}
+                    onChange={(e) => {
+                      const [hour, minute] = e.target.value.split(':').map(Number);
+                      setSelectedHour(hour);
+                      setSelectedMinute(minute);
+                    }}
+                    className="input"
+                  />
+                </div>
+              </div>
               
               <div className="flex justify-end space-x-3">
                 <button
                   onClick={() => {
                     setShowTimeModal(false);
-                    setSelectedTime('');
                   }}
                   className="btn btn-outline"
                 >
@@ -410,8 +478,7 @@ const DashboardPage = () => {
                 </button>
                 <button
                   onClick={handleConfirmStartTime}
-                  disabled={!selectedTime}
-                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn btn-primary"
                 >
                   Pradėti darbo dieną
                 </button>
