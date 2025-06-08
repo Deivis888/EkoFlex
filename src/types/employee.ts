@@ -53,7 +53,16 @@ export interface WorkDay {
   isCompleted: boolean;
   earlyFinishReason?: string;
   totalHours?: number;
+  pauseEntries?: PauseEntry[];
   createdAt: string;
+}
+
+export interface PauseEntry {
+  id: string;
+  startTime: string;
+  endTime?: string;
+  reason: string;
+  isActive: boolean;
 }
 
 export interface WorkEntry {

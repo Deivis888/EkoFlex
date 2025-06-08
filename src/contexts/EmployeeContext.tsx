@@ -18,6 +18,8 @@ interface EmployeeContextType {
   updateProfile: (data: Partial<Employee>) => Promise<void>;
   startWorkDay: () => Promise<void>;
   endWorkDay: (reason?: string) => Promise<void>;
+  startPause: (reason: string) => Promise<void>;
+  endPause: () => Promise<void>;
   addWorkEntry: (entry: Omit<WorkEntry, 'id' | 'employeeId' | 'createdAt'>) => Promise<void>;
   acceptTool: (toolId: string) => Promise<void>;
   acceptVehicle: (vehicleId: string) => Promise<void>;
@@ -191,7 +193,29 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
         const endTime = new Date().toTimeString().split(' ')[0];
         const startTime = new Date(`2000-01-01T${day.startTime}`);
         const endTimeDate = new Date(`2000-01-01T${endTime}`);
-        const totalHours = (endTimeDate.getTime() - startTime.getTime()) / (1000 * 60 * 60);
+        
+        // Calculate total worked time
+        let totalMinutes = (endTimeDate.getTime() - startTime.getTime()) / (1000 * 60);
+        
+        // Subtract lunch break (1 hour = 60 minutes) if worked more than 4 hours
+        if (totalMinutes > 240) { // 4 hours
+          totalMinutes -= 60; // 1 hour lunch break
+        }
+        
+        // Subtract pause time
+        if (day.pauseEntries) {
+          const pauseMinutes = day.pauseEntries.reduce((total, pause) => {
+            if (pause.endTime) {
+              const pauseStart = new Date(`2000-01-01T${pause.startTime}`);
+              const pauseEnd = new Date(`2000-01-01T${pause.endTime}`);
+              return total + (pauseEnd.getTime() - pauseStart.getTime()) / (1000 * 60);
+            }
+            return total;
+          }, 0);
+          totalMinutes -= pauseMinutes;
+        }
+        
+        const totalHours = Math.max(0, totalMinutes / 60);
         
         return {
           ...day,
@@ -199,6 +223,51 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
           isCompleted: true,
           earlyFinishReason: reason,
           totalHours: Math.round(totalHours * 100) / 100
+        };
+      }
+      return day;
+    }));
+  };
+
+  const startPause = async (reason: string) => {
+    if (!employee) return;
+    
+    const today = new Date().toISOString().split('T')[0];
+    const currentTime = new Date().toTimeString().split(' ')[0];
+    
+    setWorkDays(prev => prev.map(day => {
+      if (day.date === today && !day.isCompleted) {
+        const newPause = {
+          id: Date.now().toString(),
+          startTime: currentTime,
+          reason,
+          isActive: true
+        };
+        
+        return {
+          ...day,
+          pauseEntries: [...(day.pauseEntries || []), newPause]
+        };
+      }
+      return day;
+    }));
+  };
+
+  const endPause = async () => {
+    if (!employee) return;
+    
+    const today = new Date().toISOString().split('T')[0];
+    const currentTime = new Date().toTimeString().split(' ')[0];
+    
+    setWorkDays(prev => prev.map(day => {
+      if (day.date === today && !day.isCompleted) {
+        return {
+          ...day,
+          pauseEntries: day.pauseEntries?.map(pause => 
+            pause.isActive 
+              ? { ...pause, endTime: currentTime, isActive: false }
+              : pause
+          ) || []
         };
       }
       return day;
@@ -327,6 +396,8 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     updateProfile,
     startWorkDay,
     endWorkDay,
+    startPause,
+    endPause,
     addWorkEntry,
     acceptTool,
     acceptVehicle,
