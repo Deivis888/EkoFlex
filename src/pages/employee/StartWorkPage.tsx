@@ -714,11 +714,9 @@ const StartWorkPage = () => {
                         const end = new Date(`2000-01-01T${manualTimes.endTime}:00`);
                         let totalMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
                         
-                        if (totalMinutes > 240) totalMinutes -= 60; // Lunch break
-                        
                         const hours = Math.floor(totalMinutes / 60);
                         const minutes = Math.round(totalMinutes % 60);
-                        return `${hours}h ${minutes}min (su pietų pertrauka)`;
+                        return `${hours}h ${minutes}min`;
                       })()}
                     </p>
                   </div>
@@ -732,16 +730,22 @@ const StartWorkPage = () => {
                     setManualTimes({ startTime: '', endTime: '' });
                     setEditingWorkDayId(null);
                   }}
-                  className="btn btn-outline"
+                  className="relative px-6 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200"
                 >
-                  Atšaukti
+                  <div className="flex items-center justify-center font-medium">
+                    <X className="h-4 w-4 mr-2" />
+                    Atšaukti
+                  </div>
                 </button>
                 <button
                   onClick={handleSaveManualTime}
                   disabled={!manualTimes.startTime || !manualTimes.endTime}
-                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="relative px-6 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-accent-500 hover:bg-accent-600 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Išsaugoti laiką
+                  <div className="flex items-center justify-center font-medium">
+                    <Save className="h-4 w-4 mr-2" />
+                    Išsaugoti laiką
+                  </div>
                 </button>
               </div>
             </motion.div>
