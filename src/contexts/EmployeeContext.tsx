@@ -17,6 +17,7 @@ interface EmployeeContextType {
   logout: () => void;
   updateProfile: (data: Partial<Employee>) => Promise<void>;
   startWorkDay: () => Promise<void>;
+  startWorkDayWithTime: (time: string) => Promise<void>;
   endWorkDay: (reason?: string) => Promise<void>;
   startPause: (reason: string) => Promise<void>;
   endPause: () => Promise<void>;
@@ -186,6 +187,20 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     setWorkDays(prev => [newWorkDay, ...prev]);
   };
 
+  const startWorkDayWithTime = async (time: string) => {
+    if (!employee) return;
+    
+    const newWorkDay: WorkDay = {
+      id: Date.now().toString(),
+      employeeId: employee.id,
+      date: new Date().toISOString().split('T')[0],
+      startTime: `${time}:00`,
+      isCompleted: false,
+      createdAt: new Date().toISOString()
+    };
+    
+    setWorkDays(prev => [newWorkDay, ...prev]);
+  };
   const endWorkDay = async (reason?: string) => {
     if (!employee) return;
     
@@ -404,6 +419,7 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     logout,
     updateProfile,
     startWorkDay,
+    startWorkDayWithTime,
     endWorkDay,
     startPause,
     endPause,
