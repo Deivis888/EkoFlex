@@ -235,10 +235,12 @@ const DashboardPage = () => {
                 </p>
                 <button
                   onClick={handleQuickStart}
-                  className="btn btn-primary btn-lg inline-flex items-center"
+                  className="relative px-6 py-3 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg bg-primary-600 hover:bg-primary-700 text-white"
                 >
-                  <Play className="h-5 w-5 mr-2" />
-                  Pradėti darbo dieną
+                  <div className="flex items-center justify-center font-medium">
+                    <Play className="h-5 w-5 mr-2" />
+                    Pradėti darbo dieną
+                  </div>
                 </button>
               </div>
             )}
