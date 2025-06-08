@@ -55,6 +55,7 @@ export interface WorkDay {
   totalHours?: number;
   pauseEntries?: PauseEntry[];
   createdAt: string;
+  updatedAt?: string;
 }
 
 export interface PauseEntry {
