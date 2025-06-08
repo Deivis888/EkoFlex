@@ -11,6 +11,7 @@ import MarketPage from './pages/MarketPage';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import WorksPage from './pages/WorksPage';
+import VentilationInstallationPage from './pages/VentilationInstallationPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
@@ -67,6 +68,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="market" element={<MarketPage />} />
           <Route path="services" element={<ServicesPage />} />
+          <Route path="services/ventilation-installation" element={<VentilationInstallationPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="works" element={<WorksPage />} />
           <Route path="careers" element={<CareersPage />} />

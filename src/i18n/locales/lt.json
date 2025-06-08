@@ -210,6 +210,12 @@
   "services": {
     "title": "Mūsų Paslaugos",
     "subtitle": "Profesionalūs jūrų ventiliacijos sprendimai visų tipų laivams, paremti metų patirtimi ir šiuolaikiškomis technologijomis.",
+    "ventilationInstallation": {
+      "title": "Ventiliacijos Montavimas",
+      "subtitle": "Profesionalūs jūrų ventiliacijos montavimo sprendimai su pažangiomis HVAC technologijomis",
+      "metaTitle": "Ventiliacijos Montavimas – Jūrų HVAC ir Inžinerijos Sprendimai",
+      "description": "Pirmaujančios jūrų inžinerijos įmonės pasitiki mūsų ekspertize jūrų HVAC sistemose, Dometic jūrų oro kondicionierių montavime ir išsamiose jūrų HVAC paslaugose laivams visame pasaulyje."
+    },
     "installation": {
       "title": "Ventiliacijos Montavimas",
       "description": "Pilnas ventiliacijos sistemų montavimas jūrų laivams",
