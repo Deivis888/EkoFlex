@@ -16,10 +16,40 @@
   },
   "home": {
     "hero": {
-      "title": "Marine Ventilation Excellence",
-      "subtitle": "Setting the industry standard in marine ventilation with cutting-edge technology, expert installation, and unmatched service quality.",
+      "title": "Marine HVAC & Ventilation Installation Excellence",
+      "subtitle": "Leading **marine engineering** company specializing in **marine HVAC** systems and **ventilation installation** for all vessel types. Our certified **HVAC engineers** deliver cutting-edge **marine and naval engineering** solutions.",
       "cta": "Contact Us",
       "learnMore": "Learn More"
+    },
+    "seo": {
+      "title": "Ventilation Installation – Marine HVAC & Engineering Solutions",
+      "description": "Professional marine HVAC and ventilation installation services. Expert marine engineering solutions with certified HVAC engineers for ships and vessels.",
+      "keywords": "marine hvac, marine hvac system, marine hvac engineer, marine and naval engineering, HVAC engineer, installation engineer HVAC, rekuperatorių montavimas, Marine HVAC Services, HVAC in ships, ventilation installation",
+      "introduction": {
+        "title": "Professional Marine HVAC & Ventilation Installation Services",
+        "content": "EkoFlex is a leading **marine engineering** company specializing in comprehensive **marine HVAC** and **ventilation installation** services. Our team of certified **HVAC engineers** and **marine HVAC engineers** delivers state-of-the-art solutions for **HVAC in ships** across all vessel types. With expertise in **marine and naval engineering**, we provide complete **Marine HVAC Services** that ensure optimal air quality, energy efficiency, and regulatory compliance."
+      },
+      "expertise": {
+        "title": "Expert Marine Engineering & HVAC Solutions",
+        "content": "Our **installation engineer HVAC** specialists bring decades of experience in **marine HVAC system** design and implementation. We work with advanced technologies including **rekuperatorių montavimas** (heat recovery installation) to maximize energy efficiency. Every **ventilation installation** project is executed by our certified **marine HVAC engineer** team, ensuring compliance with international maritime standards and optimal performance in challenging marine environments."
+      },
+      "systems": {
+        "title": "Advanced Marine HVAC Systems & Technology",
+        "content": "We specialize in cutting-edge **marine HVAC** technology that combines performance with sustainability. Our **marine and naval engineering** approach focuses on integrated solutions that address the unique challenges of **HVAC in ships**. From initial system design to final commissioning, our **HVAC engineer** team ensures every **marine HVAC system** meets the highest standards for reliability, efficiency, and safety."
+      },
+      "services": {
+        "title": "Comprehensive Marine HVAC Services",
+        "content": "Our **Marine HVAC Services** encompass the complete spectrum of marine climate control solutions. We provide professional **ventilation installation**, system maintenance, and emergency repairs. Our **installation engineer HVAC** specialists are equipped to handle complex projects, including **rekuperatorių montavimas** systems that significantly improve energy efficiency and reduce operational costs."
+      },
+      "whyChoose": {
+        "title": "Why Choose EkoFlex for Marine HVAC Solutions",
+        "experience": "15+ years of specialized experience in marine engineering and HVAC systems",
+        "certified": "Certified marine HVAC engineers and installation specialists",
+        "comprehensive": "Complete marine HVAC services from design to maintenance",
+        "technology": "Advanced marine HVAC system technology and energy-efficient solutions",
+        "compliance": "Full compliance with international maritime safety and environmental standards",
+        "support": "24/7 technical support and emergency service capabilities"
+      }
     },
     "stats": {
       "vessels": "Vessels Equipped",
@@ -29,88 +59,88 @@
       "yearsExperience": "Years Experience"
     },
     "installation": {
-      "title": "Professional Installation Excellence",
-      "description": "Our expert team brings decades of experience in marine ventilation, delivering superior installation services that ensure optimal air quality and system efficiency for vessels of all sizes.",
+      "title": "Marine HVAC Installation Excellence",
+      "description": "Our expert **marine engineering** team brings decades of experience in **marine HVAC** and **ventilation installation**, delivering superior services that ensure optimal air quality and system efficiency for vessels of all sizes. Every project is handled by certified **HVAC engineers** specializing in **marine and naval engineering**.",
       "expertInstallation": "Expert Installation",
-      "marineGrade": "Marine-grade ventilation systems"
+      "marineGrade": "Marine-grade HVAC systems"
     },
     "benefits": {
       "technology": {
-        "title": "Advanced Technology",
-        "description": "State-of-the-art ventilation systems with smart controls and energy optimization"
+        "title": "Advanced Marine HVAC Technology",
+        "description": "State-of-the-art **marine HVAC systems** with smart controls, energy optimization, and **rekuperatorių montavimas** for maximum efficiency"
       },
       "installation": {
-        "title": "Expert Installation",
-        "description": "Certified technicians with extensive marine ventilation experience"
+        "title": "Expert HVAC Installation",
+        "description": "Certified **installation engineer HVAC** specialists with extensive **marine HVAC** experience and **marine engineering** expertise"
       },
       "custom": {
-        "title": "Custom Solutions",
-        "description": "Tailored systems designed specifically for your vessel's requirements"
+        "title": "Custom Marine HVAC Solutions",
+        "description": "Tailored **marine HVAC systems** designed specifically for your vessel's requirements by our **marine HVAC engineer** team"
       },
       "quality": {
-        "title": "Quality Assurance",
-        "description": "Rigorous testing and certification of all installations"
+        "title": "Marine Engineering Quality Assurance",
+        "description": "Rigorous testing and certification of all **marine HVAC** installations by certified **HVAC engineers**"
       }
     },
     "services": {
-      "title": "Our Expertise",
-      "subtitle": "Comprehensive ventilation solutions tailored to your specific needs",
+      "title": "Our Marine HVAC Expertise",
+      "subtitle": "Comprehensive **Marine HVAC Services** and **ventilation installation** solutions tailored to your specific vessel needs",
       "ventilation": {
-        "title": "Ship Ventilation Installation",
-        "description": "Professional ventilation system installation for all types of vessels"
+        "title": "Marine HVAC & Ventilation Installation",
+        "description": "Professional **marine HVAC system** and **ventilation installation** for all types of vessels by certified **HVAC engineers**"
       },
       "airflow": {
-        "title": "Airflow Measurement",
-        "description": "Precise measurements to ensure optimal air circulation"
+        "title": "Marine HVAC System Optimization",
+        "description": "Precise **HVAC in ships** measurements and optimization to ensure optimal air circulation and energy efficiency"
       },
       "efficiency": {
-        "title": "Efficiency Optimization",
-        "description": "Solutions to maximize energy efficiency and system performance"
+        "title": "Marine Engineering Efficiency",
+        "description": "**Marine engineering** solutions including **rekuperatorių montavimas** to maximize energy efficiency and **marine HVAC system** performance"
       },
       "quality": {
-        "title": "Quality Assurance",
-        "description": "Comprehensive quality controls and long-term guarantees"
+        "title": "Marine HVAC Quality Assurance",
+        "description": "Comprehensive quality controls and long-term guarantees for all **Marine HVAC Services** and installations"
       },
       "team": {
-        "title": "Professional Team",
-        "description": "Experienced specialists dedicated to excellence"
+        "title": "Professional Marine HVAC Team",
+        "description": "Experienced **marine HVAC engineer** and **installation engineer HVAC** specialists dedicated to excellence"
       }
     },
     "measurement": {
-      "title": "Expert Airflow Measurement",
-      "description": "Precise airflow measurement is crucial for maintaining optimal ventilation in marine environments. Our certified technicians use advanced equipment to ensure your vessel's ventilation system meets all safety standards and performance requirements.",
+      "title": "Expert Marine HVAC System Analysis",
+      "description": "Precise **marine HVAC system** analysis and **HVAC in ships** measurement is crucial for maintaining optimal performance. Our certified **marine HVAC engineer** team uses advanced equipment to ensure your vessel's **marine HVAC** system meets all safety standards and performance requirements.",
       "equipment": {
-        "title": "Professional Equipment",
-        "description": "Using advanced anemometers and pressure measurement devices for precise readings"
+        "title": "Professional Marine HVAC Equipment",
+        "description": "Using advanced **marine engineering** equipment and precision instruments for accurate **marine HVAC system** analysis"
       },
       "process": {
-        "title": "Efficient Process",
-        "description": "Complete ship ventilation assessment in 2-3 days depending on vessel size"
+        "title": "Efficient Marine HVAC Assessment",
+        "description": "Complete **HVAC in ships** assessment and **marine HVAC system** evaluation in 2-3 days depending on vessel size"
       },
       "reports": {
-        "title": "Detailed Reports",
-        "description": "Comprehensive documentation of all measurements and recommendations"
+        "title": "Detailed Marine Engineering Reports",
+        "description": "Comprehensive **marine engineering** documentation of all **marine HVAC** measurements and optimization recommendations"
       }
     },
     "faq": {
-      "title": "Common Questions",
+      "title": "Marine HVAC Frequently Asked Questions",
       "frequency": {
-        "question": "How often should airflow be measured?",
-        "answer": "We recommend quarterly measurements for optimal system performance"
+        "question": "How often should marine HVAC systems be serviced?",
+        "answer": "We recommend quarterly **marine HVAC system** maintenance for optimal performance and efficiency"
       },
       "standards": {
-        "question": "What standards do you follow?",
-        "answer": "All measurements comply with ISO 7547 and SOLAS regulations"
+        "question": "What marine engineering standards do you follow?",
+        "answer": "All **marine HVAC** installations comply with ISO 7547, SOLAS regulations, and international **marine engineering** standards"
       },
       "areas": {
-        "question": "What areas are measured?",
-        "answer": "All critical zones including cabins, engine rooms, and common areas"
+        "question": "What areas do marine HVAC services cover?",
+        "answer": "Our **Marine HVAC Services** cover all critical zones including cabins, engine rooms, and common areas with complete **HVAC in ships** solutions"
       }
     },
     "cta": {
-      "title": "Ready to Improve Your Vessel's Ventilation?",
-      "description": "Contact our team of experts for a consultation and discover how we can enhance your vessel's air quality and energy efficiency.",
-      "button": "Get a Free Consultation"
+      "title": "Ready to Upgrade Your Marine HVAC System?",
+      "description": "Contact our team of **marine HVAC engineer** experts for a consultation and discover how our **Marine HVAC Services** can enhance your vessel's air quality, energy efficiency, and performance.",
+      "button": "Get a Free Marine HVAC Consultation"
     }
   },
   "market": {
