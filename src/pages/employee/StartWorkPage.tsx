@@ -574,7 +574,6 @@ const StartWorkPage = () => {
                 <button
                   onClick={handleConfirmStartTime}
                   className="relative px-8 py-3 rounded-xl group overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
                   <div className="absolute inset-0 bg-accent-500 rounded-xl transition-all duration-300 group-hover:bg-accent-600"></div>
                   <div className="relative flex items-center justify-center font-semibold text-white">
                     <Play className="h-5 w-5 mr-2" />
@@ -795,11 +794,3 @@ const StartWorkPage = () => {
 };
 
 export default StartWorkPage;
-
-export default StartWorkPage
-
-export default StartWorkPage
-
-export default StartWorkPage
-
-export default StartWorkPage
