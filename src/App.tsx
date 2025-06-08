@@ -13,7 +13,6 @@ import AboutPage from './pages/AboutPage';
 import WorksPage from './pages/WorksPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
-import VentilationInstallationPage from './pages/VentilationInstallationPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
@@ -71,7 +70,6 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="works" element={<WorksPage />} />
           <Route path="careers" element={<CareersPage />} />
-          <Route path="services/ventilation-installation" element={<VentilationInstallationPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
