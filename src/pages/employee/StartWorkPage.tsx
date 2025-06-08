@@ -265,7 +265,7 @@ const StartWorkPage = () => {
                         >
                           <div className="flex items-center justify-center font-medium">
                             <Edit className="h-4 w-4 mr-2" />
-                            Rankiniu būdu
+                            Darbo laikas
                           </div>
                         </button>
                         <button
