@@ -244,9 +244,12 @@ const StartWorkPage = () => {
                       <button
                         onClick={handleEndPause}
                         className="btn btn-primary inline-flex items-center"
+                        className="relative px-6 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-accent-500 hover:bg-accent-600 text-white"
                       >
-                        <Play className="h-4 w-4 mr-2" />
-                        Tęsti darbą
+                        <div className="flex items-center justify-center font-medium">
+                          <Play className="h-5 w-5 mr-2" />
+                          Tęsti darbą
+                        </div>
                       </button>
                     ) : (
                       <>
