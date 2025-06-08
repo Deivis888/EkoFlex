@@ -252,24 +252,30 @@ const StartWorkPage = () => {
                       <>
                         <button
                           onClick={() => setShowPauseModal(true)}
-                          className="btn btn-outline inline-flex items-center"
+                          className="relative px-4 py-2 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-blue-500 hover:bg-blue-600 text-white"
                         >
-                          <Pause className="h-4 w-4 mr-2" />
-                          Pauzė
+                          <div className="flex items-center justify-center font-medium">
+                            <Pause className="h-4 w-4 mr-2" />
+                            Pauzė
+                          </div>
                         </button>
                         <button
                           onClick={handleManualTimeEntry}
-                          className="btn btn-outline inline-flex items-center"
+                          className="relative px-4 py-2 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-purple-500 hover:bg-purple-600 text-white"
                         >
-                          <Edit className="h-4 w-4 mr-2" />
-                          Rankiniu būdu
+                          <div className="flex items-center justify-center font-medium">
+                            <Edit className="h-4 w-4 mr-2" />
+                            Rankiniu būdu
+                          </div>
                         </button>
                         <button
                           onClick={handleEndWork}
-                          className="btn btn-primary inline-flex items-center"
+                          className="relative px-4 py-2 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-accent-500 hover:bg-accent-600 text-white"
                         >
-                          <Square className="h-4 w-4 mr-2" />
-                          Baigti darbo dieną
+                          <div className="flex items-center justify-center font-medium">
+                            <Square className="h-4 w-4 mr-2" />
+                            Baigti darbo dieną
+                          </div>
                         </button>
                       </>
                     )}
