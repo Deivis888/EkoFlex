@@ -216,12 +216,6 @@ const Header = () => {
               >
                 {t('navigation.register')}
               </Link>
-              <Link
-                to="/employee/login"
-                className="btn btn-secondary btn-sm"
-              >
-                Darbuotojai
-              </Link>
             </div>
           </div>
 
@@ -359,12 +353,6 @@ const Header = () => {
                 className="btn btn-primary btn-md justify-start"
               >
                 {t('navigation.register')}
-              </Link>
-              <Link
-                to="/employee/login"
-                className="btn btn-secondary btn-md justify-start"
-              >
-                Darbuotojai
               </Link>
             </div>
           </div>
