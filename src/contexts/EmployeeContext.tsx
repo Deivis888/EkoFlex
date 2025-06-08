@@ -398,6 +398,7 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     endWorkDay,
     startPause,
     endPause,
+    updateWorkDay,
     addWorkEntry,
     acceptTool,
     acceptVehicle,
