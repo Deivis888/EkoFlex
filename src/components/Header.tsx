@@ -54,7 +54,8 @@ const Header = () => {
   ];
 
   const servicesSubMenu = [
-    { href: '/services', label: t('navigation.ventilationWorks') }
+    { href: '/services', label: t('navigation.ventilationWorks') },
+    { href: '/services/ventilation-installation', label: 'Ventilation Installation' }
   ];
 
   return (
