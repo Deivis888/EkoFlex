@@ -206,9 +206,14 @@ const DashboardPage = () => {
                   {!todayWorkDay.isCompleted && (
                     <button
                       onClick={handleQuickStart}
-                      className="btn btn-primary"
+                      className="relative px-8 py-3 rounded-xl group overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
                     >
-                      Baigti dieną
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-xl transition-all duration-300 group-hover:from-primary-600 group-hover:via-secondary-600 group-hover:to-accent-600"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+                      <div className="relative flex items-center justify-center font-semibold text-white">
+                        <Square className="h-5 w-5 mr-2" />
+                        Baigti dieną
+                      </div>
                     </button>
                   )}
                 </div>
