@@ -38,15 +38,17 @@ const EmployeeLayout = () => {
       {/* Sidebar */}
       <div className="w-64 bg-white dark:bg-gray-800 shadow-lg flex flex-col">
         <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-          <div className="flex items-center">
+          <div className="flex flex-col items-center text-center">
             <img 
               src="https://i.imgur.com/7rNwjuG.png" 
               alt="EkoFlex Logo" 
-              className="h-8 w-auto mr-3"
+              className="h-10 w-auto mb-3"
             />
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">EkoFlex</h2>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Darbuotojai</p>
+            <div className="relative">
+              <h2 className="text-lg font-bold bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-500 bg-clip-text text-transparent tracking-wide">
+                DARBUOTOJAI
+              </h2>
+              <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-500 rounded-full"></div>
             </div>
           </div>
         </div>
