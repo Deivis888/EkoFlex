@@ -31,6 +31,7 @@ interface EmployeeContextType {
   updateBankDetails: (bankDetails: Employee['bankDetails']) => Promise<void>;
   updateEmergencyContact: (contact: Employee['emergencyContact']) => Promise<void>;
   updatePassword: (oldPassword: string, newPassword: string) => Promise<void>;
+  updateWorkDay: (workDayId: string, data: Partial<WorkDay>) => Promise<void>;
 }
 
 const EmployeeContext = createContext<EmployeeContextType | undefined>(undefined);
@@ -379,6 +380,14 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     console.log('Password updated');
   };
 
+  const updateWorkDay = async (workDayId: string, data: Partial<WorkDay>) => {
+    setWorkDays(prev => prev.map(day => 
+      day.id === workDayId 
+        ? { ...day, ...data, updatedAt: new Date().toISOString() }
+        : day
+    ));
+  };
+
   const value = {
     employee,
     isAuthenticated,
@@ -408,7 +417,8 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     requestAdvance,
     updateBankDetails,
     updateEmergencyContact,
-    updatePassword
+    updatePassword,
+    updateWorkDay
   };
 
   return (
