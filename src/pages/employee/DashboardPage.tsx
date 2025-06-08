@@ -434,10 +434,10 @@ const DashboardPage = () => {
                 {/* Quick Time Buttons */}
                 <div className="grid grid-cols-4 gap-2">
                   {[
-                    { hour: 6, minute: 0, label: '06:00' },
                     { hour: 7, minute: 0, label: '07:00' },
                     { hour: 8, minute: 0, label: '08:00' },
-                    { hour: 9, minute: 0, label: '09:00' }
+                    { hour: 9, minute: 0, label: '09:00' },
+                    { hour: 10, minute: 0, label: '10:00' }
                   ].map(time => (
                     <button
                       key={time.label}
@@ -485,10 +485,14 @@ const DashboardPage = () => {
                 </button>
                 <button
                   onClick={handleConfirmStartTime}
-                  className="btn btn-primary btn-lg inline-flex items-center"
+                  className="relative px-8 py-3 rounded-xl group overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
-                  <Play className="h-5 w-5 mr-2" />
-                  Pradėti darbo dieną
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-xl transition-all duration-300 group-hover:from-primary-600 group-hover:via-secondary-600 group-hover:to-accent-600"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+                  <div className="relative flex items-center justify-center font-semibold text-white">
+                    <Play className="h-5 w-5 mr-2" />
+                    Pradėti darbo dieną
+                  </div>
                 </button>
               </div>
             </motion.div>
