@@ -4,7 +4,7 @@ import { Play, Square, Clock, Calendar, AlertCircle, Pause, Coffee, Edit } from 
 import { useEmployee } from '../../contexts/EmployeeContext';
 
 const StartWorkPage = () => {
-  const { workDays, startWorkDay, endWorkDay, startPause, endPause } = useEmployee();
+  const { workDays, startWorkDay, endWorkDay, startPause, endPause, updateWorkDay } = useEmployee();
   const [earlyFinishReason, setEarlyFinishReason] = useState('');
   const [showReasonModal, setShowReasonModal] = useState(false);
   const [pauseReason, setPauseReason] = useState('');
@@ -14,12 +14,22 @@ const StartWorkPage = () => {
     startTime: '',
     endTime: ''
   });
+  const [editingWorkDayId, setEditingWorkDayId] = useState<string | null>(null);
 
   const todayWorkDay = workDays.find(day => 
     day.date === new Date().toISOString().split('T')[0]
   );
 
   const activePause = todayWorkDay?.pauseEntries?.find(pause => pause.isActive);
+
+  const handleEditWorkDay = (workDay: any) => {
+    setEditingWorkDayId(workDay.id);
+    setManualTimes({
+      startTime: workDay.startTime?.substring(0, 5) || '08:00',
+      endTime: workDay.endTime?.substring(0, 5) || '17:00'
+    });
+    setShowManualTimeModal(true);
+  };
 
   const handleStartWork = async () => {
     await startWorkDay();
@@ -74,7 +84,7 @@ const StartWorkPage = () => {
     }
 
     // Update the work day with manual times
-    const today = new Date().toISOString().split('T')[0];
+    const workDay = editingWorkDayId ? workDays.find(day => day.id === editingWorkDayId) : todayWorkDay;
     
     // Calculate total worked time
     let totalMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
@@ -85,7 +95,7 @@ const StartWorkPage = () => {
     }
     
     // Subtract pause time
-    const pauseMinutes = todayWorkDay?.pauseEntries?.reduce((total, pause) => {
+    const pauseMinutes = workDay?.pauseEntries?.reduce((total, pause) => {
       if (pause.endTime) {
         const pauseStart = new Date(`2000-01-01T${pause.startTime}`);
         const pauseEnd = new Date(`2000-01-01T${pause.endTime}`);
@@ -97,11 +107,21 @@ const StartWorkPage = () => {
     totalMinutes -= pauseMinutes;
     const totalHours = Math.max(0, totalMinutes / 60);
 
-    // End the work day with manual times
-    await endWorkDay();
+    if (editingWorkDayId) {
+      // Update historical work day
+      await updateWorkDay(editingWorkDayId, {
+        startTime: `${manualTimes.startTime}:00`,
+        endTime: `${manualTimes.endTime}:00`,
+        totalHours: Math.round(totalHours * 100) / 100
+      });
+    } else {
+      // End the current work day with manual times
+      await endWorkDay();
+    }
 
     setShowManualTimeModal(false);
     setManualTimes({ startTime: '', endTime: '' });
+    setEditingWorkDayId(null);
   };
 
   const handleStartPause = async () => {
@@ -488,7 +508,7 @@ const StartWorkPage = () => {
               <div className="flex items-center mb-4">
                 <Edit className="h-6 w-6 text-blue-500 mr-3" />
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  Rankiniu būdu įvesti darbo laiką
+                  {editingWorkDayId ? 'Redaguoti darbo laiką' : 'Rankiniu būdu įvesti darbo laiką'}
                 </h3>
               </div>
               
@@ -549,6 +569,7 @@ const StartWorkPage = () => {
                   onClick={() => {
                     setShowManualTimeModal(false);
                     setManualTimes({ startTime: '', endTime: '' });
+                    setEditingWorkDayId(null);
                   }}
                   className="btn btn-outline"
                 >
