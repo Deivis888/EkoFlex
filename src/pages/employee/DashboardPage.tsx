@@ -206,11 +206,9 @@ const DashboardPage = () => {
                   {!todayWorkDay.isCompleted && (
                     <button
                       onClick={handleQuickStart}
-                      className="relative px-8 py-3 rounded-xl group overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                      className="relative px-6 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg bg-primary-600 hover:bg-primary-700 text-white"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 rounded-xl transition-all duration-300 group-hover:from-primary-600 group-hover:via-secondary-600 group-hover:to-accent-600"></div>
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
-                      <div className="relative flex items-center justify-center font-semibold text-white">
+                      <div className="flex items-center justify-center font-medium">
                         <Square className="h-5 w-5 mr-2" />
                         Baigti dieną
                       </div>
