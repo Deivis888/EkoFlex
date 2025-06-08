@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 import { 
   Clock, Euro, Calendar, TrendingUp, 
   User, Play, Square, Briefcase, 
-  BarChart3, CheckCircle
+  BarChart3, CheckCircle, Pause
 } from 'lucide-react';
 import { useEmployee } from '../../contexts/EmployeeContext';
 import { useNavigate } from 'react-router-dom';
 
 const DashboardPage = () => {
-  const { employee, stats, workDays, startWorkDay, startWorkDayWithTime, endWorkDay, isAuthenticated } = useEmployee();
+  const { employee, stats, workDays, startWorkDay, startWorkDayWithTime, endWorkDay, startPause, isAuthenticated } = useEmployee();
   const navigate = useNavigate();
   const [showTimeModal, setShowTimeModal] = React.useState(false);
   const [selectedHour, setSelectedHour] = React.useState(8);
