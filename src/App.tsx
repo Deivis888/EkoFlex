@@ -21,8 +21,21 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import ThankYouPage from './pages/ThankYouPage';
 import EmployeeLoginPage from './pages/EmployeeLoginPage';
-import EmployeeDashboardPage from './pages/EmployeeDashboardPage';
-import EmployeeProfilePage from './pages/EmployeeProfilePage';
+import EmployeeLayout from './components/EmployeeLayout';
+import DashboardPage from './pages/employee/DashboardPage';
+import ProfilePage from './pages/employee/ProfilePage';
+import StartWorkPage from './pages/employee/StartWorkPage';
+import WorkPage from './pages/employee/WorkPage';
+import ToolsPage from './pages/employee/ToolsPage';
+import VehiclePage from './pages/employee/VehiclePage';
+import AddressesPage from './pages/employee/AddressesPage';
+import DocumentsPage from './pages/employee/DocumentsPage';
+import ProfessionPage from './pages/employee/ProfessionPage';
+import SupervisorsPage from './pages/employee/SupervisorsPage';
+import BusinessTripPage from './pages/employee/BusinessTripPage';
+import BankPage from './pages/employee/BankPage';
+import AdvancesPage from './pages/employee/AdvancesPage';
+import SettingsPage from './pages/employee/SettingsPage';
 
 // Contexts
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -87,8 +100,22 @@ function App() {
           
           {/* Employee Routes */}
           <Route path="/employee/login" element={<EmployeeLoginPage />} />
-          <Route path="/employee/dashboard" element={<EmployeeDashboardPage />} />
-          <Route path="/employee/profile" element={<EmployeeProfilePage />} />
+          <Route path="/employee" element={<EmployeeLayout />}>
+            <Route path="dashboard" element={<DashboardPage />} />
+            <Route path="profile" element={<ProfilePage />} />
+            <Route path="start" element={<StartWorkPage />} />
+            <Route path="work" element={<WorkPage />} />
+            <Route path="tools" element={<ToolsPage />} />
+            <Route path="vehicle" element={<VehiclePage />} />
+            <Route path="addresses" element={<AddressesPage />} />
+            <Route path="documents" element={<DocumentsPage />} />
+            <Route path="profession" element={<ProfessionPage />} />
+            <Route path="supervisors" element={<SupervisorsPage />} />
+            <Route path="business-trip" element={<BusinessTripPage />} />
+            <Route path="bank" element={<BankPage />} />
+            <Route path="advances" element={<AdvancesPage />} />
+            <Route path="settings" element={<SettingsPage />} />
+          </Route>
         </Routes>
       </EmployeeProvider>
     </ThemeProvider>
