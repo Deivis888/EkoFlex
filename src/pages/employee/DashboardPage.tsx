@@ -15,6 +15,7 @@ const DashboardPage = () => {
   const [showTimeModal, setShowTimeModal] = React.useState(false);
   const [selectedHour, setSelectedHour] = React.useState(8);
   const [selectedMinute, setSelectedMinute] = React.useState(0);
+  const [showPauseModal, setShowPauseModal] = React.useState(false);
 
   // Check if user is authenticated
   useEffect(() => {
