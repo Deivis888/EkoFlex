@@ -198,15 +198,15 @@ const ServicesPage = () => {
                   {step.icon}
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{step.description}</p>
-                <ul className="text-left space-y-2">
-                  {step.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-gray-700 dark:text-gray-300 text-sm">
-                      <span className="mr-2 text-primary-500">•</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-gray-600 dark:text-gray-400">{step.description}</p>
+                {index === 0 && (
+                  <Link 
+                    to="/services/ventilation-installation" 
+                    className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline mt-2 text-sm"
+                  >
+                    Learn More →
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
