@@ -14,6 +14,12 @@ const StartWorkPage = () => {
     startTime: '',
     endTime: ''
   });
+  const [showEditTimeModal, setShowEditTimeModal] = useState(false);
+  const [editingWorkDay, setEditingWorkDay] = useState<any>(null);
+  const [editTimes, setEditTimes] = useState({
+    startTime: '',
+    endTime: ''
+  });
 
   const todayWorkDay = workDays.find(day => 
     day.date === new Date().toISOString().split('T')[0]
@@ -114,6 +120,67 @@ const StartWorkPage = () => {
 
   const handleEndPause = async () => {
     await endPause();
+  };
+
+  const handleEditWorkDay = (workDay: any) => {
+    setEditingWorkDay(workDay);
+    setEditTimes({
+      startTime: workDay.startTime?.substring(0, 5) || '',
+      endTime: workDay.endTime?.substring(0, 5) || ''
+    });
+    setShowEditTimeModal(true);
+  };
+
+  const handleSaveEditedTime = async () => {
+    if (!editTimes.startTime || !editTimes.endTime || !editingWorkDay) {
+      alert('Prašome užpildyti abu laikus');
+      return;
+    }
+
+    const startTime = new Date(`2000-01-01T${editTimes.startTime}:00`);
+    const endTime = new Date(`2000-01-01T${editTimes.endTime}:00`);
+    
+    if (endTime <= startTime) {
+      alert('Pabaigos laikas turi būti vėlesnis nei pradžios laikas');
+      return;
+    }
+
+    // Calculate total worked time
+    let totalMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
+    
+    // Subtract lunch break (1 hour = 60 minutes) if worked more than 4 hours
+    if (totalMinutes > 240) { // 4 hours
+      totalMinutes -= 60; // 1 hour lunch break
+    }
+    
+    // Subtract pause time
+    const pauseMinutes = editingWorkDay.pauseEntries?.reduce((total: number, pause: any) => {
+      if (pause.endTime) {
+        const pauseStart = new Date(`2000-01-01T${pause.startTime}`);
+        const pauseEnd = new Date(`2000-01-01T${pause.endTime}`);
+        return total + (pauseEnd.getTime() - pauseStart.getTime()) / (1000 * 60);
+      }
+      return total;
+    }, 0) || 0;
+    
+    totalMinutes -= pauseMinutes;
+    const totalHours = Math.max(0, totalMinutes / 60);
+
+    // Update the work day with edited times
+    setWorkDays(prev => prev.map(day => 
+      day.id === editingWorkDay.id 
+        ? {
+            ...day,
+            startTime: `${editTimes.startTime}:00`,
+            endTime: `${editTimes.endTime}:00`,
+            totalHours: Math.round(totalHours * 100) / 100
+          }
+        : day
+    ));
+
+    setShowEditTimeModal(false);
+    setEditingWorkDay(null);
+    setEditTimes({ startTime: '', endTime: '' });
   };
 
   const calculateTotalPauseTime = (pauseEntries: any[] = []) => {
@@ -349,6 +416,9 @@ const StartWorkPage = () => {
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       Statusas
                     </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      Veiksmai
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
@@ -380,6 +450,17 @@ const StartWorkPage = () => {
                         }`}>
                           {day.isCompleted ? 'Užbaigta' : 'Vyksta'}
                         </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        {day.isCompleted && (
+                          <button
+                            onClick={() => handleEditWorkDay(day)}
+                            className="btn btn-outline btn-sm inline-flex items-center"
+                          >
+                            <Edit className="h-4 w-4 mr-1" />
+                            Redaguoti laiką
+                          </button>
+                        )}
                       </td>
                     </tr>
                   ))}
