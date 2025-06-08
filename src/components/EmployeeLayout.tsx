@@ -10,7 +10,7 @@ import {
 import { useEmployee } from '../contexts/EmployeeContext';
 
 const EmployeeLayout = () => {
-  const { employee, logout, isAuthenticated } = useEmployee();
+  const { employee, logout, isAuthenticated, login } = useEmployee();
   const navigate = useNavigate();
   const location = useLocation();
 
