@@ -238,6 +238,14 @@ const HomePage = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400">{service.description}</p>
+                {index === 0 && (
+                  <Link 
+                    to="/services/ventilation-installation" 
+                    className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline text-sm mt-2"
+                  >
+                    Learn More →
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
