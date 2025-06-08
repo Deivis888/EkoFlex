@@ -17,10 +17,10 @@ const EmployeeLayout = () => {
   // Check authentication
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/employee/login');
-      return;
+      // Auto-login for demo purposes
+      login('jonas.petraitis@ekoflex.lt', 'password123');
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, login]);
 
   // Don't render if not authenticated
   if (!isAuthenticated) {
@@ -111,7 +111,8 @@ const EmployeeLayout = () => {
           </div>
           <button
             onClick={handleLogout}
-            className="w-full flex items-center px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+            className="w-full flex items-center px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 rounded-lg transition-colors" 
+            onClick={() => navigate('/')}
           >
             <LogOut className="h-4 w-4 mr-3" />
             Atsijungti

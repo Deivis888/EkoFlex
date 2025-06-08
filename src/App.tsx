@@ -20,7 +20,6 @@ import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import ThankYouPage from './pages/ThankYouPage';
-import EmployeeLoginPage from './pages/EmployeeLoginPage';
 import EmployeeLayout from './components/EmployeeLayout';
 import DashboardPage from './pages/employee/DashboardPage';
 import ProfilePage from './pages/employee/ProfilePage';
@@ -99,7 +98,6 @@ function App() {
           </Route>
           
           {/* Employee Routes */}
-          <Route path="/employee/login" element={<EmployeeLoginPage />} />
           <Route path="/employee" element={<EmployeeLayout />}>
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="start" element={<StartWorkPage />} />
