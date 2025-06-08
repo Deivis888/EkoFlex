@@ -7,14 +7,21 @@ import {
 } from 'lucide-react';
 import { useEmployee } from '../contexts/EmployeeContext';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const EmployeeProfilePage = () => {
-  const { employee, updateProfile } = useEmployee();
+  const { employee, updateProfile, isAuthenticated } = useEmployee();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState(employee || {});
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/employee/login');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;

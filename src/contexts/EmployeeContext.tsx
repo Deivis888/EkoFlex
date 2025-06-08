@@ -53,6 +53,12 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
 
   // Mock data initialization
   useEffect(() => {
+    // Check if user is already logged in
+    const savedAuth = localStorage.getItem('employee_auth');
+    if (savedAuth === 'true') {
+      setIsAuthenticated(true);
+    }
+    
     const mockEmployee: Employee = {
       id: '1',
       email: 'jonas.petraitis@ekoflex.lt',
@@ -144,6 +150,7 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
     // Mock login - in real app, this would call an API
     if (email === 'jonas.petraitis@ekoflex.lt' && password === 'password123') {
       setIsAuthenticated(true);
+      localStorage.setItem('employee_auth', 'true');
       return true;
     }
     return false;
@@ -152,6 +159,7 @@ export function EmployeeProvider({ children }: { children: React.ReactNode }) {
   const logout = () => {
     setIsAuthenticated(false);
     setEmployee(null);
+    localStorage.removeItem('employee_auth');
   };
 
   const updateProfile = async (data: Partial<Employee>) => {

@@ -24,7 +24,7 @@ const EmployeeLoginPage = () => {
       if (success) {
         navigate('/employee/dashboard');
       } else {
-        setError('Neteisingas el. paštas arba slaptažodis');
+        setError('Neteisingas el. paštas arba slaptažodis. Bandykite: jonas.petraitis@ekoflex.lt / password123');
       }
     } catch (err) {
       setError('Įvyko klaida. Bandykite dar kartą.');

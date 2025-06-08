@@ -7,10 +7,17 @@ import {
 } from 'lucide-react';
 import { useEmployee } from '../contexts/EmployeeContext';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const EmployeeDashboardPage = () => {
-  const { employee, stats, workDays, logout } = useEmployee();
+  const { employee, stats, workDays, logout, isAuthenticated } = useEmployee();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/employee/login');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleLogout = () => {
     logout();
