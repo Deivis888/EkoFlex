@@ -82,20 +82,19 @@ const DashboardPage = () => {
 
   const handleConfirmStartTime = async () => {
     if (selectedTime) {
-      // Create a custom start work day with selected time
       await startWorkDayWithTime(selectedTime);
       setShowTimeModal(false);
       setSelectedTime('');
     }
   };
 
-  };
   const handleQuickStart = async () => {
     if (todayWorkDay && !todayWorkDay.isCompleted) {
       await endWorkDay();
     } else if (!todayWorkDay) {
       handleStartWorkDay();
     }
+  };
 
   return (
     <div className="p-6">
