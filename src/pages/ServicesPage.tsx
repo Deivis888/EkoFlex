@@ -153,7 +153,7 @@ const ServicesPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card p-6 hover:shadow-lg transition-all group"
+                className="card p-6 hover:shadow-lg transition-all"
               >
                 <div className="flex items-center mb-4">
                   <div className="rounded-full bg-primary-100 dark:bg-primary-900 p-3 text-primary-600 dark:text-primary-400 mr-4">
@@ -175,17 +175,6 @@ const ServicesPage = () => {
                     </li>
                   ))}
                 </ul>
-                
-                {service.id === 'installation' && (
-                  <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <Link 
-                      to="/services/ventilation-installation"
-                      className="text-primary-600 dark:text-primary-400 hover:underline text-sm font-medium inline-flex items-center group-hover:translate-x-1 transition-transform"
-                    >
-                      {t('services.readMore')} →
-                    </Link>
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>
