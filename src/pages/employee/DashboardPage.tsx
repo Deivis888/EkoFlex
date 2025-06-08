@@ -476,7 +476,7 @@ const DashboardPage = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-xl transition-all duration-300 group-hover:from-gray-200 group-hover:to-gray-300 dark:group-hover:from-gray-600 dark:group-hover:to-gray-500"></div>
                   <div className="relative flex items-center justify-center font-medium text-gray-700 dark:text-gray-200 transition-colors group-hover:text-gray-900 dark:group-hover:text-white">
-                    <X className="h-4 w-4 mr-2" />
+                    <Clock className="h-4 w-4 mr-2" />
                     Atšaukti
                   </div>
                 </button>
