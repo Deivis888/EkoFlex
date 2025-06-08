@@ -4,12 +4,14 @@ import { Play, Square, Clock, Calendar, AlertCircle, Pause, Coffee, Edit } from 
 import { useEmployee } from '../../contexts/EmployeeContext';
 
 const StartWorkPage = () => {
-  const { workDays, startWorkDay, endWorkDay, startPause, endPause, updateWorkDay } = useEmployee();
+  const { workDays, startWorkDay, startWorkDayWithTime, endWorkDay, startPause, endPause, updateWorkDay } = useEmployee();
   const [earlyFinishReason, setEarlyFinishReason] = useState('');
   const [showReasonModal, setShowReasonModal] = useState(false);
   const [pauseReason, setPauseReason] = useState('');
   const [showPauseModal, setShowPauseModal] = useState(false);
   const [showManualTimeModal, setShowManualTimeModal] = useState(false);
+  const [showTimeModal, setShowTimeModal] = useState(false);
+  const [selectedTime, setSelectedTime] = useState('');
   const [manualTimes, setManualTimes] = useState({
     startTime: '',
     endTime: ''
@@ -31,8 +33,19 @@ const StartWorkPage = () => {
     setShowManualTimeModal(true);
   };
 
-  const handleStartWork = async () => {
-    await startWorkDay();
+  const handleStartWork = () => {
+    const now = new Date();
+    const currentTime = now.toTimeString().split(' ')[0].substring(0, 5); // HH:MM format
+    setSelectedTime(currentTime);
+    setShowTimeModal(true);
+  };
+
+  const handleConfirmStartTime = async () => {
+    if (selectedTime) {
+      await startWorkDayWithTime(selectedTime);
+      setShowTimeModal(false);
+      setSelectedTime('');
+    }
   };
 
   const handleEndWork = async () => {
@@ -429,6 +442,70 @@ const StartWorkPage = () => {
             </div>
           )}
         </motion.div>
+
+        {/* Time Selection Modal */}
+        {showTimeModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
+            >
+              <div className="flex items-center mb-4">
+                <Clock className="h-6 w-6 text-primary-600 dark:text-primary-400 mr-3" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Pasirinkite darbo pradžios laiką
+                </h3>
+              </div>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Nustatykite tikslų darbo dienos pradžios laiką:
+              </p>
+              
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Darbo pradžios laikas
+                </label>
+                <input
+                  type="time"
+                  value={selectedTime}
+                  onChange={(e) => setSelectedTime(e.target.value)}
+                  className="w-full p-3 text-lg border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  required
+                />
+              </div>
+
+              {selectedTime && (
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg mb-6">
+                  <p className="text-blue-800 dark:text-blue-200 text-sm">
+                    <strong>Darbo pradžia:</strong> {selectedTime}
+                    <br />
+                    <strong>Data:</strong> {new Date().toLocaleDateString('lt-LT')}
+                  </p>
+                </div>
+              )}
+              
+              <div className="flex justify-end space-x-3">
+                <button
+                  onClick={() => {
+                    setShowTimeModal(false);
+                    setSelectedTime('');
+                  }}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+                <button
+                  onClick={handleConfirmStartTime}
+                  disabled={!selectedTime}
+                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Pradėti darbo dieną
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
 
         {/* Pause Modal */}
         {showPauseModal && (
