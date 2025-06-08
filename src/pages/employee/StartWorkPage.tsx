@@ -74,41 +74,31 @@ const StartWorkPage = () => {
     }
 
     // Update the work day with manual times
-    setWorkDays(prev => prev.map(day => {
-      if (!day.isCompleted && day.date === new Date().toISOString().split('T')[0]) {
-        // Calculate total worked time
-        let totalMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
-        
-        // Subtract lunch break (1 hour = 60 minutes) if worked more than 4 hours
-        if (totalMinutes > 240) { // 4 hours
-          totalMinutes -= 60; // 1 hour lunch break
-        }
-        
-        // Subtract pause time
-        if (day.pauseEntries) {
-          const pauseMinutes = day.pauseEntries.reduce((total, pause) => {
-            if (pause.endTime) {
-              const pauseStart = new Date(`2000-01-01T${pause.startTime}`);
-              const pauseEnd = new Date(`2000-01-01T${pause.endTime}`);
-              return total + (pauseEnd.getTime() - pauseStart.getTime()) / (1000 * 60);
-            }
-            return total;
-          }, 0);
-          totalMinutes -= pauseMinutes;
-        }
-        
-        const totalHours = Math.max(0, totalMinutes / 60);
-        
-        return {
-          ...day,
-          startTime: `${manualTimes.startTime}:00`,
-          endTime: `${manualTimes.endTime}:00`,
-          isCompleted: true,
-          totalHours: Math.round(totalHours * 100) / 100
-        };
+    const today = new Date().toISOString().split('T')[0];
+    
+    // Calculate total worked time
+    let totalMinutes = (endTime.getTime() - startTime.getTime()) / (1000 * 60);
+    
+    // Subtract lunch break (1 hour = 60 minutes) if worked more than 4 hours
+    if (totalMinutes > 240) { // 4 hours
+      totalMinutes -= 60; // 1 hour lunch break
+    }
+    
+    // Subtract pause time
+    const pauseMinutes = todayWorkDay?.pauseEntries?.reduce((total, pause) => {
+      if (pause.endTime) {
+        const pauseStart = new Date(`2000-01-01T${pause.startTime}`);
+        const pauseEnd = new Date(`2000-01-01T${pause.endTime}`);
+        return total + (pauseEnd.getTime() - pauseStart.getTime()) / (1000 * 60);
       }
-      return day;
-    }));
+      return total;
+    }, 0) || 0;
+    
+    totalMinutes -= pauseMinutes;
+    const totalHours = Math.max(0, totalMinutes / 60);
+
+    // End the work day with manual times
+    await endWorkDay();
 
     setShowManualTimeModal(false);
     setManualTimes({ startTime: '', endTime: '' });
@@ -167,6 +157,7 @@ const StartWorkPage = () => {
             </p>
           </div>
         </motion.div>
+
         {/* Current Status */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -517,6 +508,50 @@ const StartWorkPage = () => {
                     required
                   />
                 </div>
+
+                {manualTimes.startTime && manualTimes.endTime && (
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                    <p className="text-blue-800 dark:text-blue-200 text-sm">
+                      <strong>Darbo laikas:</strong> {manualTimes.startTime} - {manualTimes.endTime}
+                      <br />
+                      <strong>Iš viso:</strong> {(() => {
+                        const start = new Date(`2000-01-01T${manualTimes.startTime}:00`);
+                        const end = new Date(`2000-01-01T${manualTimes.endTime}:00`);
+                        let totalMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
+                        
+                        if (totalMinutes > 240) totalMinutes -= 60; // Lunch break
+                        
+                        const hours = Math.floor(totalMinutes / 60);
+                        const minutes = Math.round(totalMinutes % 60);
+                        return `${hours}h ${minutes}min (su pietų pertrauka)`;
+                      })()}
+                    </p>
+                  </div>
+                )}
+              </div>
+              
+              <div className="flex justify-end space-x-3 mt-6">
+                <button
+                  onClick={() => {
+                    setShowManualTimeModal(false);
+                    setManualTimes({ startTime: '', endTime: '' });
+                  }}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+                <button
+                  onClick={handleSaveManualTime}
+                  disabled={!manualTimes.startTime || !manualTimes.endTime}
+                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Išsaugoti laiką
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
         {/* Early Finish Modal */}
         {showReasonModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -568,46 +603,4 @@ const StartWorkPage = () => {
   );
 };
 
-                {manualTimes.startTime && manualTimes.endTime && (
-                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
-                    <p className="text-blue-800 dark:text-blue-200 text-sm">
-                      <strong>Darbo laikas:</strong> {manualTimes.startTime} - {manualTimes.endTime}
-                      <br />
-                      <strong>Iš viso:</strong> {(() => {
-                        const start = new Date(`2000-01-01T${manualTimes.startTime}:00`);
-                        const end = new Date(`2000-01-01T${manualTimes.endTime}:00`);
-                        let totalMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
-                        
-                        if (totalMinutes > 240) totalMinutes -= 60; // Lunch break
-                        
-                        const hours = Math.floor(totalMinutes / 60);
-                        const minutes = Math.round(totalMinutes % 60);
-                        return `${hours}h ${minutes}min (su pietų pertrauka)`;
-                      })()}
-                    </p>
-                  </div>
-                )}
-              </div>
-              
-              <div className="flex justify-end space-x-3 mt-6">
-                <button
-                  onClick={() => {
-                    setShowManualTimeModal(false);
-                    setManualTimes({ startTime: '', endTime: '' });
-                  }}
-                  className="btn btn-outline"
-                >
-                  Atšaukti
-                </button>
-                <button
-                  onClick={handleSaveManualTime}
-                  disabled={!manualTimes.startTime || !manualTimes.endTime}
-                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Išsaugoti laiką
-                </button>
-              </div>
-            </motion.div>
-          </div>
-        )}
 export default StartWorkPage;
