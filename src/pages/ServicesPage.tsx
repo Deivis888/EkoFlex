@@ -207,14 +207,6 @@ const ServicesPage = () => {
                     </li>
                   ))}
                 </ul>
-                {step.id === 'installation' && (
-                  <Link 
-                    to="/services/ventilation-installation" 
-                    className="inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline text-sm mt-2"
-                  >
-                    {t('services.readMore')} →
-                  </Link>
-                )}
               </motion.div>
             ))}
           </div>

@@ -20,7 +20,6 @@ import NotFoundPage from './pages/NotFoundPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import ThankYouPage from './pages/ThankYouPage';
-import VentilationInstallationPage from './pages/VentilationInstallationPage';
 
 // Contexts
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -68,7 +67,6 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="market" element={<MarketPage />} />
           <Route path="services" element={<ServicesPage />} />
-          <Route path="services/ventilation-installation" element={<VentilationInstallationPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="works" element={<WorksPage />} />
           <Route path="careers" element={<CareersPage />} />
