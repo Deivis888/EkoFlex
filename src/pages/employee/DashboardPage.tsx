@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -204,15 +204,26 @@ const DashboardPage = () => {
                     </div>
                   </div>
                   {!todayWorkDay.isCompleted && (
-                    <button
-                      onClick={handleQuickStart}
-                      className="relative px-6 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg bg-primary-600 hover:bg-primary-700 text-white"
-                    >
-                      <div className="flex items-center justify-center font-medium">
-                        <Square className="h-5 w-5 mr-2" />
-                        Baigti dieną
-                      </div>
-                    </button>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={() => setShowPauseModal(true)}
+                        className="relative px-4 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-blue-500 hover:bg-blue-600 text-white"
+                      >
+                        <div className="flex items-center justify-center font-medium">
+                          <Pause className="h-4 w-4 mr-2" />
+                          Pauzė
+                        </div>
+                      </button>
+                      <button
+                        onClick={handleQuickStart}
+                        className="relative px-4 py-2.5 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-md bg-accent-500 hover:bg-accent-600 text-white"
+                      >
+                        <div className="flex items-center justify-center font-medium">
+                          <Square className="h-5 w-5 mr-2" />
+                          Baigti darbo dieną
+                        </div>
+                      </button>
+                    </div>
                   )}
                 </div>
 
@@ -235,12 +246,10 @@ const DashboardPage = () => {
                 </p>
                 <button
                   onClick={handleQuickStart}
-                  className="relative px-6 py-3 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg bg-accent-500 hover:bg-accent-600 text-white"
+                  className="btn btn-primary btn-lg inline-flex items-center"
                 >
-                  <div className="flex items-center justify-center font-medium">
-                    <Play className="h-5 w-5 mr-2" />
-                    Pradėti darbo dieną
-                  </div>
+                  <Play className="h-5 w-5 mr-2" />
+                  Pradėti darbo dieną
                 </button>
               </div>
             )}
@@ -360,6 +369,53 @@ const DashboardPage = () => {
             </div>
           )}
         </motion.div>
+        
+        {/* Pause Modal */}
+        {showPauseModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full mx-4"
+            >
+              <div className="flex items-center mb-4">
+                <Pause className="h-6 w-6 text-orange-500 mr-3" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Pradėti pauzę
+                </h3>
+              </div>
+              
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                Pauzės laikas nebus įskaičiuotas į darbo valandas. Pasirinkite pauzės priežastį:
+              </p>
+              
+              <div className="space-y-2 mb-4">
+                {['Vizitas pas gydytoją', 'Dokumentų tvarkymas', 'Asmeniniai reikalai', 'Techninė pertrauka', 'Kita'].map((reason) => (
+                  <button
+                    key={reason}
+                    onClick={() => {
+                      startPause(reason);
+                      setShowPauseModal(false);
+                    }}
+                    className="w-full text-left p-3 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                  >
+                    {reason}
+                  </button>
+                ))}
+              </div>
+              
+              <div className="flex justify-end space-x-3">
+                <button
+                  onClick={() => setShowPauseModal(false)}
+                  className="btn btn-outline"
+                >
+                  Atšaukti
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+        
         {/* Time Selection Modal */}
         {showTimeModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
